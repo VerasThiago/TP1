@@ -1,2 +1,2 @@
 # TP1.Project
-- [ ] Pensar no que fazer
+- [x] Pensar no que fazer
