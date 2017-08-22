@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import scala.collection.mutable.ArrayBuffer
 
 class Point(val xc: Int, val yc: Int) {
    var x: Int = xc
@@ -16,12 +17,23 @@ class Point(val xc: Int, val yc: Int) {
    }
 }
 
-class Conta(val nome: String, val saldo: Double){
-	var name: String = nome;
-	var money: Double = saldo;
+class Conta(){
+	var name: String = "";
+	var money: Double = 0.0;
 
-	def sacar(quanto: Double){
-		if(this.money - quanto < 0) println("Saldo insuficiente para efetuar o saque");
+	def init(){
+		println("Digite o nome da conta que será criado");	
+		var cliente = Console.readLine();
+		println("Digite o saldo inicial do cliente " + cliente);
+		var dinheiro = Console.readDouble();
+		this.name = cliente;
+		this.money = dinheiro;
+	}
+	def sacar(){
+		println("Informe o valor para o saque");
+ 		var quanto = Console.readDouble();
+		if(quanto < 0) println("Valor inválido");
+		else if(this.money - quanto < 0) println("Saldo insuficiente para efetuar o saque");
 		else{
 			this.money -= quanto;
 			println("Saque efetuado com sucesso");
@@ -31,20 +43,26 @@ class Conta(val nome: String, val saldo: Double){
 	def extrato(){
 		println("Saldo do cliente " + name + " = " + money); 	
 	}
+
+	def deposito(){
+		print("Infome a quantia para o depósito: ");
+		var num = Console.readDouble();
+		if(num < 0) println("Valor inválido");
+		else{
+			this.money += num;
+			println("Depósito realizado com sucesso");
+		}
+	}
 }
 
 object Hello{
     def main(args: Array [String]){
-		var scanner = new Scanner(System.in);
-		println("Digite o nome da conta que será criado");	
-		var cliente = scanner.nextLine();
-		println("Digite o saldo inicial do cliente " + cliente);
-		var dinheiro = scanner.nextDouble();
- 		var base = new Conta(cliente,dinheiro);
+ 		var base = new Conta();
+ 		base.init();
+  			base.extrato();
+ 		base.sacar();
  		base.extrato();
- 		println("Informe o valor para o saque");
- 		dinheiro = scanner.nextDouble();
- 		base.sacar(dinheiro);
+ 		base.deposito();
  		base.extrato();
     }
 }
