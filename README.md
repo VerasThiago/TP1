@@ -1,6 +1,7 @@
 # TP1.Project
 ### To do
 - [ ] Pensar no que fazer
+- [ ] Aprender algo
 ### Members
 - André Cassio
 - Henrique Leo
