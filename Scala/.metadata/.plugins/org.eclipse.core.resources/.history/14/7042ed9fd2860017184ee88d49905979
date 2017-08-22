@@ -1,0 +1,17 @@
+
+
+class teste(var a:Int){
+	  print("Penis ");
+	  println(a);
+	  
+}
+
+object Hello {
+    def main(args: Array [String]){
+        val s = 15
+        val b = 10
+        teste(s);
+        
+        
+    }
+}

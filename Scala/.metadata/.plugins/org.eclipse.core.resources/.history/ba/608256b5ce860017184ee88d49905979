@@ -1,0 +1,9 @@
+
+
+object Hello {
+    def main(args: Array [String]){
+        val a:Int = 10
+        println("Hello")
+        1 + 1
+    }
+}
