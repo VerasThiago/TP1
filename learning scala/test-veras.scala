@@ -28,7 +28,9 @@ class Conta(val nome: String, val saldo: Double){
 		}
 	}
 
-	
+	def extrato(){
+		println("Saldo do cliente " + name + " = " + money); 	
+	}
 }
 
 object Hello{
@@ -38,7 +40,11 @@ object Hello{
 		var cliente = scanner.nextLine();
 		println("Digite o saldo inicial do cliente " + cliente);
 		var dinheiro = scanner.nextDouble();
-		println("O nome do cliente é " + cliente + " e seu saldo é " + dinheiro);
-    	
+ 		var base = new Conta(cliente,dinheiro);
+ 		base.extrato();
+ 		println("Informe o valor para o saque");
+ 		dinheiro = scanner.nextDouble();
+ 		base.sacar(dinheiro);
+ 		base.extrato();
     }
 }
