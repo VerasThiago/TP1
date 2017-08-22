@@ -1,8 +1,0 @@
-
-
-object Hello {
-    def main(args: Array [String]){
-        val s = 15; println(s)
-        
-    }
-}
