@@ -8,5 +8,5 @@
 - Thiago Veras
 - Vitor Dullens
 
-Helpful Links:
-[Basic Scala](https://www.youtube.com/watch?v=DzFt0YkZo8M)
+Helpful Links:\
+- [Basic Scala](https://www.youtube.com/watch?v=DzFt0YkZo8M)
