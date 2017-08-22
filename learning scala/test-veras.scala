@@ -63,12 +63,12 @@ class Conta(){
         }
     }
 }
-class Operador(banco : Conta) extends Conta{
+class Operador(cliente : Conta) extends Conta{
     def operacao(op: Int) : Boolean = {
         if(op == 0) return false;
-        else if(op == 1) banco.sacar();
-        else if(op == 2) banco.extrato();
-        else if(op == 3) banco.deposito();
+        else if(op == 1) cliente.sacar();
+        else if(op == 2) cliente.extrato();
+        else if(op == 3) cliente.deposito();
         else println("Opção inválida");
         return true;
     }
@@ -77,13 +77,13 @@ class Operador(banco : Conta) extends Conta{
 
 object Hello{
     def main(args: Array[String]){
-        var banco = new Conta();
-        banco.init();
-        var tipo = new Operador(banco);
+        var cliente = new Conta();
+        cliente.init();
+        var tipo = new Operador(cliente);
         var bool = true;
 
         while(bool){
-            banco.menu();
+            cliente.menu();
             val op = readInt();
             bool = tipo.operacao(op);
             Thread.sleep(3000) 
