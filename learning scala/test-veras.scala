@@ -1,32 +1,44 @@
-
+import java.util.Scanner;
 
 class Point(val xc: Int, val yc: Int) {
-   var x: Int = xc;
-   var y: Int = yc;
+   var x: Int = xc
+   var y: Int = yc
    
    def move(dx: Int, dy: Int) {
-      x = x + dx;
-      y = y + dy;
+      x = x + dx
+      y = y + dy
       println ("Point x location : " + x);
       println ("Point y location : " + y);
    }
    def att(){
-	    println ("Point x location : " + x);
+	  println ("Point x location : " + x);
       println ("Point y location : " + y);
    }
 }
 
-object Hello {
+class Conta(val nome: String, val saldo: Double){
+	var name: String = nome;
+	var money: Double = saldo;
+
+	def sacar(quanto: Double){
+		if(this.money - quanto < 0) println("Saldo insuficiente para efetuar o saque");
+		else{
+			this.money -= quanto;
+			println("Saque efetuado com sucesso");
+		}
+	}
+
+	
+}
+
+object Hello{
     def main(args: Array [String]){
-        var a = 5;
-        var b = 6;
-        var base = new Point(a,b);
-        base.move(10, 20);
-        base.att();
-       
-        println("Strange for");
-        for( i <- 0 to a; j <- 2 to b){             // Equivalente a fazer um for dentro do for
-        	println("i = " + i + " j = " + j);
-        }
+		var scanner = new Scanner(System.in);
+		println("Digite o nome da conta que será criado");	
+		var cliente = scanner.nextLine();
+		println("Digite o saldo inicial do cliente " + cliente);
+		var dinheiro = scanner.nextDouble();
+		println("O nome do cliente é " + cliente + " e seu saldo é " + dinheiro);
+    	
     }
 }
