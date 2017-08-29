@@ -1,8 +1,11 @@
 # TP1.Project
 ## Restaurant Finder
-
+### Requirements
+- [ ] Banco de Dados
+- [ ] API Google Maps
+- [ ] GUI para Scala
 ### To do
-- [X] Pensar no que fazer
+- [X] Ter a ideia do que fazer
 - [ ] Aprender algo
 ## Members
 - André Cassio
