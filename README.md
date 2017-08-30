@@ -1,7 +1,7 @@
 # TP1.Project
 ## Restaurant Finder
 ### Requirements
-- [ ] interface grafica
+- [ ] Play Framework
 - [ ] Banco de Dados
 - [ ] API Google Maps
 - [ ] GUI para Scala
