@@ -1,9 +1,11 @@
 # TP1.Project
 ## Restaurant Finder
 ### Requirements
+- [ ] interface grafica
 - [ ] Banco de Dados
 - [ ] API Google Maps
 - [ ] GUI para Scala
+- [ ] Interligar Tudo
 ### To do
 - [X] Ter a ideia do que fazer
 - [ ] Aprender algo
@@ -17,3 +19,4 @@
 ## Helpful Links:
 - [Basic Scala](https://www.youtube.com/watch?v=DzFt0YkZo8M)
 - [Scala Tutorial](https://www.scala-exercises.org/scala_tutorial/terms_and_types)
+- [Framework for Scala](https://www.playframework.com/)
