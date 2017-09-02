@@ -4,7 +4,7 @@
 - [ ] Play Framework
 - [ ] Banco de Dados
 - [ ] API Google Maps
-- [ ] GUI para Scala
+- [ ] Front-End 
 - [ ] Interligar Tudo
 ### To do
 - [X] Ter a ideia do que fazer
@@ -17,6 +17,7 @@
 - Vitor Dullens
 
 ## Helpful Links:
+- [MVC Simplified](https://tableless.com.br/mvc-afinal-e-o-que/)
 - [Basic Scala](https://www.youtube.com/watch?v=DzFt0YkZo8M)
 - [Scala Tutorial](https://www.scala-exercises.org/scala_tutorial/terms_and_types)
 - [Framework for Scala](https://www.playframework.com/)
