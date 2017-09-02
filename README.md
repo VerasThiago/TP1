@@ -23,3 +23,4 @@
 - [Framework for Scala](https://www.playframework.com/)
 - [Introduction for this Framework - 1](https://www.youtube.com/watch?v=eNCerkVyQdc)
 - [Introduction for this Framework - 2](https://www.youtube.com/watch?v=kXImTUlHwAo)
+- [MySQL, Git, Front-End and more](https://thenewboston.com/videos.php)
