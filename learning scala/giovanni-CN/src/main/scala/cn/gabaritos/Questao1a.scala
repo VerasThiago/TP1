@@ -6,7 +6,7 @@ trait Questao1a {
   var r : Double = 0
   var l : Double = 0
 
-  def solve = {
+  def solve : Double = {
     interval
     while (scala.io.StdIn.readLine("Enter 1 if interval is correct, 0 otherwise\n").toInt != 1) {
       interval
@@ -39,6 +39,8 @@ trait Questao1a {
       prev = mid
       k += 1
     }
+
+    mid
   }
 
   def func(x : Double) : Double = { Math.exp(-x) - x}

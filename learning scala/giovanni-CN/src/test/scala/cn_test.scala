@@ -1,7 +1,7 @@
-import cn.gabaritos.Questao2
+import cn.gabaritos.Questao3
 
-object cn_test extends App with Questao2{
+object cn_test extends App with Questao3{
 
-  println("solving question 2 of exercise list")
-  solve
+  println("solving question 3 of exercise list")
+  solve4all
 }
