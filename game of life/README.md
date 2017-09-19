@@ -9,4 +9,4 @@
 
 ### Recomended Book(s)
 
-  - [Design Pattern Elements](http://www.uml.org.cn/c++/pdf/DesignPatterns.pdfvf)
+  - [Design Pattern Elements](http://www.uml.org.cn/c++/pdf/DesignPatterns.pdf)
