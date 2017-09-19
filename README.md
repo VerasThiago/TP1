@@ -1,14 +1,5 @@
-# TP1.Project
-## Restaurant Finder
-### Requirements
-- [ ] Play Framework
-- [ ] Banco de Dados
-- [ ] API Google Maps
-- [ ] Front-End 
-- [ ] Interligar Tudo
-### To do
-- [X] Ter a ideia do que fazer
-- [ ] Aprender algo
+# TP1.Projects
+
 ## Members
 - André Cassio
 - Henrique Leo
