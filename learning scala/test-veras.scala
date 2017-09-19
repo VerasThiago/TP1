@@ -63,7 +63,7 @@ class Conta(){
         }
     }
 }
-class Operador(cliente : Conta) extends Conta{
+class Operador(cliente : Conta){
     def operacao(op: Int) : Boolean = {
         if(op == 0) return false;
         else if(op == 1) cliente.sacar();
@@ -86,7 +86,7 @@ object Hello{
             cliente.menu();
             val op = readInt();
             bool = tipo.operacao(op);
-            Thread.sleep(3000) 
+            Thread.sleep(1500) 
         }
     }
 }
