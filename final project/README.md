@@ -24,4 +24,5 @@ A avaliação será com base em alguns pontos que estão sendo escolhidos, como:
 
 ## Geolocalização
  O aplicativo web utilizará a API do Google Maps para conseguir gerenciar a localização do usiário e direcionar para os restaurantes mais próximos
+ 
  ![](images/Maps.jpeg)
