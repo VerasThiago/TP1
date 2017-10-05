@@ -26,10 +26,10 @@ A avaliação será com base em alguns pontos que estão sendo escolhidos, como:
 - Preço
 - Facilidade de acesso
 
- ![](/Images/Ratings.jpeg)
+ ![](images/Ratings.jpeg)
 
 
  ## Geolocalização
 
 
- ![](/Images/Maps.jpeg)
+ ![](images/Maps.jpeg)
