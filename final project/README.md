@@ -1,9 +1,6 @@
 # Restaurant Finder
 
-
-
-Listar restaurantes num determinado raio de distância a partir da localização de um usuário.
-
+O projeto basicamente seria um aplicativo web para listar/avaliar restaurantes num determinado raio de distância a partir da localização ou pesquisa de um usuário.
 
 ### Requirements
 - [ ] Play Framework
@@ -12,11 +9,7 @@ Listar restaurantes num determinado raio de distância a partir da localização
 - [ ] Front-End
 - [ ] Interligar Tudo
 
-
-
 # Funcionamento
-
-O projeto basicamente seria um aplicativo web para listar/avaliar restaurantes num determinado raio de distância a partir da localização ou pesquisa de um usuário.
 
 ## Avaliação
 
@@ -29,7 +22,6 @@ A avaliação será com base em alguns pontos que estão sendo escolhidos, como:
  ![](images/Ratings.jpeg)
 
 
- ## Geolocalização
-
-
+## Geolocalização
+ O aplicativo web utilizará a API do Google Maps para conseguir gerenciar a localização do usiário e direcionar para os restaurantes mais próximos
  ![](images/Maps.jpeg)
