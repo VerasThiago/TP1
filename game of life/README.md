@@ -3,7 +3,7 @@
   - Utilizar MVC;
   - Template method;
   - Strategy;
-  - Dependency Injection;
+  - Dependency Injection (Veras);
   - GUI em Scala;
   - Mundo infinito (mapa de Karnaugh).
 
