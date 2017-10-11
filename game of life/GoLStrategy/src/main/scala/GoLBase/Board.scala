@@ -26,7 +26,6 @@ class Board(val width : Int = 10, val height : Int = 10) {
       itr.foreach(j =>
         if (this.universe((x + i + width) % width)((y + j + height) % height).isAlive)
           liveNeighbours += 1
-
       )
     )
     liveNeighbours
@@ -34,8 +33,7 @@ class Board(val width : Int = 10, val height : Int = 10) {
 
   def update(live : List[Cells], die : List[Cells] = null) : Unit = {
     live.foreach(c => this.revive(c.x, c.y))
-    if(die != null)
-      die.foreach(c => this.kill(c.x, c.y))
+    if(die != null) die.foreach(c => this.kill(c.x, c.y))
   }
 
   // TODO: Update to throw exception OutOfBounds
@@ -48,4 +46,15 @@ class Board(val width : Int = 10, val height : Int = 10) {
     this.universe(x)(y).kill
   }
 
+  def show_grid() = {
+    println("")
+    for(i <- 0 until width){
+      for(j <- 0 until height){
+        print(if(this.universe(i)(j).isAlive) 1 else 0)
+        printf(" ")
+      }
+      println("")
+    }
+    println("")
+  }
 }
