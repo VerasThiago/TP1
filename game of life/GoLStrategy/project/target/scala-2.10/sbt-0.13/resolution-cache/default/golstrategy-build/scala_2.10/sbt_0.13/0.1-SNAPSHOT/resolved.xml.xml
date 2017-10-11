@@ -4,7 +4,11 @@
 		module="golstrategy-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
+<<<<<<< HEAD
 		publication="20171011095115"
+=======
+		publication="20171011100034"
+>>>>>>> f277464b808935e11a719fc36b477316c61604c7
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
