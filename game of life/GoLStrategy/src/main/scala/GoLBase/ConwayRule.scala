@@ -13,15 +13,12 @@ class ConwayRule extends RuleGuide {
           val liveneighbours = board.countLiveNeighbors(itr , x.indexOf(c))
           if(c.isAlive && (liveneighbours == 2 || liveneighbours == 3 )) {
             alive = c :: alive
-            c.revive
           }
           else if(!c.isAlive && liveneighbours == 3) {
             alive = c :: alive
-            c.revive
           }
           else if (c.isAlive && (liveneighbours < 2 || liveneighbours > 3)) {
             dead = c :: dead
-            c.kill
           }
         }
         itr += 1

@@ -19,29 +19,16 @@ class Board(val width : Int = 10, val height : Int = 10) {
   // TODO: Make countLiveNeighbors pretty
   def countLiveNeighbors(x : Int, y : Int) : Int = {
 
-    println(s"Now computing neighbours of ($x, $y). Exploring in:")
-    print(s"(${(x-1+width)%width}, ${(y-1+height)%height})  ")
-    print(s"(${(x-1+width)%width}, ${y})  ")
-    print(s"(${(x-1+width)%width}, ${(y+1)%height})  ")
-    print(s"(${x}, ${(y-1+height)%height})  ")
-    print(s"(${x}, ${(y+1)%height})  ")
-    print(s"(${(x+1)%width}, ${(y-1+height)%height})  ")
-    print(s"(${(x+1)%width}, ${y})  ")
-    print(s"(${(x+1)%width}, ${(y+1)%height})  ")
-    println()
+    var liveNeighbours = if(this.universe(x)(y).isAlive) -1 else 0
+    val itr = Array(-1, 0, 1)
 
-    var liveNeighbours = 0;
+    itr.foreach(i =>
+      itr.foreach(j =>
+        if (this.universe((x + i + width) % width)((y + j + height) % height).isAlive)
+          liveNeighbours += 1
 
-    if(this.universe((x-1+width)%width)((y-1+height)%height).isAlive) liveNeighbours += 1
-    if(this.universe((x-1+width)%width)(y).isAlive) liveNeighbours += 1
-    if(this.universe((x-1+width)%width)((y+1)%height).isAlive) liveNeighbours += 1
-    if(this.universe(x)((y-1+height)%height).isAlive) liveNeighbours += 1
-    if(this.universe(x)((y+1)%height).isAlive) liveNeighbours += 1
-    if(this.universe((x+1)%width)((y-1+height)%height).isAlive) liveNeighbours += 1
-    if(this.universe((x+1)%width)(y).isAlive) liveNeighbours += 1
-    if(this.universe((x+1)%width)((y+1)%height).isAlive) liveNeighbours += 1
-
-    println(s"Result: $liveNeighbours\n")
+      )
+    )
     liveNeighbours
   }
 

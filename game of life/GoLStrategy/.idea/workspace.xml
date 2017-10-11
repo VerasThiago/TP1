@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21f89126-86d6-4f89-89a8-6bc038c2500f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/GoLBase/RuleGuide.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/ConwayRule.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/RuleGuide.scala" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_3_jar.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/.idea/misc.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/.idea/modules.xml" afterPath="" />
@@ -144,9 +139,15 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/target/streams/test/managedClasspath/$global/streams/export" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/target/streams/test/unmanagedClasspath/$global/streams/export" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/target/streams/test/unmanagedJars/$global/streams/export" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/Board.scala" afterPath="$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/Cells.scala" afterPath="$PROJECT_DIR$/src/main/scala/GoLBase/Cells.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/Board.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/Cells.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/Cells.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/ConwayRule.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/ConwayRule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/test-classes/conceptTest$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/test-classes/conceptTest$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/test-classes/conceptTest.class" afterPath="$PROJECT_DIR$/target/scala-2.12/test-classes/conceptTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala" afterPath="$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala" afterPath="$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/conceptTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/conceptTest.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../GoL_TemplateMethod/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -167,11 +168,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Board.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Board.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-103">
-              <caret line="34" column="39" lean-forward="true" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+            <state relative-caret-position="450">
+              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -180,8 +181,8 @@
       <file leaf-file-name="ConwayRule.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="69" lean-forward="false" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
+            <state relative-caret-position="300">
+              <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -197,21 +198,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conceptTest.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/conceptTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RuleGuide.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/RuleGuide.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="conceptTest.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/conceptTest.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -246,10 +247,10 @@
         <option value="$PROJECT_DIR$/src/main/scala/RuleGuide.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/ConwayRule.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/GoLBase/RuleGuide.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/conceptTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/GoLBase/Cells.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/conceptTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala" />
       </list>
     </option>
   </component>
@@ -496,12 +497,12 @@
       <workItem from="1507081611154" duration="1879000" />
       <workItem from="1507583740133" duration="298000" />
       <workItem from="1507584154432" duration="4744000" />
-      <workItem from="1507655710998" duration="10534000" />
+      <workItem from="1507655710998" duration="12225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21258000" />
+    <option name="totallyTimeSpent" value="22949000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="181" y="33" width="1400" height="1000" extended-state="0" />
@@ -516,7 +517,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.56685084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3889503" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -546,14 +547,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala</url>
-          <line>36</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
@@ -696,18 +689,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/RuleGuide.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-103">
-          <caret line="34" column="39" lean-forward="true" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+        <state relative-caret-position="300">
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -720,18 +705,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/RuleGuide.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="69" lean-forward="false" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/conceptTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="510">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding />
         </state>
       </provider>

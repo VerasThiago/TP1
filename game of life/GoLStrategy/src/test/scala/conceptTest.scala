@@ -9,10 +9,9 @@ object conceptTest extends App{
     new Cells(0, 2)
   )
   board.update(create)
-  create.foreach(c => print(s"(${c.x},${c.y}) "))
 
   println("\nGeneration 0")
-  println("Alive: " + board.statistics._1 + "\tDead: " + board.statistics._2)
+  println("Alive: " + board.statistics._1)
 
   val rule = new ConwayRule
   val (live, kill) = rule.nextGen(5, 5, board)
@@ -21,15 +20,15 @@ object conceptTest extends App{
   println("\nTo die: ")
   kill.foreach(c => print(s"(${c.x},${c.y}) "))
 
-  //board.update(live, kill)
+  board.update(live, kill)
 
- // println("\nGeneration 1")
- // println("Alive: " + board.statistics._1 + "\tDead: " + board.statistics._2)
+  println("\nGeneration 1")
+  println("Alive: " + board.statistics._1 + "\tDead: " + board.statistics._2)
 
- // val (live1, kill1) = rule.nextGen(5, 5, board)
+  val (live1, kill1) = rule.nextGen(5, 5, board)
 
- // board.update(live1, kill1)
+  board.update(live1, kill1)
 
- // println("Generation 2")
- // println("Alive: " + board.statistics._1 + "\tDead: " + board.statistics._2)
+  println("Generation 2")
+  println("Alive: " + board.statistics._1 + "\tDead: " + board.statistics._2)
 }
