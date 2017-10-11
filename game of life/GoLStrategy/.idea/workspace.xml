@@ -140,13 +140,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/target/streams/test/unmanagedClasspath/$global/streams/export" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/target/streams/test/unmanagedJars/$global/streams/export" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/Board.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/Cells.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/Cells.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/ConwayRule.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/GoLBase/ConwayRule.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/test-classes/conceptTest$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/test-classes/conceptTest$.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/test-classes/conceptTest.class" afterPath="$PROJECT_DIR$/target/scala-2.12/test-classes/conceptTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala" afterPath="$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala" afterPath="$PROJECT_DIR$/src/main/scala/GoLBase/ConwayRule.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/conceptTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/conceptTest.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoL_TemplateMethod/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../GoL_TemplateMethod/.idea/workspace.xml" />
     </list>
@@ -171,8 +166,8 @@
       <file leaf-file-name="Board.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="14" column="67" lean-forward="true" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -211,8 +206,8 @@
       <file leaf-file-name="conceptTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/conceptTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="480">
+              <caret line="32" column="41" lean-forward="false" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -497,16 +492,15 @@
       <workItem from="1507081611154" duration="1879000" />
       <workItem from="1507583740133" duration="298000" />
       <workItem from="1507584154432" duration="4744000" />
-      <workItem from="1507655710998" duration="12225000" />
+      <workItem from="1507655710998" duration="12467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22949000" />
+    <option name="totallyTimeSpent" value="23191000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="181" y="33" width="1400" height="1000" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -517,7 +511,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3889503" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3889503" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -715,16 +709,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/conceptTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="480">
+          <caret line="32" column="41" lean-forward="false" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/GoLBase/Board.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="210">
+          <caret line="14" column="67" lean-forward="true" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
           <folding />
         </state>
       </provider>

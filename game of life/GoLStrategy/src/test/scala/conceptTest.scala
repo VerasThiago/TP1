@@ -23,12 +23,12 @@ object conceptTest extends App{
   board.update(live, kill)
 
   println("\nGeneration 1")
-  println("Alive: " + board.statistics._1 + "\tDead: " + board.statistics._2)
+  println("Alive: " + board.statistics._1)
 
   val (live1, kill1) = rule.nextGen(5, 5, board)
 
   board.update(live1, kill1)
 
   println("Generation 2")
-  println("Alive: " + board.statistics._1 + "\tDead: " + board.statistics._2)
+  println("Alive: " + board.statistics._1)
 }
