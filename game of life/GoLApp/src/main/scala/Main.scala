@@ -10,20 +10,20 @@ import scalafx.scene.shape.{Circle, Line, Rectangle}
 
 object Main extends JFXApp {
   stage = new JFXApp.PrimaryStage {
-    title = "Game of Life - Star Wars"
+    title = "Game of Life"
     scene = new Scene (250, 280) {
       //linhas
-      val linha0 = Line(0, 0, 500, 0)
-      val linha1 = Line(0, 25, 500, 25)
-      val linha2 = Line(0, 50, 500, 50)
-      val linha3 = Line(0, 75, 500, 75)
-      val linha4 = Line(0, 100, 500, 100)
-      val linha5 = Line(0, 125, 500, 125)
-      val linha6 = Line(0, 150, 500, 150)
-      val linha7 = Line(0, 175, 500, 175)
-      val linha8 = Line(0, 200, 500, 200)
-      val linha9 = Line(0, 225, 500, 225)
-      val linha10 = Line(0, 250, 500, 250)
+      val linha0 = Line(0, 0, 250, 0)
+      val linha1 = Line(0, 25, 250, 25)
+      val linha2 = Line(0, 50, 250, 50)
+      val linha3 = Line(0, 75, 250, 75)
+      val linha4 = Line(0, 100, 250, 100)
+      val linha5 = Line(0, 125, 250, 125)
+      val linha6 = Line(0, 150, 250, 150)
+      val linha7 = Line(0, 175, 250, 175)
+      val linha8 = Line(0, 200, 250, 200)
+      val linha9 = Line(0, 225, 250, 225)
+      val linha10 = Line(0, 250, 250, 250)
       //colunas
       val collum1 = Line(25, 0, 25, 250)
       val collum2 = Line(50, 0, 50, 250)
