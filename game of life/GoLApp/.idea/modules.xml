@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/golapp.iml" filepath="$PROJECT_DIR$/.idea/modules/golapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/golapp-build.iml" filepath="$PROJECT_DIR$/.idea/modules/golapp-build.iml" />
     </modules>
   </component>
 </project>
