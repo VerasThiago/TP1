@@ -110,7 +110,7 @@ object CustomRuleCreator extends JFXApp {
 
     // Actually creating the RuleRow
     val ruleRow = new ToolBar
-    ruleRow.items = List(getText("A cell"), initial, getText("with"), specifier, neighbours,getText("neighbours. Result:"), finale)
+    ruleRow.items = List(getText("A cell"), initial, getText("with"), specifier, neighbours,getText("living neighbours. Result:"), finale)
     ruleRow.autosize
 
     // returning the RuleRow

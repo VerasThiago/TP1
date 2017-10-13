@@ -1,4 +1,4 @@
-.button {
+.buttonPressed {
     -fx-background-color: blue;
 }
 
@@ -10,4 +10,8 @@
 .grid {
     border-color: black;
     border: 1;
+}
+
+.bleh {
+    -fx-background-color: white;
 }
