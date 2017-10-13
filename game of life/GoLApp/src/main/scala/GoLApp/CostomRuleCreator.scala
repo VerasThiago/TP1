@@ -1,3 +1,5 @@
+package GoLApp
+
 import GoLBase.RuleGuide
 
 import scala.io.Source
@@ -5,13 +7,12 @@ import scalafx.Includes._
 import scalafx.application.JFXApp
 import scalafx.collections.ObservableBuffer
 import scalafx.event.ActionEvent
-import scalafx.geometry.{HorizontalDirection, Insets, Pos}
+import scalafx.geometry.{Insets, Pos}
+import scalafx.scene.Scene
 import scalafx.scene.control.Alert.AlertType
-import scalafx.scene.{Node, Scene}
 import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, GridPane}
-import scalafx.scene.shape.{Circle, Line, Rectangle}
-import scalafx.scene.text.{Font, Text}
+import scalafx.scene.text.Text
 
 
 
@@ -53,7 +54,7 @@ object CustomRuleCreator extends JFXApp {
       done.onAction = (ae : ActionEvent) => {
         val rows = grid.getChildren
         var testTemplate : Array[Array[String]] = Array.ofDim[String](gridRowIdx, 4)
-        //rows.forEach(x => )
+        //rows.forEach(x => x.get)
       }
 
       val rootPane = new BorderPane

@@ -1,3 +1,5 @@
+package GoLApp
+
 import GoLBase.{Board, Cells, RuleGuide}
 
 // incomplete method. Needs GUI.
