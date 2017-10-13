@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GoLStrategy-golstrategy-build.iml" filepath="$PROJECT_DIR$/.idea/modules/GoLStrategy-golstrategy-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/golstrategy.iml" filepath="$PROJECT_DIR$/.idea/modules/golstrategy.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/golstrategy-build.iml" filepath="$PROJECT_DIR$/.idea/modules/golstrategy-build.iml" />
     </modules>
