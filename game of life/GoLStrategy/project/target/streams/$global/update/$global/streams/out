@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[info] Updating {file:/home/vitordullens/Documents/TP1/TP1.Project/game%20of%20life/GoLStrategy/project/}golstrategy-build...
-=======
 [info] Updating {file:/home/thiagodesktop/%C3%81rea%20de%20Trabalho/Git/TP1.Project/game%20of%20life/GoLStrategy/project/}golstrategy-build...
->>>>>>> f277464b808935e11a719fc36b477316c61604c7
 [debug] :: resolving dependencies :: default#golstrategy-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -6013,25 +6009,7 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-<<<<<<< HEAD
-[debug] :: resolution report :: resolve 1353ms :: artifacts dl 22ms
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT compile produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-compile.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT runtime produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-runtime.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT test produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-test.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT provided produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-provided.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT optional produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-optional.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT compile-internal produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-compile-internal.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT runtime-internal produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-runtime-internal.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT test-internal produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-test-internal.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT plugin produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-plugin.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT sources produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-sources.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT docs produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-docs.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT pom produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-pom.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT scala-tool produced in /home/vitordullens/Documents/TP1/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-scala-tool.xml
-[debug] 	resolve done (1353ms resolve - 22ms download)
-[info] Done updating.
-=======
-[debug] :: resolution report :: resolve 4116ms :: artifacts dl 92ms
+[debug] :: resolution report :: resolve 2857ms :: artifacts dl 62ms
 [debug] 	report for default#golstrategy-build;0.1-SNAPSHOT compile produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-compile.xml
 [debug] 	report for default#golstrategy-build;0.1-SNAPSHOT runtime produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-runtime.xml
 [debug] 	report for default#golstrategy-build;0.1-SNAPSHOT test produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-test.xml
@@ -6045,7 +6023,5 @@
 [debug] 	report for default#golstrategy-build;0.1-SNAPSHOT docs produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-docs.xml
 [debug] 	report for default#golstrategy-build;0.1-SNAPSHOT pom produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-pom.xml
 [debug] 	report for default#golstrategy-build;0.1-SNAPSHOT scala-tool produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-scala-tool.xml
-[debug] 	resolve done (4116ms resolve - 92ms download)
+[debug] 	resolve done (2857ms resolve - 62ms download)
 [info] Done updating.
-.
->>>>>>> f277464b808935e11a719fc36b477316c61604c7
