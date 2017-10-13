@@ -17,29 +17,25 @@ import scalafx.scene.text.{Font, Text}
 
 object CustomRuleCreator extends JFXApp {
   stage = new JFXApp.PrimaryStage {
-    title = "Custom Rule"
+    title = "Custom Rule Definition"
 
     scene = new Scene(500, 500) {
       val grid = new GridPane
 
       stylesheets = List(getClass.getResource("choiceBox.css").toExternalForm)
 
-      val title = new Text("Custom Rule Definition")
-      title.id = "title"
-      title.alignmentInParent = Pos.Center
+      var gridRowIdx = 0
 
-      var gridRowIdx = 1
-
-      grid.addRow(0, title)
       grid.addRow(gridRowIdx, getRuleRow)
+      grid.autosize
 
 
       val newRule = new Button("New Rule")
       newRule.onAction = (ae : ActionEvent) => {
 
         if(gridRowIdx < 5) {
-          this.gridRowIdx += 1
           this.grid.addRow(gridRowIdx, getRuleRow)
+          this.gridRowIdx += 1
         }
         else{
 
@@ -91,21 +87,26 @@ object CustomRuleCreator extends JFXApp {
 
     val initial = new ChoiceBox[String]
     initial.items = cellState
+    initial.getSelectionModel.selectFirst
 
     val specifier = new ChoiceBox[String]
     specifier.items = modifier
+    specifier.getSelectionModel.selectFirst
 
     val neighbours = new ChoiceBox[String]
     neighbours.items = numbers
+    neighbours.getSelectionModel.selectFirst
 
     val finale = new ChoiceBox[String]
     finale.items = cellState
+    finale.getSelectionModel.selectFirst
 
 
 
     // Actually creating the RuleRow
     val ruleRow = new ToolBar
     ruleRow.items = List(getText("A cell"), initial, getText("with"), specifier, neighbours,getText("neighbours. Result:"), finale)
+    ruleRow.autosize
 
     // returning the RuleRow
     ruleRow

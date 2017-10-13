@@ -30,9 +30,6 @@ class CustomRule extends RuleGuide{
     r
   }
 
-  private def defineTests() : Unit = {
-    println("Inform Rules. First, rules that should revive a cell or keep it alive")
-    println("Rule example:\nalive, 2 living, keep alive")
-  }
+
 }
 

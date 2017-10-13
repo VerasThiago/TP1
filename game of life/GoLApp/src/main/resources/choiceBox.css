@@ -12,8 +12,3 @@
     -fx-background-color: white;
     -fx-mark-color: #9fa6ff; // arrow color
 }
-
-   #title {
-       -fx-font-size: 12dpi;
-       -fx-font-weight: bold;
-   }
