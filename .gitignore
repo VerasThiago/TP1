@@ -1,0 +1,12 @@
+# Ignores do GoLApp
+game\ of\ file/GoLApp/.idea/
+game\ of\ life/GoLApp/target/
+game\ of\ life/GoLApp/project/target/
+
+# Ignores do GoLStrategy
+game\ of\ file/GoLStrategy/.idea/
+game\ of\ life/GoLStrategy/target/
+game\ of\ life/GoLStrategy/project/target/
+
+# Pasta principal
+.idea/

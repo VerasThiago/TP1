@@ -3,7 +3,7 @@ import GoLBase.{Board, Cells, RuleGuide}
 // incomplete method. Needs GUI.
 class CustomRule extends RuleGuide{
   override val name: String = "Custom"
-  defineTests()
+  //defineTests()
 
   override def nextGen(width: Int, height: Int, board: Board): (List[Cells], List[Cells]) = {
     var alive : List[Cells] = List()
