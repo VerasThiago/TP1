@@ -1,17 +1,41 @@
-[info] Updating {file:/home/thiagodesktop/%C3%81rea%20de%20Trabalho/Git/TP1.Project/game%20of%20life/GoLStrategy/project/}golstrategy-build...
+[info] Updating {file:/Users/giovanniguidini/IdeaProjects/TP1.Project/game%20of%20life/GoLStrategy/project/}golstrategy-build...
 [debug] :: resolving dependencies :: default#golstrategy-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
 [debug] 	refresh = false
 [debug] resolving dependencies for configuration 'compile'
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[info] Resolving org.scala-sbt#global-plugins;0.0 ...
+[debug] sbt-chain: Checking cache for: dependency: org.scala-sbt#global-plugins;0.0 {compile=[default(compile)]}
+[debug] 	found org.scala-sbt#global-plugins;0.0 in inter-project
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] resolving dependencies for configuration 'runtime'
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [runtime]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] resolving dependencies for configuration 'test'
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [test]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [runtime]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] resolving dependencies for configuration 'provided'
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [provided]
 [debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
@@ -1819,6 +1843,17 @@
 [debug] resolving dependencies for configuration 'compile-internal'
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [compile-internal]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [optional]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [provided]
 [debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
@@ -3709,12 +3744,38 @@
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [runtime-internal]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [runtime]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [optional]
 [debug] resolving dependencies for configuration 'test-internal'
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [test-internal]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [test]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [runtime]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [compile]
+[debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)]
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
+[debug] dependency descriptor has been mediated: dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]} => dependency: org.scala-lang#scala-compiler;2.10.6 {scala-tool=[default, optional(default)]}
+[debug] dependency descriptor has been mediated: MergedDescriptors(dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)]},dependency: org.scala-lang#scala-library;2.10.6 {provided=[default(compile)]}) => dependency: org.scala-lang#scala-library;2.10.6 {scala-tool=[default, optional(default)], provided=[default(compile)]}
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [optional]
 [debug] == resolving dependencies for default#golstrategy-build;0.1-SNAPSHOT [provided]
 [debug] == resolving dependencies default#golstrategy-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.6 [provided->default(compile)]
@@ -6009,19 +6070,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 2857ms :: artifacts dl 62ms
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT compile produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-compile.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT runtime produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-runtime.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT test produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-test.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT provided produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-provided.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT optional produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-optional.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT compile-internal produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-compile-internal.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT runtime-internal produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-runtime-internal.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT test-internal produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-test-internal.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT plugin produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-plugin.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT sources produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-sources.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT docs produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-docs.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT pom produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-pom.xml
-[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT scala-tool produced in /home/thiagodesktop/Área de Trabalho/Git/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-scala-tool.xml
-[debug] 	resolve done (2857ms resolve - 62ms download)
+[debug] :: resolution report :: resolve 938ms :: artifacts dl 33ms
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT compile produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-compile.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT runtime produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-runtime.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT test produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-test.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT provided produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-provided.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT optional produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-optional.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT compile-internal produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-compile-internal.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT runtime-internal produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-runtime-internal.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT test-internal produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-test-internal.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT plugin produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-plugin.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT sources produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-sources.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT docs produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-docs.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT pom produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-pom.xml
+[debug] 	report for default#golstrategy-build;0.1-SNAPSHOT scala-tool produced in /Users/giovanniguidini/IdeaProjects/TP1.Project/game of life/GoLStrategy/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-golstrategy-build-scala-tool.xml
+[debug] 	resolve done (938ms resolve - 33ms download)
 [info] Done updating.

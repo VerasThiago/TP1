@@ -50,6 +50,11 @@ object CustomRuleCreator extends JFXApp {
       }
 
       val done = new Button("Done")
+      done.onAction = (ae : ActionEvent) => {
+        val rows = grid.getChildren
+        var testTemplate : Array[Array[String]] = Array.ofDim[String](gridRowIdx, 4)
+        //rows.forEach(x => )
+      }
 
       val rootPane = new BorderPane
       rootPane.center = grid

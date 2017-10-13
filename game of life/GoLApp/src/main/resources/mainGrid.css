@@ -1,0 +1,13 @@
+.button {
+    -fx-background-color: blue;
+}
+
+.button {
+    -fx-background-color: red;
+
+}
+
+.grid {
+    border-color: black;
+    border: 1;
+}

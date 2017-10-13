@@ -4,7 +4,7 @@
 		module="golstrategy$sources_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20171013152603"
+		publication="20171013174603"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
