@@ -4,7 +4,7 @@
 		module="golextentions$sources"
 		revision="0.1"
 		status="integration"
-		publication="20171013153140"
+		publication="20171013154056"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
