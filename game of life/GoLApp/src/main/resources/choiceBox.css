@@ -1,0 +1,19 @@
+
+
+   .choice-box:focused { -fx-background-color: palegreen; }
+
+   .choice-box > .label { -fx-text-fill: black; }
+
+   .choice-box:focused > .label { -fx-text-fill: cornflowerblue; }
+
+   .choice-box:selected > .label { -fx-text-fill: black}
+
+.choice-box {
+    -fx-background-color: white;
+    -fx-mark-color: #9fa6ff; // arrow color
+}
+
+   #title {
+       -fx-font-size: 12dpi;
+       -fx-font-weight: bold;
+   }
