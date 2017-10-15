@@ -53,7 +53,7 @@ object Main extends JFXApp {
     val chooseRule = new ChoiceBox[String]
     chooseRule.items = getRuleNames(rules)
     chooseRule.getSelectionModel.selectFirst()
-    rulesPane.center = chooseRule
+
 
     // custom Rule button
     val custom = new Button("Custom")
@@ -85,9 +85,9 @@ object Main extends JFXApp {
     }
 
     val listOfButtons = new ButtonBar
-    listOfButtons.buttons.addAll(custom, input, ruleBtn)
+    listOfButtons.buttons.addAll(chooseRule, custom, input, ruleBtn)
 
-    rulesPane.bottom = listOfButtons
+    rulesPane.center = listOfButtons
 
     val continue = new Button("Continue")
     continue.onAction = (ae : ActionEvent) => {
@@ -106,7 +106,7 @@ object Main extends JFXApp {
     rootPanel.center = rulesPane
 
 
-    continue.setTranslateX(-275)
+    continue.setTranslateX(-270)
     val listButtons = new ButtonBar
     listButtons.buttons.addAll(continue, exit)
     rootPanel.bottom = listButtons
