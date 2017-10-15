@@ -17,7 +17,7 @@ object CustomRuleCreator extends JFXApp {
 
   // Defines and returns the view's scene
    def execute : Scene = {
-      val customRuleView = new Scene(460, 500) {
+      val customRuleView = new Scene(480, 500) {
 
         // TODO: Make scene's design
        stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
