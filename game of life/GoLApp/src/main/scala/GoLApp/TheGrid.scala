@@ -1,6 +1,6 @@
 package GoLApp
 
-import GoLBase.RuleGuide
+import GoLBase.{Board, RuleGuide}
 
 import scala.collection.JavaConverters._
 import scala.io.Source
@@ -15,10 +15,16 @@ import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, GridPane}
 import scalafx.scene.text.Text
 
-class TheGrid extends JFXApp {
+// Where the magic happens
+class TheGrid(rule : RuleGuide, width : Int, height : Int) extends JFXApp {
 
+  // Board of cells
+  val board = new Board(width, height)
+
+  // Defines and creates this view's scene
   def execute : Scene = {
      val gridView = new Scene(500, 500) {
+       // TODO: Make view's design
       stylesheets = List(getClass.getResource("mainGrid.css").toExternalForm)
       val rootPane = new BorderPane
 
@@ -31,7 +37,7 @@ class TheGrid extends JFXApp {
       val exit = new Button("Exit")
       exit.styleClass = List("bleh")
       exit.onAction = (ae: ActionEvent) => {
-
+          Main.getControl
       }
 
 
@@ -48,6 +54,7 @@ class TheGrid extends JFXApp {
         }
       }
 
+       // TODO: Organize items. Add missing items.
       rootPane.top = bar
       rootPane.center = grid
       content = rootPane
@@ -56,9 +63,11 @@ class TheGrid extends JFXApp {
     gridView
   }
 
+  // Creates the cells in the view
   private def getCell: Button = {
     val cell = new Button("Dead")
 
+    // TODO Connect buttons with actual cells in board
     cell.onAction = (ae: ActionEvent) => {
       if (cell.getText.equals("Dead")) {
         cell.setText("Alive")

@@ -1,9 +1,5 @@
 package GoLApp
 
-import GoLBase.RuleGuide
-
-import scala.collection.JavaConverters._
-import scala.io.Source
 import scalafx.Includes._
 import scalafx.application.JFXApp
 import scalafx.collections.ObservableBuffer
@@ -16,20 +12,25 @@ import scalafx.scene.layout.{BorderPane, GridPane}
 import scalafx.scene.text.Text
 
 
-
+// Opens view to create custom rules
 object CustomRuleCreator extends JFXApp {
 
+  // Defines and returns the view's scene
    def execute : Scene = {
       val customRuleView = new Scene(500, 500) {
-       stylesheets = List(getClass.getResource("choiceBox.css").toExternalForm)
+
+        // TODO: Make scene's design
+       stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
       val grid = new GridPane
 
+      // Number of Rows in Grid = number of Tests in new rule
       var gridRowIdx = 1
 
+      // Adds initial row
       grid.addRow(gridRowIdx, getRuleRow)
       grid.autosize
 
-
+      // Adds more rows. Max of 5
       val newRule = new Button("New Rule")
       newRule.onAction = (ae: ActionEvent) => {
 
@@ -39,6 +40,7 @@ object CustomRuleCreator extends JFXApp {
         }
         else {
 
+          // Given that Max number of Rows is reached, an alert is emitted if trying to add a new row
           new Alert(AlertType.Error) {
             initOwner(stage)
             title = "Rule definition"
@@ -49,6 +51,7 @@ object CustomRuleCreator extends JFXApp {
 
       }
 
+      // Finishes creating rule and sets it as rule to be used in the game.
       val done = new Button("Done")
       done.onAction = (ae: ActionEvent) => {
         val rows  = grid.getChildren
@@ -66,13 +69,16 @@ object CustomRuleCreator extends JFXApp {
                 case e : ClassCastException =>
               }
             })
-        Ridx += 1
+          Ridx += 1
+          Cidx = 0
         })
-
-        testTemplate.foreach(x => x.foreach(s => println(s)))
-
+        // Creates the rule passing selections
+        Main.overrideRule(new CustomRule(testTemplate))
+        // Returns view to openingView
+        Main.getControl
       }
 
+      // TODO: Organize all elements. Add cancel button.
       val rootPane = new BorderPane
       rootPane.center = grid
       rootPane.bottom = newRule
@@ -84,12 +90,15 @@ object CustomRuleCreator extends JFXApp {
     customRuleView
   }
 
+  // Returns a Text with given text
   private def getText(v: String): Text = {
     val text = new Text(v)
     text.alignmentInParent = Pos.Center
     text
   }
 
+  // Returns a new Row for the grid.
+  // TODO: Discover why first add doesn't apprear in the correct position and fix it
   private def getRuleRow: ToolBar = {
 
     // definition of what goes in the RuleRow

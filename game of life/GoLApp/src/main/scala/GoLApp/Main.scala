@@ -22,10 +22,19 @@ import scalafx.scene.text.Text
 
 object Main extends JFXApp {
 
+  // The stage
   stage = new JFXApp.PrimaryStage
   stage.title = "Game of Life"
 
+  // Available Rules from libraries
+  private val rules = getRules()
+
+  // Rule that will be used in the game
+  private var actualRule = rules(0)
+
   private val openingView = new Scene(500, 500){
+    // TODO: Make view's design
+    stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
     val rootPanel = new BorderPane
     rootPanel.top = getText("Welcome to Game of Life")
 
@@ -47,6 +56,7 @@ object Main extends JFXApp {
       stage.show
     }
 
+    // TODO: Organize all elements. Add missing elements.
     split.items.addAll(bar, custom)
     rootPanel.center = split
     content = rootPanel
@@ -56,13 +66,14 @@ object Main extends JFXApp {
   stage.scene = openingView
   stage.show
 
-
+  // Returns a Text with given string
   private def getText(v: String): Text = {
     val text = new Text(v)
     text.alignmentInParent = Pos.Center
     text
   }
 
+  // Get available rules from libs
   private def getRules(fileName: String = "GoLApp/rules.txt"): List[RuleGuide] = {
     var rules: List[RuleGuide] = List()
     for (rule <- Source.fromResource(fileName).getLines()) {
@@ -71,6 +82,16 @@ object Main extends JFXApp {
     }
     rules = rules.reverse
     rules
+  }
+
+  // If Custom Rule is selected, saves it in the rule to be used
+  def overrideRule(rule : CustomRule) = this.actualRule = rule
+
+  // Gets control back from other view
+  def getControl = {
+    stage.hide
+    stage.scene = openingView
+    stage.show
   }
 
 }
