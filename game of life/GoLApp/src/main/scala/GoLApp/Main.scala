@@ -85,6 +85,7 @@ object Main extends JFXApp {
     }
 
     val listOfButtons = new ButtonBar
+    listOfButtons.prefWidth = 480
     listOfButtons.buttons.addAll(chooseRule, custom, input, ruleBtn)
 
     rulesPane.center = listOfButtons
@@ -106,7 +107,7 @@ object Main extends JFXApp {
     rootPanel.center = rulesPane
 
 
-    continue.setTranslateX(-270)
+    continue.setTranslateX(-320)
     val listButtons = new ButtonBar
     listButtons.buttons.addAll(continue, exit)
     rootPanel.bottom = listButtons

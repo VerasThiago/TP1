@@ -83,7 +83,6 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
         board.universe(i)(j).revive
         cell.setText("Alive")
         cell.style = "-fx-background-color: blue;"
-
       }
       else {
         board.universe(i)(j).kill
