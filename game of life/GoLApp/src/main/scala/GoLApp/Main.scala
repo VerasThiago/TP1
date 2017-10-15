@@ -42,9 +42,9 @@ object Main extends JFXApp {
     // separates rules area
     val rulesPane = new BorderPane
 
-    val setWidth = new Spinner[Int](3, 50, 10)
+    val setWidth = new Spinner[Int](3, 50, 19)
     setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
-    val setHeight = new Spinner[Int](3, 50, 10)
+    val setHeight = new Spinner[Int](3, 50, 11)
     setHeight.style = Spinner.StyleClassArrowsOnLeftVertical
 
     val bar = new ToolBar
