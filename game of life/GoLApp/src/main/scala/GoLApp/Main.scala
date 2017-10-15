@@ -16,8 +16,6 @@ import scalafx.scene.control._
 import scalafx.scene.layout.BorderPane
 import scalafx.scene.text.Text
 
-
-
 object Main extends JFXApp {
 
   // The stage
@@ -65,27 +63,35 @@ object Main extends JFXApp {
       stage.show
     }
 
+    val input = new TextField
+
+    val exit = new Button("Exit")
+    exit.onAction = (ae : ActionEvent) => {
+      sys.exit(0)
+    }
+
     // Get Rules button
     // TODO: make this into a form that accepts a file as input (to be used as input for getRules() )
     val ruleBtn = new Button("Get Rules")
     ruleBtn.onAction = (ae : ActionEvent) => {
-      rules = getRules()
+      val s : String = "GoLApp/" + input.getText
+      if(s != "GoLApp/")
+        rules = getRules(s)
+      else
+        rules = getRules()
+
       chooseRule.items = getRuleNames(rules)
       chooseRule.getSelectionModel.selectFirst()
-
     }
 
     val listOfButtons = new ButtonBar
-    listOfButtons.buttons.addAll(custom, ruleBtn)
+    listOfButtons.buttons.addAll(custom, input, ruleBtn)
+
     rulesPane.bottom = listOfButtons
 
     val continue = new Button("Continue")
     continue.onAction = (ae : ActionEvent) => {
-
-      val i : Int = setWidth.getValue
-      val j : Int = setHeight.getValue
-      println(i + " " + j)
-      val game = new TheGrid(actualRule, i, j)
+      val game = new TheGrid(actualRule, setWidth.getValue, setHeight.getValue)
       stage.hide
       stage.scene = game.execute
       stage.show()
@@ -96,6 +102,7 @@ object Main extends JFXApp {
     boardDims.dividerPositions = 0.5
     rootPanel.center = boardDims
     rootPanel.bottom = continue
+    rootPanel.left = exit
     content = rootPanel
 
   }
@@ -161,9 +168,11 @@ object Main extends JFXApp {
 
   // If Custom Rule is selected, saves it in the rule to be used
   def overrideRule(rule : CustomRule) = {
+    if(actualRule.name != "Custom") {
+      openingView.chooseRule.getItems.add("Custom")
+      openingView.chooseRule.getSelectionModel.selectLast()
+    }
     this.actualRule = rule
-    openingView.chooseRule.getItems.add(actualRule.name)
-    openingView.chooseRule.getSelectionModel.selectLast()
   }
 
   // Gets control back from other view

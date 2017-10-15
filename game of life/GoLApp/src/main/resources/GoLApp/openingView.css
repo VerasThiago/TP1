@@ -2,6 +2,7 @@
 .tool-bar {
     -fx-background-color: palegreen;
     -fx-scale-shape: true;
+    -fx-min-width: 300px;
 }
 
 .button {

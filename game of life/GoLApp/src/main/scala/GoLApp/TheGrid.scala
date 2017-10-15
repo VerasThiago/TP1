@@ -62,6 +62,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       for (i <- 0 until w) {
         for (j <- 0 until h) {
           grid.add(getCell(board,j,i), j, i)
+
         }
       }
 
