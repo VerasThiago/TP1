@@ -59,7 +59,7 @@ object Main extends JFXApp {
 
     // custom Rule button
     val custom = new Button("Custom")
-    custom.onAction = (ae : ActionEvent) => {
+      custom.onAction = (ae : ActionEvent) => {
       stage.hide
       stage.scene = CustomRuleCreator.execute
       stage.show

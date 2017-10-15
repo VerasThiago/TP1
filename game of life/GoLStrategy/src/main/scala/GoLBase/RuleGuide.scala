@@ -10,5 +10,6 @@ trait RuleGuide{
     
     def info : Array[String]  // Explains how rule works
 
+ 
 
 }
