@@ -1,0 +1,15 @@
+
+.tool-bar {
+    -fx-background-color: palegreen;
+    -fx-scale-shape: true;
+}
+
+.button {
+    -fx-background-color: coral;
+    -fx-text-fill: red;
+    -fx-scale-shape: inherit;
+}
+
+.spinner {
+
+}

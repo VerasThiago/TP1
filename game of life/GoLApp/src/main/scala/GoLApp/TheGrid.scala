@@ -16,13 +16,15 @@ import scalafx.scene.layout.{BorderPane, GridPane}
 import scalafx.scene.text.Text
 
 // Where the magic happens
-class TheGrid(rule : RuleGuide, width : Int, height : Int) extends JFXApp {
+class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
   // Board of cells
-  val board = new Board(width, height)
+  val board = new Board(w, h)
+
 
   // Defines and creates this view's scene
   def execute : Scene = {
+
      val gridView = new Scene(500, 500) {
        // TODO: Make view's design
       stylesheets = List(getClass.getResource("mainGrid.css").toExternalForm)
@@ -45,11 +47,10 @@ class TheGrid(rule : RuleGuide, width : Int, height : Int) extends JFXApp {
       bar.items = List(nextGen, start, stop, exit)
 
       val grid = new GridPane
-      var gridColumns = 10
-      var gridRows = 10
 
-      for (i <- 0 until gridRows) {
-        for (j <- 0 until gridColumns) {
+
+      for (i <- 0 until w) {
+        for (j <- 0 until h) {
           grid.add(getCell, j, i)
         }
       }
