@@ -49,8 +49,8 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       val grid = new GridPane
 
 
-      for (i <- 0 until w) {
-        for (j <- 0 until h) {
+      for (i <- 0 until h) {
+        for (j <- 0 until w) {
           grid.add(getCell, j, i)
         }
       }
