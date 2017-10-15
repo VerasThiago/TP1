@@ -3,7 +3,7 @@ package GoLApp
 import GoLBase.{Board, Cells, RuleGuide}
 
 // incomplete method. Needs GUI.
-class CustomRule extends RuleGuide{
+class CustomRule extends RuleGuide {
   override val name: String = "Custom"
   //defineTests()
 

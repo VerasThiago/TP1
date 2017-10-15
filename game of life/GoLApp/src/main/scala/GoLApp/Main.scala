@@ -1,84 +1,69 @@
 package GoLApp
 
+import javafx.collections.ObservableList
+import javafx.geometry.Orientation
+
 import GoLBase.RuleGuide
+import apple.laf.JRSUIConstants.AlignmentHorizontal
 
 import scala.io.Source
 import scalafx.Includes._
 import scalafx.application.JFXApp
+import scalafx.collections.ObservableBuffer
 import scalafx.event.ActionEvent
+import scalafx.geometry.Pos
 import scalafx.scene.Scene
+import scalafx.scene.control.SplitPane.Divider
 import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, GridPane}
+import scalafx.scene.text.Text
 
 
 
 object Main extends JFXApp {
 
   stage = new JFXApp.PrimaryStage
+  stage.title = "Game of Life"
 
-  val opening = new Scene(500, 500) {
-    val rootPane = new BorderPane
+  private val openingView = new Scene(500, 500){
+    val rootPanel = new BorderPane
+    rootPanel.top = getText("Welcome to Game of Life")
 
-    val nextGen = new Button("Next")
-    nextGen.styleClass = List("bleh")
-    val start = new Button("Start")
-    start.styleClass = List("bleh")
-    val stop = new Button("Stop")
-    stop.styleClass = List("bleh")
-    val exit = new Button("Exit")
-    exit.styleClass = List("bleh")
-    exit.onAction = (ae : ActionEvent) => chooseScene(1)
+    val split = new SplitPane
+    split.orientation = Orientation.HORIZONTAL
 
+    val setWidth = new Spinner[Int](3, 100, 3)
+    setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
+    val setHeight = new Spinner[Int](3, 100, 3)
+    setHeight.style = Spinner.StyleClassArrowsOnLeftVertical
 
     val bar = new ToolBar
-    bar.items = List(nextGen, start, stop, exit)
+    bar.items = List(getText("Width: "), setWidth, getText(" X "), setHeight, getText(" : Height"))
 
-    val grid = new GridPane
-    var gridColumns = 10
-    var gridRows = 10
-
-    for (i <- 0 until gridRows) {
-      for (j <- 0 until gridColumns) {
-        grid.add(getCell, j, i)
-      }
+    val custom = new Button("Custom")
+    custom.onAction = (ae : ActionEvent) => {
+      stage.hide
+      stage.scene = CustomRuleCreator.execute
+      stage.show
     }
 
-    rootPane.top = bar
-    rootPane.center = grid
-    content = rootPane
+    split.items.addAll(bar, custom)
+    rootPanel.center = split
+    content = rootPanel
+
   }
 
-  stage.scene = opening
+  stage.scene = openingView
   stage.show
 
 
-  private def getCell: Button = {
-    val cell = new Button("Dead")
-
-    cell.onAction = (ae: ActionEvent) => {
-      if (cell.getText.equals("Dead")) {
-        cell.setText("Alive")
-        cell.style = "-fx-background-color: blue;"
-      }
-      else {
-        cell.text = "Dead"
-        cell.style = "-fx-background-color: red;"
-      }
-    }
-
-    cell
+  private def getText(v: String): Text = {
+    val text = new Text(v)
+    text.alignmentInParent = Pos.Center
+    text
   }
 
-  def chooseScene(x : Int) : Unit = {
-    stage.hide
-    x match {
-      case 0 => stage.scene = opening
-      case 1 => stage.scene = CustomRuleCreator.getScene
-    }
-    stage.show
-  }
-
-  private def getRules(fileName: String = "rules.txt"): List[RuleGuide] = {
+  private def getRules(fileName: String = "GoLApp/rules.txt"): List[RuleGuide] = {
     var rules: List[RuleGuide] = List()
     for (rule <- Source.fromResource(fileName).getLines()) {
       val strategy = Class.forName(rule)

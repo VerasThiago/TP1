@@ -12,7 +12,7 @@ object ruleDependency {
 
   // method implemented by rbonifacio in https://github.com/rbonifacio/scala-gol-reflection
 
-  private def getRules(fileName: String = "rules.txt"): List[RuleGuide] = {
+  private def getRules(fileName: String = "GoLApp/rules.txt"): List[RuleGuide] = {
     var rules: List[RuleGuide] = List()
     for (rule <- Source.fromResource(fileName).getLines()) {
       val strategy = Class.forName(rule)
