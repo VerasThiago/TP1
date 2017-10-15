@@ -29,7 +29,7 @@ object Main extends JFXApp {
   // Rule that will be used in the game
   private var actualRule = rules.head
 
-  private val openingView = new Scene(488, 500){
+  private val openingView = new Scene(480, 500){
     // TODO: Make view's design
     stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
     val rootPanel = new BorderPane
@@ -42,9 +42,9 @@ object Main extends JFXApp {
     // separates rules area
     val rulesPane = new BorderPane
 
-    val setWidth = new Spinner[Int](3, 100, 3)
+    val setWidth = new Spinner[Int](3, 50, 10)
     setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
-    val setHeight = new Spinner[Int](3, 100, 3)
+    val setHeight = new Spinner[Int](3, 50, 10)
     setHeight.style = Spinner.StyleClassArrowsOnLeftVertical
 
     val bar = new ToolBar
@@ -94,21 +94,29 @@ object Main extends JFXApp {
       val game = new TheGrid(actualRule, setWidth.getValue, setHeight.getValue)
       stage.hide
       stage.scene = game.execute
-      stage.show()
+      stage.sizeToScene
+      stage.resizable
+      stage.show
     }
 
     // TODO: Organize all elements. Add missing elements.
-    boardDims.items.addAll(bar, rulesPane)
-    boardDims.dividerPositions = 0.5
-    rootPanel.center = boardDims
-    rootPanel.bottom = continue
-    rootPanel.left = exit
+    //boardDims.items.addAll(bar, rulesPane)
+    //boardDims.dividerPositions = 0.5
+    rootPanel.top = bar
+    rootPanel.center = rulesPane
+
+
+    continue.setTranslateX(-275)
+    val listButtons = new ButtonBar
+    listButtons.buttons.addAll(continue, exit)
+    rootPanel.bottom = listButtons
     content = rootPanel
 
   }
 
   stage.scene = openingView
   stage.sizeToScene
+  stage.resizable
   stage.show
 
   // Returns a Text with given string
@@ -179,6 +187,8 @@ object Main extends JFXApp {
   def getControl = {
     stage.hide
     stage.scene = openingView
+    stage.sizeToScene
+    stage.resizable
     stage.show
   }
 
