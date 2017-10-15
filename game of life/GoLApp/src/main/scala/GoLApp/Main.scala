@@ -31,7 +31,7 @@ object Main extends JFXApp {
   // Rule that will be used in the game
   private var actualRule = rules.head
 
-  private val openingView = new Scene(500, 500){
+  private val openingView = new Scene(488, 500){
     // TODO: Make view's design
     stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
     val rootPanel = new BorderPane
