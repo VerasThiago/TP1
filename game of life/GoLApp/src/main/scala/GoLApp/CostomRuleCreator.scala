@@ -17,7 +17,7 @@ object CustomRuleCreator extends JFXApp {
 
   // Defines and returns the view's scene
    def execute : Scene = {
-      val customRuleView = new Scene(500, 500) {
+      val customRuleView = new Scene(460, 500) {
 
         // TODO: Make scene's design
        stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
@@ -28,15 +28,16 @@ object CustomRuleCreator extends JFXApp {
 
       // Adds initial row
       grid.addRow(gridRowIdx, getRuleRow)
-      grid.autosize
+
 
       // Adds more rows. Max of 5
       val newRule = new Button("New Rule")
       newRule.onAction = (ae: ActionEvent) => {
 
         if (gridRowIdx < 5) {
-          this.grid.addRow(gridRowIdx, getRuleRow)
           this.gridRowIdx += 1
+          this.grid.addRow(gridRowIdx, getRuleRow)
+
         }
         else {
 
@@ -53,6 +54,8 @@ object CustomRuleCreator extends JFXApp {
 
       // Finishes creating rule and sets it as rule to be used in the game.
       val done = new Button("Done")
+
+
       done.onAction = (ae: ActionEvent) => {
         val rows  = grid.getChildren
         var testTemplate: Array[Array[String]] = Array.ofDim[String](gridRowIdx, 4)
@@ -78,11 +81,18 @@ object CustomRuleCreator extends JFXApp {
         Main.getControl
       }
 
+
+
       // TODO: Organize all elements. Add cancel button.
+        newRule.setTranslateX(-322)
+        done.setTranslateX(-20)
+
+
+        val listOfButtons = new ButtonBar
+        listOfButtons.buttons.addAll(newRule, done)
       val rootPane = new BorderPane
       rootPane.center = grid
-      rootPane.bottom = newRule
-      rootPane.right = done
+      rootPane.bottom = listOfButtons
       grid.margin = Insets(1, 1, 1, 1)
       content = rootPane
     }
@@ -125,9 +135,9 @@ object CustomRuleCreator extends JFXApp {
 
     // Actually creating the RuleRow
     val ruleRow = new ToolBar
+    ruleRow.prefWidth = 480
     ruleRow.items = List(getText("A cell"), initial, getText("with"), specifier, neighbours, getText("living neighbours. Result:"), finale)
-    ruleRow.autosize
-    ruleRow.alignmentInParent = Pos.Center
+
 
     // returning the RuleRow
     ruleRow
