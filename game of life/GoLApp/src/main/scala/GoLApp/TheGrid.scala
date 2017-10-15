@@ -18,24 +18,31 @@ import scalafx.scene.text.Text
 // Where the magic happens
 class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
+
   // Defines and creates this view's scene
   def execute : Scene = {
 
-     val gridView = new Scene(500, 500) {
+    val gridView = new Scene(500, 500) {
 
-       val board = new Board(w, h)
+      // Board of cells
+      val board = new Board(w, h)
+
        // TODO: Make view's design
       stylesheets = List(getClass.getResource("mainGrid.css").toExternalForm)
       val rootPane = new BorderPane
 
       val nextGen = new Button("Next")
       nextGen.styleClass = List("bleh")
+      nextGen.onAction = (ae: ActionEvent) => {
+        val (live, kill) = rule.nextGen(w, h, board)
+        board.update(live, kill)
+      }
 
-       nextGen.onAction = (ae: ActionEvent) => {
-         rule.nextGen(w, h, board)
-       }
       val start = new Button("Start")
       start.styleClass = List("bleh")
+      start.onAction = (ae: ActionEvent) => {
+        show_grid(board)
+      }
       val stop = new Button("Stop")
       stop.styleClass = List("bleh")
       val exit = new Button("Exit")
@@ -50,9 +57,10 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
       val grid = new GridPane
 
-      for (i <- 0 until h) {
-        for (j <- 0 until w) {
-          grid.add(getCell, j, i)
+      for (i <- 0 until w) {
+        for (j <- 0 until h) {
+          grid.add(getCell(board,j,i), j, i)
+
         }
       }
 
@@ -66,22 +74,36 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
   }
 
   // Creates the cells in the view
-  private def getCell: Button = {
+  private def getCell(board: Board, j : Int , i : Int): Button = {
     val cell = new Button("Dead")
 
     // TODO Connect buttons with actual cells in board
     cell.onAction = (ae: ActionEvent) => {
       if (cell.getText.equals("Dead")) {
+        board.universe(i)(j).revive
         cell.setText("Alive")
         cell.style = "-fx-background-color: blue;"
+
       }
       else {
+        board.universe(i)(j).kill
         cell.text = "Dead"
         cell.style = "-fx-background-color: red;"
       }
     }
 
     cell
+  }
+  def show_grid( board : Board) = {
+    println("")
+    for(i <- 0 until w){
+      for(j <- 0 until h){
+        print(if(board.universe(i)(j).isAlive) 1 else 0)
+        printf(" ")
+      }
+      println("")
+    }
+    println("")
   }
 
 }

@@ -51,13 +51,11 @@ class CustomRule(args : Array[Array[String]]) extends RuleGuide {
 
   private def extractTests(input : Array[Array[String]]) : Array[Array[Int]] = {
 
-    println(s"Input length: ${input.length}")
     val test : Array[Array[Int]] = Array.ofDim(input.length, 4)
     var i = 0
     var j = 0
     input.foreach(x => {
       x.foreach(s => {
-        println(s + s" $i $j")
         test(i)(j) = sMatch(s)
         j += 1
       })
@@ -72,7 +70,6 @@ class CustomRule(args : Array[Array[String]]) extends RuleGuide {
 
   private def sMatch(s : String) : Int = {
 
-    println("In function: " + s)
     s match {
       case "alive" =>  0
       case "dead" =>  1
