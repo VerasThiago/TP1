@@ -1,6 +1,7 @@
 .buttonPressed {
     -fx-background-color: #ffff00;
     -fx-scale-shape: inherit;
+    -fx-text-fill: #ffff00 ;
 }
 
 .button {
@@ -8,6 +9,7 @@
     -fx-scale-shape: inherit;
     -fx-border-color: black;
     -fx-border-width: 1;
+    -fx-text-fill: #7e7e7e ;
 
 }
 

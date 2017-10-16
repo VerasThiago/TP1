@@ -85,12 +85,12 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       if (cell.getText.equals("Dead")) {
         board.universe(i)(j).revive
         cell.setText("Alive")
-        cell.style = "-fx-background-color: #ffff00;"
+        cell.style = "-fx-background-color: #ffff00; -fx-text-fill:  #ffff00;"
       }
       else {
         board.universe(i)(j).kill
         cell.text = "Dead"
-        cell.style = "-fx-background-color: #7e7e7e;"
+        cell.style = "-fx-background-color: #7e7e7e; -fx-text-fill: #7e7e7e;"
       }
     }
 
@@ -117,11 +117,11 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       var cell = x.asInstanceOf[javafx.scene.control.Button]
       if((board.universe(i)(j).isAlive)){
         cell.setText("Alive")
-        cell.style = " -fx-background-color: #ffff00;"
+        cell.style = " -fx-background-color: #ffff00; -fx-text-fill: #ffff00;"
       }
       else{
         cell.setText("Dead")
-        cell.style = "-fx-background-color: #7e7e7e;"
+        cell.style = "-fx-background-color: #7e7e7e; -fx-text-fill:#7e7e7e;"
       }
       j += 1
 
