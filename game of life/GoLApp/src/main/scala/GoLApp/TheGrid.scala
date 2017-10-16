@@ -37,15 +37,14 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       nextGen.styleClass = List("bleh")
 
       nextGen.onAction = (ae: ActionEvent) => {
+
+        // save state to further undo4
+        restore(restoreIdx) = getNewMemento(board)
+        restoreIdx = (restoreIdx+1)%100
+
         val (live, kill) = rule.nextGen(w, h, board)
         board.update(live, kill)
         update_grid(grid, board)
-
-        // save state to further undo
-        restore(restoreIdx) = new Memento(w, h)
-        restore(restoreIdx).saveState(board)
-        println(s"Saved board to index $restoreIdx")
-        restoreIdx = (restoreIdx+1)%100
       }
 
       val start = new Button("Start")
@@ -55,18 +54,21 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
           var (live, kill) = rule.nextGen(w, h, board)
           board.update(live, kill)
           update_grid(grid, board)
-          println(i)
+
 
           // save state to further undo
-          restore(restoreIdx) = new Memento(w, h)
-          restore(restoreIdx).saveState(board)
+          restore(restoreIdx) = getNewMemento(board)
           restoreIdx = (restoreIdx+1)%100
           Thread.sleep(1000)
+
         }
       }
 
       val stop = new Button("Stop")
       stop.styleClass = List("bleh")
+      stop.onAction = (ae : ActionEvent) => {
+      }
+
       val exit = new Button("Exit")
       exit.styleClass = List("bleh")
       exit.onAction = (ae: ActionEvent) => {
@@ -74,12 +76,16 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       }
 
       val undo = new Button("Undo")
+      undo.styleClass = List("bleh")
       undo.onAction = (ae : ActionEvent) => {
         restoreIdx = (restoreIdx+100-1)%100
-        println(s"Restored board from index $restoreIdx")
-        board = restore(restoreIdx).restoreState
-        update_grid(grid, board)
-        restore(restoreIdx) = null
+        if(restore(restoreIdx) != null) {
+          this.board = restore(restoreIdx).restoreState
+          update_grid(grid, board)
+          restore(restoreIdx) = null
+        }
+        else
+          restoreIdx = (restoreIdx+1)%100
       }
 
       val bar = new ToolBar
@@ -90,16 +96,13 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       for (i <- 0 until w) {
         for (j <- 0 until h) {
           grid.add(getCell(board,j,i), j, i)
-
         }
       }
 
-       // TODO: Organize items. Add missing items.
       rootPane.top = bar
       rootPane.center = grid
       content = rootPane
     }
-
     gridView
   }
 
@@ -111,12 +114,12 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       if (cell.getText.equals("Dead")) {
         board.universe(i)(j).revive
         cell.setText("Alive")
-        cell.style = "-fx-background-color: blue;"
+        cell.style = "-fx-background-color: #ffff00;"
       }
       else {
         board.universe(i)(j).kill
         cell.text = "Dead"
-        cell.style = "-fx-background-color: red;"
+        cell.style = "-fx-background-color: #7e7e7e;"
       }
     }
 
@@ -132,11 +135,11 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       var cell = x.asInstanceOf[javafx.scene.control.Button]
       if(board.universe(i)(j).isAlive){
         cell.setText("Alive")
-        cell.style = "-fx-background-color: blue;"
+        cell.style = " -fx-background-color: #ffff00;"
       }
       else{
         cell.setText("Dead")
-        cell.style = "-fx-background-color: red;"
+        cell.style = "-fx-background-color: #7e7e7e;"
       }
       j += 1
 
@@ -148,4 +151,9 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
   }
 
+  def getNewMemento(board : Board) : Memento = {
+    val meme = new Memento(w, h)
+    meme.saveState(board)
+    meme
+  }
 }

@@ -71,7 +71,6 @@ object Main extends JFXApp {
     }
 
     // Get Rules button
-    // TODO: make this into a form that accepts a file as input (to be used as input for getRules() )
     val ruleBtn = new Button("Get Rules")
     ruleBtn.onAction = (ae : ActionEvent) => {
       val s : String = "GoLApp/" + input.getText
@@ -99,8 +98,7 @@ object Main extends JFXApp {
       stage.resizable
       stage.show
     }
-
-    // TODO: Organize all elements. Add missing elements.
+    
     //boardDims.items.addAll(bar, rulesPane)
     //boardDims.dividerPositions = 0.5
     rootPanel.top = bar
@@ -142,7 +140,7 @@ object Main extends JFXApp {
           initOwner(stage)
           title = "Error Loading File"
           headerText = "File provided could not be accessed"
-          contentText = s" Error: ${e.getClass.toString}.\nDefault file used instead"
+          contentText = s"Error: ${e.getClass.toString}.\nDefault file used instead.\nMake sure file is in resources > GoLApp."
         }.showAndWait()
 
         useThis = "GoLApp/rules.txt"
@@ -156,15 +154,14 @@ object Main extends JFXApp {
           rules = strategy.newInstance.asInstanceOf[RuleGuide] :: rules
         }
         catch {
-          case _ : Any => err :+ rule.toString
+          case _ : Any => err = err :+ rule.toString
         }
       }
       rules.reverse
     }
     if(err.length > 0) {
       var s : String = ""
-      err.foreach(e => s += e + "1\n")
-      println(s)
+      err.foreach(e => s += e + "\n")
 
       new Alert(AlertType.Warning) {
         title = "Error loading some rules"
