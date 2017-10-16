@@ -1,19 +1,15 @@
 package GoLApp
 
+import javafx.concurrent.Task
+
 import GoLBase.{Board, RuleGuide}
 
-import scala.collection.JavaConverters._
-import scala.io.Source
 import scalafx.Includes._
 import scalafx.application.JFXApp
-import scalafx.collections.ObservableBuffer
 import scalafx.event.ActionEvent
-import scalafx.geometry.{Insets, Pos}
 import scalafx.scene.Scene
-import scalafx.scene.control.Alert.AlertType
 import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, GridPane}
-import scalafx.scene.text.Text
 
 // Where the magic happens
 class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
@@ -43,14 +39,35 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       val start = new Button("Start")
       start.styleClass = List("bleh")
       start.onAction = (ae: ActionEvent) => {
-        for(i <- 0 until w){
-          var (live, kill) = rule.nextGen(w, h, board)
-          board.update(live, kill)
-          update_grid(grid, board)
-          println(i)
-          Thread.sleep(250)
+        val task = new Task[Void]() {
+          var i = 1
+          @throws[Exception]
+          override def call: Void = {
+            while ( {
+              i <= 40
+            }) {
+              try {
+                val (live, kill) = rule.nextGen(w, h, board)
+                board.update(live, kill)
+                update_grid(grid, board)
+                Thread.sleep(250)
+                i += 1;
+              }
+              catch {
+                case e: java.lang.IllegalStateException => {
+
+                }
+              }
+            }
+            null
+          }
         }
+        new Thread(task).start()
+
+
       }
+
+
       val stop = new Button("Stop")
       stop.styleClass = List("bleh")
       val exit = new Button("Exit")
