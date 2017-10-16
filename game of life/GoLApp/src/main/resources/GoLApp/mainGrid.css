@@ -1,9 +1,9 @@
 .buttonPressed {
-    -fx-background-color: blue;
+    -fx-background-color: #ffff00;
 }
 
 .button {
-    -fx-background-color: red;
+    -fx-background-color: #7e7e7e;
 
 }
 

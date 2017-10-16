@@ -43,7 +43,13 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       val start = new Button("Start")
       start.styleClass = List("bleh")
       start.onAction = (ae: ActionEvent) => {
-        
+        for(i <- 0 until w){
+          var (live, kill) = rule.nextGen(w, h, board)
+          board.update(live, kill)
+          update_grid(grid, board)
+          println(i)
+          Thread.sleep(250)
+        }
       }
       val stop = new Button("Stop")
       stop.styleClass = List("bleh")
@@ -53,7 +59,6 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
           Main.getControl
       }
 
-
       val bar = new ToolBar
       bar.items = List(nextGen, start, stop, exit)
 
@@ -62,16 +67,13 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       for (i <- 0 until w) {
         for (j <- 0 until h) {
           grid.add(getCell(board,j,i), j, i)
-
         }
       }
-
        // TODO: Organize items. Add missing items.
       rootPane.top = bar
       rootPane.center = grid
       content = rootPane
     }
-
     gridView
   }
 
@@ -83,12 +85,12 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       if (cell.getText.equals("Dead")) {
         board.universe(i)(j).revive
         cell.setText("Alive")
-        cell.style = "-fx-background-color: blue;"
+        cell.style = "-fx-background-color: #ffff00;"
       }
       else {
         board.universe(i)(j).kill
         cell.text = "Dead"
-        cell.style = "-fx-background-color: red;"
+        cell.style = "-fx-background-color: #7e7e7e;"
       }
     }
 
@@ -115,11 +117,11 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       var cell = x.asInstanceOf[javafx.scene.control.Button]
       if((board.universe(i)(j).isAlive)){
         cell.setText("Alive")
-        cell.style = "-fx-background-color: blue;"
+        cell.style = " -fx-background-color: #ffff00;"
       }
       else{
         cell.setText("Dead")
-        cell.style = "-fx-background-color: red;"
+        cell.style = "-fx-background-color: #7e7e7e;"
       }
       j += 1
 
