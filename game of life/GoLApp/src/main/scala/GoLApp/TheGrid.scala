@@ -1,5 +1,6 @@
 package GoLApp
 
+import java.util.concurrent.{ScheduledFuture, ScheduledThreadPoolExecutor, TimeUnit}
 import java.util.{Timer, TimerTask}
 import javafx.concurrent.Task
 
@@ -25,7 +26,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       private var board = new Board(w, h)
       private var restore : Array[Memento] = Array.ofDim(100)
       private var restoreIdx = 0
-      private var time : Timer = null
+      private var time : ScheduledFuture[_] = null
 
        // TODO: Make view's design
       stylesheets = List(getClass.getResource("mainGrid.css").toExternalForm)
@@ -48,17 +49,18 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       start.styleClass = List("bleh")
       start.onAction = (ae: ActionEvent) => {
 
-        time = new Timer
-        time.scheduleAtFixedRate(new TimerTask {
-          override def run(): Unit = nextGen.fireEvent(new javafx.event.ActionEvent)
-        }, 0, 1000)
+        val ex = new ScheduledThreadPoolExecutor(1)
+        val task = new Runnable {
+          def run() = nextGen.fireEvent(new javafx.event.ActionEvent)
+        }
+        time = ex.scheduleAtFixedRate(task, 1, 1, TimeUnit.SECONDS)
 
       }
 
       val stop = new Button("Stop")
       stop.styleClass = List("bleh")
       stop.onAction = (ae : ActionEvent) => {
-        time.cancel
+        time.cancel(true)
       }
 
       val exit = new Button("Exit")
