@@ -1,6 +1,7 @@
 package GoLApp
 
 import javafx.geometry.Orientation
+import javafx.scene.image.Image
 
 import GoLBase.RuleGuide
 
@@ -21,8 +22,7 @@ object Main extends JFXApp {
   // The stage
   stage = new JFXApp.PrimaryStage
   stage.title = "Game of Life"
-
-
+  stage.getIcons.add(new Image("GoLApp/icon.png"))
   // Available Rules from libraries
   private var rules = getRules()
 
