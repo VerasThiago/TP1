@@ -33,7 +33,7 @@ object Main extends JFXApp {
     // TODO: Make view's design
     stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
     val rootPanel = new BorderPane
-    rootPanel.top = getText("Welcome to Game of Life")
+
 
     // Separates main view in two
     val boardDims = new SplitPane
