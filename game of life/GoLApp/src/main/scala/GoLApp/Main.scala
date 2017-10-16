@@ -29,7 +29,7 @@ object Main extends JFXApp {
   // Rule that will be used in the game
   private var actualRule = rules.head
 
-  private val openingView = new Scene(480, 500){
+  private val openingView = new Scene(490, 500){
     // TODO: Make view's design
     stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
     val rootPanel = new BorderPane
@@ -42,9 +42,9 @@ object Main extends JFXApp {
     // separates rules area
     val rulesPane = new BorderPane
 
-    val setWidth = new Spinner[Int](3, 50, 19)
+    val setWidth = new Spinner[Int](3, 50, 15)
     setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
-    val setHeight = new Spinner[Int](3, 50, 11)
+    val setHeight = new Spinner[Int](3, 50, 15)
     setHeight.style = Spinner.StyleClassArrowsOnLeftVertical
 
     val bar = new ToolBar
@@ -85,7 +85,7 @@ object Main extends JFXApp {
     }
 
     val listOfButtons = new ButtonBar
-    listOfButtons.prefWidth = 480
+    listOfButtons.autosize
     listOfButtons.buttons.addAll(chooseRule, custom, input, ruleBtn)
 
     rulesPane.center = listOfButtons
@@ -110,6 +110,7 @@ object Main extends JFXApp {
     continue.setTranslateX(-320)
     val listButtons = new ButtonBar
     listButtons.buttons.addAll(continue, exit)
+    listButtons.autosize
     rootPanel.bottom = listButtons
     content = rootPanel
 

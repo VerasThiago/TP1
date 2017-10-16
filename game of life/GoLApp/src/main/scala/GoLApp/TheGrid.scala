@@ -22,7 +22,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
   // Defines and creates this view's scene
   def execute : Scene = {
 
-    val gridView = new Scene(506, 538) {
+    val gridView = new Scene(510, 540) {
 
       // Board of cells
       val board = new Board(w, h)
@@ -71,6 +71,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       }
        // TODO: Organize items. Add missing items.
       rootPane.top = bar
+      grid.autosize
       rootPane.center = grid
       content = rootPane
     }
@@ -79,17 +80,19 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
   // Creates the cells in the view
   private def getCell(board: Board, j : Int , i : Int): Button = {
-    val cell = new Button("Dead")
+    val cell = new Button("D")
+    cell.prefHeight = 35
+    cell.prefWidth = 35
 
     cell.onAction = (ae: ActionEvent) => {
-      if (cell.getText.equals("Dead")) {
+      if (cell.getText.equals("D")) {
         board.universe(i)(j).revive
-        cell.setText("Alive")
+        cell.setText("A")
         cell.style = "-fx-background-color: #ffff00; -fx-text-fill:  #ffff00;"
       }
       else {
         board.universe(i)(j).kill
-        cell.text = "Dead"
+        cell.text = "D"
         cell.style = "-fx-background-color: #7e7e7e; -fx-text-fill: #7e7e7e;"
       }
     }
@@ -116,11 +119,11 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
     rows.foreach(x => {
       var cell = x.asInstanceOf[javafx.scene.control.Button]
       if((board.universe(i)(j).isAlive)){
-        cell.setText("Alive")
+        cell.setText("A")
         cell.style = " -fx-background-color: #ffff00; -fx-text-fill: #ffff00;"
       }
       else{
-        cell.setText("Dead")
+        cell.setText("D")
         cell.style = "-fx-background-color: #7e7e7e; -fx-text-fill:#7e7e7e;"
       }
       j += 1
