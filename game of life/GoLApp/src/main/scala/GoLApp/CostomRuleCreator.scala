@@ -17,7 +17,7 @@ object CustomRuleCreator extends JFXApp {
 
   // Defines and returns the view's scene
    def execute : Scene = {
-      val customRuleView = new Scene(480, 500) {
+      val customRuleView = new Scene(580, 500) {
 
         // TODO: Make scene's design
        stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
@@ -84,7 +84,7 @@ object CustomRuleCreator extends JFXApp {
 
 
       // TODO: Organize all elements. Add cancel button.
-        newRule.setTranslateX(-322)
+        newRule.setTranslateX(-400)
 
 
         val listOfButtons = new ButtonBar
@@ -134,7 +134,7 @@ object CustomRuleCreator extends JFXApp {
 
     // Actually creating the RuleRow
     val ruleRow = new ToolBar
-    ruleRow.prefWidth = 480
+    ruleRow.prefWidth = 580
     ruleRow.items = List(getText("A cell"), initial, getText("with"), specifier, neighbours, getText("living neighbours. Result:"), finale)
 
     // returning the RuleRow

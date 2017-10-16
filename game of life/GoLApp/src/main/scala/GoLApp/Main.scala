@@ -1,6 +1,7 @@
 package GoLApp
 
 import javafx.geometry.Orientation
+import javafx.scene.image.Image
 
 import GoLBase.RuleGuide
 
@@ -21,19 +22,18 @@ object Main extends JFXApp {
   // The stage
   stage = new JFXApp.PrimaryStage
   stage.title = "Game of Life"
-
-
+  stage.getIcons.add(new Image("GoLApp/icon.png"))
   // Available Rules from libraries
   private var rules = getRules()
 
   // Rule that will be used in the game
   private var actualRule = rules.head
 
-  private val openingView = new Scene(480, 500){
+  private val openingView = new Scene(490, 500){
     // TODO: Make view's design
     stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
     val rootPanel = new BorderPane
-    rootPanel.top = getText("Welcome to Game of Life")
+
 
     // Separates main view in two
     val boardDims = new SplitPane
@@ -42,9 +42,9 @@ object Main extends JFXApp {
     // separates rules area
     val rulesPane = new BorderPane
 
-    val setWidth = new Spinner[Int](3, 50, 19)
+    val setWidth = new Spinner[Int](3, 50, 15)
     setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
-    val setHeight = new Spinner[Int](3, 50, 11)
+    val setHeight = new Spinner[Int](3, 50, 15)
     setHeight.style = Spinner.StyleClassArrowsOnLeftVertical
 
     val bar = new ToolBar
@@ -84,7 +84,7 @@ object Main extends JFXApp {
     }
 
     val listOfButtons = new ButtonBar
-    listOfButtons.prefWidth = 480
+    listOfButtons.autosize
     listOfButtons.buttons.addAll(chooseRule, custom, input, ruleBtn)
 
     rulesPane.center = listOfButtons
@@ -98,9 +98,7 @@ object Main extends JFXApp {
       stage.resizable
       stage.show
     }
-    
-    //boardDims.items.addAll(bar, rulesPane)
-    //boardDims.dividerPositions = 0.5
+
     rootPanel.top = bar
     rootPanel.center = rulesPane
 
@@ -108,6 +106,7 @@ object Main extends JFXApp {
     continue.setTranslateX(-320)
     val listButtons = new ButtonBar
     listButtons.buttons.addAll(continue, exit)
+    listButtons.autosize
     rootPanel.bottom = listButtons
     content = rootPanel
 
@@ -196,4 +195,5 @@ object Main extends JFXApp {
 
     names.reverse
   }
+
 }

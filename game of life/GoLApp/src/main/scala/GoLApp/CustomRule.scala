@@ -62,9 +62,6 @@ class CustomRule(args : Array[Array[String]]) extends RuleGuide {
       j = 0
       i += 1
     })
-
-    input.foreach(x => x.foreach(n => println(n)))
-    test.foreach(x => x.foreach(n => println(n)))
     test
   }
 

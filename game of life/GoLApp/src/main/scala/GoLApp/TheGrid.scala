@@ -1,19 +1,16 @@
 package GoLApp
 
+import java.util.{Timer, TimerTask}
+import javafx.concurrent.Task
+
 import GoLBase.{Board, RuleGuide}
 
-import scala.collection.JavaConverters._
-import scala.io.Source
 import scalafx.Includes._
 import scalafx.application.JFXApp
-import scalafx.collections.ObservableBuffer
 import scalafx.event.ActionEvent
-import scalafx.geometry.{Insets, Pos}
 import scalafx.scene.Scene
-import scalafx.scene.control.Alert.AlertType
 import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, GridPane}
-import scalafx.scene.text.Text
 
 // Where the magic happens
 class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
@@ -22,12 +19,13 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
   // Defines and creates this view's scene
   def execute : Scene = {
 
-    val gridView = new Scene(483, 502) {
+    val gridView = new Scene(510, 540) {
 
       // Board of cells
       private var board = new Board(w, h)
       private var restore : Array[Memento] = Array.ofDim(100)
       private var restoreIdx = 0
+      private var time : Timer = null
 
        // TODO: Make view's design
       stylesheets = List(getClass.getResource("mainGrid.css").toExternalForm)
@@ -35,7 +33,6 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
       val nextGen = new Button("Next")
       nextGen.styleClass = List("bleh")
-
       nextGen.onAction = (ae: ActionEvent) => {
 
         // save state to further undo4
@@ -50,23 +47,18 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       val start = new Button("Start")
       start.styleClass = List("bleh")
       start.onAction = (ae: ActionEvent) => {
-        for(i <- 0 until w){
-          var (live, kill) = rule.nextGen(w, h, board)
-          board.update(live, kill)
-          update_grid(grid, board)
 
+        time = new Timer
+        time.scheduleAtFixedRate(new TimerTask {
+          override def run(): Unit = nextGen.fireEvent(new javafx.event.ActionEvent)
+        }, 0, 1000)
 
-          // save state to further undo
-          restore(restoreIdx) = getNewMemento(board)
-          restoreIdx = (restoreIdx+1)%100
-          Thread.sleep(1000)
-
-        }
       }
 
       val stop = new Button("Stop")
       stop.styleClass = List("bleh")
       stop.onAction = (ae : ActionEvent) => {
+        time.cancel
       }
 
       val exit = new Button("Exit")
@@ -100,26 +92,30 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       }
 
       rootPane.top = bar
+      grid.autosize
       rootPane.center = grid
       content = rootPane
     }
+
     gridView
   }
 
   // Creates the cells in the view
   private def getCell(board: Board, j : Int , i : Int): Button = {
-    val cell = new Button("Dead")
+    val cell = new Button("D")
+    cell.prefHeight = 35
+    cell.prefWidth = 35
 
     cell.onAction = (ae: ActionEvent) => {
-      if (cell.getText.equals("Dead")) {
+      if (cell.getText.equals("D")) {
         board.universe(i)(j).revive
-        cell.setText("Alive")
-        cell.style = "-fx-background-color: #ffff00;"
+        cell.setText("A")
+        cell.style = "-fx-background-color: #ffff00; -fx-text-fill:  #ffff00;"
       }
       else {
         board.universe(i)(j).kill
-        cell.text = "Dead"
-        cell.style = "-fx-background-color: #7e7e7e;"
+        cell.text = "D"
+        cell.style = "-fx-background-color: #7e7e7e; -fx-text-fill: #7e7e7e;"
       }
     }
 
@@ -133,13 +129,14 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
     var j = 0
     rows.foreach(x => {
       var cell = x.asInstanceOf[javafx.scene.control.Button]
-      if(board.universe(i)(j).isAlive){
-        cell.setText("Alive")
-        cell.style = " -fx-background-color: #ffff00;"
+
+      if((board.universe(i)(j).isAlive)){
+        cell.setText("A")
+        cell.style = " -fx-background-color: #ffff00; -fx-text-fill: #ffff00;"
       }
       else{
-        cell.setText("Dead")
-        cell.style = "-fx-background-color: #7e7e7e;"
+        cell.setText("D")
+        cell.style = "-fx-background-color: #7e7e7e; -fx-text-fill:#7e7e7e;"
       }
       j += 1
 
@@ -156,4 +153,5 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
     meme.saveState(board)
     meme
   }
+
 }
