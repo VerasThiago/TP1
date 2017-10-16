@@ -85,7 +85,6 @@ object CustomRuleCreator extends JFXApp {
 
       // TODO: Organize all elements. Add cancel button.
         newRule.setTranslateX(-322)
-        done.setTranslateX(-20)
 
 
         val listOfButtons = new ButtonBar

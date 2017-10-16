@@ -22,10 +22,12 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
   // Defines and creates this view's scene
   def execute : Scene = {
 
-    val gridView = new Scene(500, 500) {
+    val gridView = new Scene(483, 502) {
 
       // Board of cells
-      val board = new Board(w, h)
+      private var board = new Board(w, h)
+      private var restore : Array[Memento] = Array.ofDim(100)
+      private var restoreIdx = 0
 
        // TODO: Make view's design
       stylesheets = List(getClass.getResource("mainGrid.css").toExternalForm)
@@ -33,16 +35,36 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
       val nextGen = new Button("Next")
       nextGen.styleClass = List("bleh")
+
       nextGen.onAction = (ae: ActionEvent) => {
         val (live, kill) = rule.nextGen(w, h, board)
         board.update(live, kill)
+        update_grid(grid, board)
+
+        // save state to further undo
+        restore(restoreIdx) = new Memento(w, h)
+        restore(restoreIdx).saveState(board)
+        println(s"Saved board to index $restoreIdx")
+        restoreIdx = (restoreIdx+1)%100
       }
 
       val start = new Button("Start")
       start.styleClass = List("bleh")
       start.onAction = (ae: ActionEvent) => {
-        show_grid(board)
+        for(i <- 0 until w){
+          var (live, kill) = rule.nextGen(w, h, board)
+          board.update(live, kill)
+          update_grid(grid, board)
+          println(i)
+
+          // save state to further undo
+          restore(restoreIdx) = new Memento(w, h)
+          restore(restoreIdx).saveState(board)
+          restoreIdx = (restoreIdx+1)%100
+          Thread.sleep(1000)
+        }
       }
+
       val stop = new Button("Stop")
       stop.styleClass = List("bleh")
       val exit = new Button("Exit")
@@ -51,9 +73,17 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
           Main.getControl
       }
 
+      val undo = new Button("Undo")
+      undo.onAction = (ae : ActionEvent) => {
+        restoreIdx = (restoreIdx+100-1)%100
+        println(s"Restored board from index $restoreIdx")
+        board = restore(restoreIdx).restoreState
+        update_grid(grid, board)
+        restore(restoreIdx) = null
+      }
 
       val bar = new ToolBar
-      bar.items = List(nextGen, start, stop, exit)
+      bar.items = List(nextGen, start, stop, undo, exit)
 
       val grid = new GridPane
 
@@ -77,13 +107,11 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
   private def getCell(board: Board, j : Int , i : Int): Button = {
     val cell = new Button("Dead")
 
-    // TODO Connect buttons with actual cells in board
     cell.onAction = (ae: ActionEvent) => {
       if (cell.getText.equals("Dead")) {
         board.universe(i)(j).revive
         cell.setText("Alive")
         cell.style = "-fx-background-color: blue;"
-
       }
       else {
         board.universe(i)(j).kill
@@ -94,16 +122,30 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
     cell
   }
-  def show_grid( board : Board) = {
-    println("")
-    for(i <- 0 until w){
-      for(j <- 0 until h){
-        print(if(board.universe(i)(j).isAlive) 1 else 0)
-        printf(" ")
+
+  def update_grid(grid: GridPane, board: Board): Unit = {
+    val rows  = grid.getChildren
+
+    var i = 0
+    var j = 0
+    rows.foreach(x => {
+      var cell = x.asInstanceOf[javafx.scene.control.Button]
+      if(board.universe(i)(j).isAlive){
+        cell.setText("Alive")
+        cell.style = "-fx-background-color: blue;"
       }
-      println("")
-    }
-    println("")
+      else{
+        cell.setText("Dead")
+        cell.style = "-fx-background-color: red;"
+      }
+      j += 1
+
+      if(j == h){
+        j = 0
+        i += 1
+      }
+    })
+
   }
 
 }
