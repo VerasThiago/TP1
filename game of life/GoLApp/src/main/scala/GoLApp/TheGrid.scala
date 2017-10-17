@@ -11,6 +11,7 @@ import scalafx.event.ActionEvent
 import scalafx.scene.Scene
 import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, GridPane}
+import javafx.application.Platform
 
 // Where the magic happens
 class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
@@ -34,24 +35,23 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       val nextGen = new Button("Next")
       nextGen.styleClass = List("bleh")
       nextGen.onAction = (ae: ActionEvent) => {
-
         // save state to further undo4
         restore(restoreIdx) = getNewMemento(board)
         restoreIdx = (restoreIdx+1)%100
-
-        val (live, kill) = rule.nextGen(w, h, board)
-        board.update(live, kill)
-        update_grid(grid, board)
+        nextRun(board,grid)
       }
 
       val start = new Button("Start")
       start.styleClass = List("bleh")
       start.onAction = (ae: ActionEvent) => {
+        startClick(board,grid) // If you change the parameters to (board,grid) it will work, but will have problems with others Threads, because ScalaFx toll work only in 1 Thread, so we can't refresh UI with a secondary Thread
 
-        time = new Timer
+
+        /*time = new Timer
         time.scheduleAtFixedRate(new TimerTask {
           override def run(): Unit = nextGen.fireEvent(new javafx.event.ActionEvent)
         }, 0, 1000)
+        */
 
       }
 
@@ -152,6 +152,42 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
     val meme = new Memento(w, h)
     meme.saveState(board)
     meme
+  }
+
+  def nextRun(board: Board,grid: GridPane): Unit ={
+    val (live, kill) = rule.nextGen(w, h, board)
+    board.update(live, kill)
+    update_grid(grid, board)
+  }
+  def startClick(button : Button): Unit ={
+    for(i <- 0  until 10){
+      button.fire()
+      Thread.sleep(100)
+    }
+  }
+  def startClick(board: Board,grid: GridPane): Unit ={
+    val task = new Task[Void]() {
+      var i = 1
+      @throws[Exception]
+      override def call: Void = {
+        while ( {
+          i <= 40
+        }) {
+          try {
+            nextRun(board,grid)
+            Thread.sleep(250)
+            i += 1;
+          }
+          catch {
+            case e: java.lang.IllegalStateException => {
+
+            }
+          }
+        }
+        null
+      }
+    }
+    new Thread(task).start()
   }
 
 }
