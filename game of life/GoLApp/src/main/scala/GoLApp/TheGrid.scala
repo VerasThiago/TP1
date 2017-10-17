@@ -20,7 +20,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
   // Defines and creates this view's scene
   def execute : Scene = {
 
-    val gridView = new Scene(510, 540) {
+    val gridView = new Scene(h*35, (w*35) + 30) {
 
       // Board of cells
       private var board = new Board(w, h)
