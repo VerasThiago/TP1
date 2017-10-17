@@ -1,4 +1,4 @@
-# Game of Life in Scala - Star Wars theme
+# Game of Life in Scala
 
   - Utilizar MVC;
   - Template method;
@@ -6,6 +6,14 @@
   - Dependency Injection (Veras);
   - GUI em Scala;
   - Mundo infinito (mapa de Karnaugh).
+
+## Members
+- André Cassio
+- Henrique Leo
+- Giovanni Guidini
+- Thiago Veras
+- Vitor Dullens
+
 
 ### Recomended Stuff
 
