@@ -1,7 +1,7 @@
 package GoLApp
 
-import javafx.geometry.Orientation
 import javafx.scene.image.Image
+import javafx.scene.text.TextAlignment
 
 import GoLBase.RuleGuide
 
@@ -29,18 +29,35 @@ object Main extends JFXApp {
   // Rule that will be used in the game
   private var actualRule = rules.head
 
-  private val openingView = new Scene(490, 500){
+  private val openingView = new Scene(880, 600){
     // TODO: Make view's design
     stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
     val rootPanel = new BorderPane
 
 
     // Separates main view in two
-    val boardDims = new SplitPane
-    boardDims.orientation = Orientation.HORIZONTAL
+    /*val boardDims = new SplitPane
+    boardDims.orientation = Orientation.HORIZONTAL*/
 
-    // separates rules area
-    val rulesPane = new BorderPane
+    //--------------------Top Area--------------------//
+
+    val welcomeTxt = new Text()
+
+    welcomeTxt.setTextAlignment(TextAlignment.CENTER)
+    welcomeTxt.setText("Welcome to Game of Life")
+    welcomeTxt.setStyle("-fx-font: 68 arial;")
+
+    rootPanel.top = welcomeTxt
+
+    //---------------------Center Area------------------//
+
+    //Separates center pane (will contain matrixPane(left) and rulesPane(right))
+    val centerPane = new BorderPane
+
+                    //--------Center Left---------//
+
+    //Create matrix resolution selection
+    val matrixPane = new BorderPane
 
     val setWidth = new Spinner[Int](3, 50, 15)
     setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
@@ -49,6 +66,15 @@ object Main extends JFXApp {
 
     val bar = new ToolBar
     bar.items = List(getText("Width: "), setWidth, getText(" X "), setHeight, getText(" : Height"))
+
+    matrixPane.center = bar
+    centerPane.left = matrixPane
+
+
+                    //---------Center Right--------//
+
+    // separates rules area
+    val rulesPane = new BorderPane
 
     val chooseRule = new ChoiceBox[String]
     chooseRule.items = getRuleNames(rules)
@@ -65,11 +91,6 @@ object Main extends JFXApp {
 
     val input = new TextField
 
-    val exit = new Button("Exit")
-    exit.onAction = (ae : ActionEvent) => {
-      sys.exit(0)
-    }
-
     // Get Rules button
     val ruleBtn = new Button("Get Rules")
     ruleBtn.onAction = (ae : ActionEvent) => {
@@ -83,11 +104,21 @@ object Main extends JFXApp {
       chooseRule.getSelectionModel.selectFirst()
     }
 
-    val listOfButtons = new ButtonBar
-    listOfButtons.autosize
-    listOfButtons.buttons.addAll(chooseRule, custom, input, ruleBtn)
+    val listOfButtonsRuleTop = new ButtonBar
+    listOfButtonsRuleTop.autosize
+    listOfButtonsRuleTop.buttons.addAll(chooseRule)
 
-    rulesPane.center = listOfButtons
+    val listOfButtonsRuleBottom = new ButtonBar
+    listOfButtonsRuleBottom.autosize
+    listOfButtonsRuleBottom.buttons.addAll(custom, input, ruleBtn)
+
+    rulesPane.top = listOfButtonsRuleTop
+    rulesPane.bottom = listOfButtonsRuleBottom
+
+    centerPane.right = rulesPane
+    rootPanel.center = centerPane
+
+    //----------------------Bottom Area---------------------//
 
     val continue = new Button("Continue")
     continue.onAction = (ae : ActionEvent) => {
@@ -99,15 +130,16 @@ object Main extends JFXApp {
       stage.show
     }
 
-    rootPanel.top = bar
-    rootPanel.center = rulesPane
+    val exit = new Button("Exit")
+    exit.onAction = (ae : ActionEvent) => {
+      sys.exit(0)
+    }
 
 
-    continue.setTranslateX(-320)
-    val listButtons = new ButtonBar
-    listButtons.buttons.addAll(continue, exit)
-    listButtons.autosize
-    rootPanel.bottom = listButtons
+    val listButtonsBottom = new ButtonBar
+    listButtonsBottom.buttons.addAll(continue, exit)
+    //listButtonsBottom.autosize
+    rootPanel.bottom = listButtonsBottom
     content = rootPanel
 
   }

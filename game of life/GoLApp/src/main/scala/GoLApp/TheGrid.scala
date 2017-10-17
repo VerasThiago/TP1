@@ -1,10 +1,10 @@
 package GoLApp
 
-import java.util.concurrent.{ScheduledFuture, ScheduledThreadPoolExecutor, TimeUnit}
 import java.util.{Timer, TimerTask}
+import javafx.application.Platform
 import javafx.concurrent.Task
 
-import GoLBase.{Board, RuleGuide}
+import GoLBase.{Board, Cells, RuleGuide}
 
 import scalafx.Includes._
 import scalafx.application.JFXApp
@@ -16,17 +16,18 @@ import scalafx.scene.layout.{BorderPane, GridPane}
 // Where the magic happens
 class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
-
+  var t : Thread = null
   // Defines and creates this view's scene
   def execute : Scene = {
 
-    val gridView = new Scene(510, 540) {
+    val gridView = new Scene(h*35, (w*35) + 30) {
 
       // Board of cells
       private var board = new Board(w, h)
       private var restore : Array[Memento] = Array.ofDim(100)
       private var restoreIdx = 0
-      private var time : ScheduledFuture[_] = null
+
+
 
        // TODO: Make view's design
       stylesheets = List(getClass.getResource("mainGrid.css").toExternalForm)
@@ -35,32 +36,22 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       val nextGen = new Button("Next")
       nextGen.styleClass = List("bleh")
       nextGen.onAction = (ae: ActionEvent) => {
-
         // save state to further undo4
         restore(restoreIdx) = getNewMemento(board)
         restoreIdx = (restoreIdx+1)%100
-
-        val (live, kill) = rule.nextGen(w, h, board)
-        board.update(live, kill)
-        update_grid(grid, board)
+        nextRun(board,grid)
       }
 
       val start = new Button("Start")
       start.styleClass = List("bleh")
       start.onAction = (ae: ActionEvent) => {
-
-        val ex = new ScheduledThreadPoolExecutor(1)
-        val task = new Runnable {
-          def run() = nextGen.fireEvent(new javafx.event.ActionEvent)
-        }
-        time = ex.scheduleAtFixedRate(task, 1, 1, TimeUnit.SECONDS)
-
+        startClick(board, grid)
       }
 
       val stop = new Button("Stop")
       stop.styleClass = List("bleh")
       stop.onAction = (ae : ActionEvent) => {
-        time.cancel(true)
+
       }
 
       val exit = new Button("Exit")
@@ -81,6 +72,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
         else
           restoreIdx = (restoreIdx+1)%100
       }
+
 
       val bar = new ToolBar
       bar.items = List(nextGen, start, stop, undo, exit)
@@ -156,4 +148,36 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
     meme
   }
 
+  def nextRun(board: Board,grid: GridPane): Unit ={
+    val (live, kill) = rule.nextGen(w, h, board)
+    board.update(live, kill)
+    update_grid(grid, board)
+  }
+
+  // funciona apenas 1 vez, sem erros
+  def startClick(board: Board,grid: GridPane): Unit = {
+    val task = new Task[Void]() {
+      @throws[Exception]
+      override def call: Void = {
+            val (live, kill) = rule.nextGen(w, h, board)
+            board.update(live, kill)
+            Thread.sleep(250)
+        null
+      }
+    }
+
+    t  = new Thread(task)
+    t.start()
+    try {
+      t.join()
+      update_grid(grid, board)
+    }
+    catch {
+      case e : Any => {
+        println(e)
+        Platform.runLater(task)
+      }
+    }
+
+  }
 }

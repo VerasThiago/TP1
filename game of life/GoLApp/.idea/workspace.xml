@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="778c2a41-2571-4b94-b082-883a0ba66b54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoLExtentions/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_3_jar.xml" afterPath="$PROJECT_DIR$/../GoLExtentions/.idea/libraries/SBT__org_scala_lang_scala_library_2_12_3_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoLExtentions/.idea/modules/golextentions-build.iml" afterPath="$PROJECT_DIR$/../GoLExtentions/.idea/modules/golextentions-build.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoLExtentions/.idea/modules/golextentions.iml" afterPath="$PROJECT_DIR$/../GoLExtentions/.idea/modules/golextentions.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoLExtentions/.idea/scala_compiler.xml" afterPath="$PROJECT_DIR$/../GoLExtentions/.idea/scala_compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoLExtentions/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../GoLExtentions/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoLExtentions/src/main/scala/GoLExtensions/HiLife.scala" afterPath="$PROJECT_DIR$/../GoLExtentions/src/main/scala/GoLExtensions/HiLife.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GoLExtentions/src/main/scala/GoLExtensions/Random.scala" afterPath="$PROJECT_DIR$/../GoLExtentions/src/main/scala/GoLExtensions/Random.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/golapp-build.iml" afterPath="$PROJECT_DIR$/.idea/modules/golapp-build.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/golapp.iml" afterPath="$PROJECT_DIR$/.idea/modules/golapp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/GoLApp/Main.scala" afterPath="$PROJECT_DIR$/src/main/scala/GoLApp/Main.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/GoLApp/TheGrid.scala" afterPath="$PROJECT_DIR$/src/main/scala/GoLApp/TheGrid.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,21 +36,11 @@
       <file leaf-file-name="TheGrid.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/TheGrid.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+            <state relative-caret-position="696">
+              <caret line="187" column="23" lean-forward="true" selection-start-line="187" selection-start-column="23" selection-end-line="187" selection-end-column="23" />
               <folding>
-                <element signature="e#16#100#0" expanded="true" />
+                <element signature="e#16#51#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/Main.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -103,12 +91,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/GoLApp/choiceBox.css" />
         <option value="$PROJECT_DIR$/src/main/resources/GoLApp/openingView.css" />
         <option value="$PROJECT_DIR$/src/main/resources/GoLApp/bleh.txt" />
-        <option value="$PROJECT_DIR$/src/main/scala/GoLApp/CostomRuleCreator.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/GoLApp/Memento.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/GoLApp/CustomRule.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/GoLApp/Main.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/GoLApp/Timer.scala" />
         <option value="$PROJECT_DIR$/src/main/resources/GoLApp/rules.txt" />
+        <option value="$PROJECT_DIR$/src/main/scala/GoLApp/Main.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/GoLApp/CostomRuleCreator.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/GoLApp/TheGrid.scala" />
       </list>
     </option>
@@ -140,6 +128,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,13 +167,27 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="GoLApp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="GoLApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GoLApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GoLApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GoLApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="GoLApp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -446,15 +449,15 @@
       <workItem from="1508114670576" duration="1400000" />
       <workItem from="1508179382955" duration="7465000" />
       <workItem from="1508189398292" duration="1379000" />
+      <workItem from="1508202836782" duration="6778000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93493000" />
+    <option name="totallyTimeSpent" value="100271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2048" height="1048" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -467,7 +470,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35257083" sideWeight="0.49601197" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843652" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32843652" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26969093" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -526,7 +529,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -535,28 +538,13 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/CustomRule.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/TheGrid.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="e#16#100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#16#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -579,7 +567,7 @@
         <state relative-caret-position="795">
           <caret line="66" column="33" lean-forward="true" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
           <folding>
-            <element signature="e#16#100#0" expanded="true" />
+            <element signature="e#16#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -614,7 +602,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#16#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -644,7 +634,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#16#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -694,13 +686,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/CustomRuleCreator.scala" />
     <entry file="file://$PROJECT_DIR$/src/test/scala/Scenes/Main.scala" />
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalafx/scalafx_2.12/srcs/scalafx_2.12-8.0.102-R11-sources.jar!/scalafx/event/EventIncludes.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/animation/Animation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -737,51 +722,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/Memento.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/testScheduledExecutorService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/CustomRule.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="6" lean-forward="false" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/CostomRuleCreator.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1262">
-          <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/Timer.scala" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/GoLApp/rules.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalafx/scalafx_2.12/srcs/scalafx_2.12-8.0.102-R11-sources.jar!/scalafx/event/EventIncludes.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="156" column="8" lean-forward="false" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="8411" column="0" lean-forward="false" selection-start-line="8411" selection-start-column="0" selection-end-line="8411" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/CostomRuleCreator.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+          <folding>
+            <element signature="e#16#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/CustomRule.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" column="6" lean-forward="false" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+        <state relative-caret-position="1005">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <element signature="e#16#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/Memento.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/GoLApp/TheGrid.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+        <state relative-caret-position="696">
+          <caret line="187" column="23" lean-forward="true" selection-start-line="187" selection-start-column="23" selection-end-line="187" selection-end-column="23" />
           <folding>
-            <element signature="e#16#100#0" expanded="true" />
+            <element signature="e#16#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
