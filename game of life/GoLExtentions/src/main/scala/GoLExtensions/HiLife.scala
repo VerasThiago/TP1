@@ -1,9 +1,11 @@
+package GoLExtensions
+
 import GoLBase.{Board, Cells, RuleGuide}
 
 
 
-class Teste extends RuleGuide{
-  override val name: String = "Teste"
+class HiLife extends RuleGuide{
+  override val name: String = "High Life"
 
 
   override def nextGen(width: Int, height: Int, board: Board): (List[Cells] , List[Cells]) = {
@@ -17,7 +19,7 @@ class Teste extends RuleGuide{
         if(c.isAlive && (liveneighbours == 2 || liveneighbours == 3 )) {
           alive = c :: alive
         }
-        else if(!c.isAlive && liveneighbours == 3) {
+        else if(!c.isAlive && (liveneighbours == 3 || liveneighbours == 6)) {
           alive = c :: alive
         }
         else if (c.isAlive && (liveneighbours < 2 || liveneighbours > 3)) {
@@ -34,7 +36,9 @@ class Teste extends RuleGuide{
 
   override def info(): Array[String] = {
     val info = Array(
-      "Teste louco da balada")
+      "Any living cell with 2 or 3 neighbours lives on",
+      "Any dead cell with 3 or 6 neighbours lives",
+      "Any living cell with fewer than 2 or more than 3 living neighbours dies")
     info
   }
 }
