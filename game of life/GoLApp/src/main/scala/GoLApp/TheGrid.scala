@@ -154,30 +154,34 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
     update_grid(grid, board)
   }
 
-  // funciona apenas 1 vez, sem erros
-  def startClick(board: Board,grid: GridPane): Unit = {
+  def startClick(button : Button): Unit ={
+    for(i <- 0  until 10){
+      button.fire()
+      Thread.sleep(100)
+    }
+  }
+  def startClick(board: Board,grid: GridPane): Unit ={
     val task = new Task[Void]() {
+      var i = 1
       @throws[Exception]
       override def call: Void = {
-            val (live, kill) = rule.nextGen(w, h, board)
-            board.update(live, kill)
-            Thread.sleep(250)
+        while ( {
+          i <= 30
+        }) {
+          try {
+            nextRun(board,grid)
+            Thread.sleep(500)
+            i += 1;
+          }
+          catch {
+            case e: java.lang.IllegalStateException => {
+
+            }
+          }
+        }
         null
       }
     }
-
-    t  = new Thread(task)
-    t.start()
-    try {
-      t.join()
-      update_grid(grid, board)
-    }
-    catch {
-      case e : Any => {
-        println(e)
-        Platform.runLater(task)
-      }
-    }
-
+    new Thread(task).start()
   }
 }
