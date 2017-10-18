@@ -36,6 +36,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       val nextGen = new Button("Next")
       nextGen.styleClass = List("bleh")
       nextGen.onAction = (ae: ActionEvent) => {
+        //println(rule.name)
         // save state to further undo4
         restore(restoreIdx) = getNewMemento(board)
         restoreIdx = (restoreIdx+1)%100

@@ -18,21 +18,21 @@ import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, FlowPane}
 import scalafx.scene.text.Text
 
-class ResolutionView () extends JFXApp {
+class ResolutionView (rule : RuleGuide) extends JFXApp {
+
+
 
   def execute : Scene = {
 
-    val resView = new Scene(550,350){
+    val resView = new Scene(550,435){
       stylesheets = List(getClass.getResource("resView.css").toExternalForm)
 
       val resPanel = new FlowPane
 
       val welcome = new Text("Game of Life")
-      //welcome.setStyle("-fx-font: 68 arial;")
       welcome.styleClass = List("headtext")
 
       val select = new Text("Select the Grid Resolution")
-      //select.setStyle("-fx-font: 40 arial;")
       select.styleClass = List("bodytext")
 
       val setWidth = new Spinner[Int](3, 50, 15)
@@ -43,10 +43,23 @@ class ResolutionView () extends JFXApp {
       val bar = new ToolBar
       bar.items = List(getText("Width: "), setWidth, getText(" X "), setHeight, getText(" : Height"))
 
+      val ruletxt = new Text("Select the Rule")
+      ruletxt.styleClass = List("bodytext")
+
+      val chooseRule = new ChoiceBox[String]
+      chooseRule.items = Main.getRuleNames(Main.rules)
+      chooseRule.getSelectionModel.selectFirst()
+
+      val customBut = new Button("Custom Rules")
+      customBut.styleClass = List("button")
+      customBut.onAction = (ae : ActionEvent) => {
+        Main.changeScene(3)
+      }
+
       val continue = new Button("Begin")
       continue.styleClass = List("button")
       continue.onAction = (ae : ActionEvent) => {
-        Main.changeScene(0,setWidth.getValue, setHeight.getValue)
+        Main.changeScene(0,setWidth.getValue, setHeight.getValue, chooseRule.getSelectionModel.getSelectedItem())
       }
 
       val back = new Button("Back")
@@ -59,9 +72,9 @@ class ResolutionView () extends JFXApp {
       resPanel.vgap = 40
       resPanel.hgap = 80
 
-      resPanel.children = List(welcome,select, bar,continue, back)
+      resPanel.children = List(welcome,select, bar,ruletxt, chooseRule,continue, back)
       resPanel.setStyle("-fx-background-color: grey;")
-      resPanel.setPrefSize(550,350)
+      resPanel.setPrefSize(550,435)
 
 
       content = resPanel

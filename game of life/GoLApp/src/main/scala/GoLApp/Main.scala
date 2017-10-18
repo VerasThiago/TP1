@@ -25,10 +25,10 @@ object Main extends JFXApp {
   stage.title = "Game of Life"
   stage.getIcons.add(new Image("GoLApp/icon.png"))
   // Available Rules from libraries
-  private var rules = getRules()
+   var rules = getRules()
 
   // Rule that will be used in the game
-  private var actualRule = rules.head
+   var actualRule = rules.head
 
   private val openingView = new Scene(500, 300){
     // TODO: Make view's design
@@ -75,7 +75,7 @@ object Main extends JFXApp {
       sys.exit(0)
     }
     else if(s == 1){ //MAIN TO RESOLUTION SELECTION
-      val res = new ResolutionView()
+      val res = new ResolutionView(actualRule)
       stage.hide
       stage.scene = res.execute
       stage.sizeToScene
@@ -83,18 +83,27 @@ object Main extends JFXApp {
       stage.show
     }
     else if(s == 2){ //GAME TO RESOLUTION SELECTION
-      val res = new ResolutionView()
+      val res = new ResolutionView(actualRule)
       stage.hide
       stage.scene = res.execute
       stage.sizeToScene
       stage.resizable
       stage.show
     }
+    else if(s == 3){ //RESOLUTION SELECTION TO CUSTOM
+      val cus = new CustomRuleCreator()
+      stage.hide
+      stage.scene = cus.execute
+      stage.sizeToScene
+      stage.resizable
+      stage.show
+    }
   }
 
-  def changeScene(s : Int, w : Int , h : Int): Unit ={
+  def changeScene(s : Int, w : Int , h : Int, str : String): Unit ={
 
     if(s == 0){ //RESOLUTION SELECTION TO GAME
+      getRuleSelected(str)
       val game = new TheGrid(actualRule, w, h)
       stage.hide
       stage.scene = game.execute
@@ -170,6 +179,10 @@ object Main extends JFXApp {
     this.actualRule = rule
   }
 
+  def overrideRule(rule : RuleGuide) = {
+    this.actualRule = rule
+  }
+
   // Gets control back from other view
   def getControl = {
     stage.hide
@@ -185,5 +198,18 @@ object Main extends JFXApp {
 
     names.reverse
   }
+
+  def getRuleSelected(s : String) : Unit = {
+    var allRules = rules
+
+    allRules.foreach(r => {
+      //println(r.name)
+      if(r.name == s){
+        actualRule = r
+        //println("selected " + r.name)
+      }
+    } )
+  }
+
 
 }
