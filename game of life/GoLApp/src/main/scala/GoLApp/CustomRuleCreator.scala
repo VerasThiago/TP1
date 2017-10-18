@@ -4,11 +4,11 @@ import scalafx.Includes._
 import scalafx.application.JFXApp
 import scalafx.collections.ObservableBuffer
 import scalafx.event.ActionEvent
-import scalafx.geometry.{Insets, Pos}
+import scalafx.geometry.Pos
 import scalafx.scene.Scene
 import scalafx.scene.control.Alert.AlertType
 import scalafx.scene.control._
-import scalafx.scene.layout.{BorderPane, FlowPane, GridPane}
+import scalafx.scene.layout.{FlowPane, GridPane}
 import scalafx.scene.text.Text
 
 
@@ -23,7 +23,7 @@ class CustomRuleCreator extends JFXApp {
       stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
 
       val cusRulePanel = new FlowPane
-      val argsPanel = new FlowPane
+      val argsPanel = new GridPane
 
       // Number of Rows in Grid = number of Tests in new rule
       var gridRowIdx = 1
@@ -38,7 +38,7 @@ class CustomRuleCreator extends JFXApp {
 
         if (gridRowIdx < 5) {
           this.gridRowIdx += 1
-          this.argsPanel.children.add( getRuleRow)
+          argsPanel.addRow(gridRowIdx, getRuleRow)
 
         }
         else {
@@ -57,10 +57,9 @@ class CustomRuleCreator extends JFXApp {
       val done = new Button("Done")
       done.styleClass = List("button")
       done.onAction = (ae: ActionEvent) => {
+        //Main.changeScene(1)
 
-        Main.changeScene(1)
-
-       /* val rows  = argsPanel.getChildren
+       val rows = argsPanel.getChildren
         var testTemplate: Array[Array[String]] = Array.ofDim[String](gridRowIdx, 4)
         var Ridx = 0
         var Cidx = 0
@@ -78,13 +77,14 @@ class CustomRuleCreator extends JFXApp {
           Ridx += 1
           Cidx = 0
         })
+
         // Creates the rule passing selections
         Main.overrideRule(new CustomRule(testTemplate))
         // Returns view to openingView
-        Main.getControl*/
+        Main.changeScene(1)
       }
 
-      argsPanel.children.add(getRuleRow)
+      argsPanel.addRow(gridRowIdx, getRuleRow)
 
       argsPanel.setAlignment(Pos.TopCenter)
       argsPanel.vgap = 15

@@ -184,7 +184,7 @@ object Main extends JFXApp {
   }
 
   // Gets control back from other view
-  def getControl = {
+  def getControl = {  
     stage.hide
     stage.scene = openingView
     stage.sizeToScene
