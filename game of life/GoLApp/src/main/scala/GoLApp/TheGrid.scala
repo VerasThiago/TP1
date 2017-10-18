@@ -29,7 +29,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
 
 
 
-       // TODO: Make view's design
+      // TODO: Make view's design
       stylesheets = List(getClass.getResource("mainGrid.css").toExternalForm)
       val rootPane = new BorderPane
 
@@ -57,7 +57,7 @@ class TheGrid(val rule : RuleGuide, val w : Int, val h : Int) extends JFXApp {
       val exit = new Button("Exit")
       exit.styleClass = List("bleh")
       exit.onAction = (ae: ActionEvent) => {
-          Main.getControl
+        Main.changeScene(2)
       }
 
       val undo = new Button("Undo")

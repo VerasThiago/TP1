@@ -18,20 +18,22 @@ import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, FlowPane}
 import scalafx.scene.text.Text
 
-class ResolutionView (val rule : RuleGuide) extends JFXApp {
+class ResolutionView () extends JFXApp {
 
   def execute : Scene = {
 
     val resView = new Scene(550,350){
-      stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
+      stylesheets = List(getClass.getResource("resView.css").toExternalForm)
 
       val resPanel = new FlowPane
 
       val welcome = new Text("Game of Life")
-      welcome.setStyle("-fx-font: 68 arial;")
+      //welcome.setStyle("-fx-font: 68 arial;")
+      welcome.styleClass = List("headtext")
 
       val select = new Text("Select the Grid Resolution")
-      select.setStyle("-fx-font: 40 arial;")
+      //select.setStyle("-fx-font: 40 arial;")
+      select.styleClass = List("bodytext")
 
       val setWidth = new Spinner[Int](3, 50, 15)
       setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
@@ -42,20 +44,13 @@ class ResolutionView (val rule : RuleGuide) extends JFXApp {
       bar.items = List(getText("Width: "), setWidth, getText(" X "), setHeight, getText(" : Height"))
 
       val continue = new Button("Begin")
-      continue.setStyle("-fx-font-size : 20px;")
-      //continue.styleClass = List("buttonMenu")
+      continue.styleClass = List("button")
       continue.onAction = (ae : ActionEvent) => {
-        val game = new TheGrid(rule, setWidth.getValue, setHeight.getValue)
-        stage.hide
-        stage.scene = game.execute
-        stage.sizeToScene
-        stage.resizable
-        stage.show
+        Main.changeScene(0,setWidth.getValue, setHeight.getValue)
       }
 
       val back = new Button("Back")
-      back.setStyle("-fx-font-size : 20px;")
-      //continue.styleClass = List("buttonMenu")
+      back.styleClass = List("button")
       back.onAction = (ae : ActionEvent) => {
         Main.getControl
       }
@@ -65,7 +60,9 @@ class ResolutionView (val rule : RuleGuide) extends JFXApp {
       resPanel.hgap = 80
 
       resPanel.children = List(welcome,select, bar,continue, back)
+      resPanel.setStyle("-fx-background-color: grey;")
       resPanel.setPrefSize(550,350)
+
 
       content = resPanel
     }

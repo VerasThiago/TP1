@@ -32,161 +32,35 @@ object Main extends JFXApp {
 
   private val openingView = new Scene(500, 300){
     // TODO: Make view's design
-    stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
+    stylesheets = List(getClass.getResource("mainView.css").toExternalForm)
 
     val rootPanel = new FlowPane
 
     val welcome = new Text("Game of Life")
-    welcome.setStyle("-fx-font: 68 arial;")
+    welcome.setId("head-text")
 
     val continue = new Button("Start")
-    continue.setStyle("-fx-font-size : 30px;")
-    //continue.styleClass = List("buttonMenu")
+    continue.styleClass = List("button")
     continue.onAction = (ae : ActionEvent) => {
-      val res = new ResolutionView(actualRule)
-      stage.hide
-      stage.scene = res.execute
-      stage.sizeToScene
-      stage.resizable
-      stage.show
+      changeScene(1)
     }
 
     val exit = new Button("Exit")
-    exit.setStyle("-fx-font-size : 30px;")
+    //exit.setStyle("-fx-font-size : 30px;")
+    exit.styleClass = List("button")
     exit.onAction = (ae : ActionEvent) => {
-      sys.exit(0)
+      changeScene(0)
     }
 
     rootPanel.setAlignment(Pos.TopCenter)
     rootPanel.vgap = 40
     rootPanel.hgap = 500
 
-    rootPanel.children = List(welcome,continue, exit )
+    rootPanel.children = List(welcome,continue, exit)
+    rootPanel.setStyle("-fx-background-color: grey;")
     rootPanel.setPrefSize(500,300)
 
     content = rootPanel
-
-
-
-    //val rootPanel = new BorderPane
-
-
-    // Separates main view in two
-    /*val boardDims = new SplitPane
-    boardDims.orientation = Orientation.HORIZONTAL*/
-
-    //--------------------Top Area--------------------//
-
-    /*val welcomeTxt = new Text(10, 20, "Game Of Life")
-
-    //welcomeTxt.setTextAlignment(TextAlignment.CENTER)
-    //welcomeTxt.setText("Game of Life")
-    welcomeTxt.setStyle("-fx-font: 68 arial;")
-
-    rootPanel.top = welcomeTxt
-
-    //---------------------Center Area------------------//
-
-    //Separates center pane (will contain matrixPane(left) and rulesPane(right))
-    val centerPane = new BorderPane
-
-                    //--------Center Left---------//
-
-    //Create matrix resolution selection
-    val matrixPane = new BorderPane
-
-    val setWidth = new Spinner[Int](3, 50, 15)
-    setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
-    val setHeight = new Spinner[Int](3, 50, 15)
-    setHeight.style = Spinner.StyleClassArrowsOnLeftVertical
-
-    val bar = new ToolBar
-    bar.items = List(getText("Width: "), setWidth, getText(" X "), setHeight, getText(" : Height"))
-
-    matrixPane.center = bar
-    centerPane.left = matrixPane
-
-
-                    //---------Center Right--------//
-
-    // separates rules area
-    val rulesPane = new BorderPane
-
-    val topPane = new BorderPane
-    val botPane = new BorderPane
-    val mergePane = new BorderPane
-
-    val chooseRule = new ChoiceBox[String]
-    chooseRule.items = getRuleNames(rules)
-    chooseRule.getSelectionModel.selectFirst()
-
-
-    // custom Rule button
-    val custom = new Button("Custom")
-      custom.onAction = (ae : ActionEvent) => {
-      stage.hide
-      stage.scene = CustomRuleCreator.execute
-      stage.show
-    }
-
-    val input = new TextField
-
-    // Get Rules button
-    val ruleBtn = new Button("Get Rules")
-    ruleBtn.onAction = (ae : ActionEvent) => {
-      val s : String = "GoLApp/" + input.getText
-      if(s != "GoLApp/")
-        rules = getRules(s)
-      else
-        rules = getRules()
-
-      chooseRule.items = getRuleNames(rules)
-      chooseRule.getSelectionModel.selectFirst()
-    }
-
-    val listOfButtonsRuleTop = new ButtonBar
-    //listOfButtonsRuleTop.autosize
-    listOfButtonsRuleTop.buttons.addAll(chooseRule)
-
-    val listOfButtonsRuleBottom = new ButtonBar
-    //listOfButtonsRuleBottom.autosize
-    listOfButtonsRuleBottom.buttons.addAll(custom, input, ruleBtn)
-
-    topPane.bottom = listOfButtonsRuleTop
-    botPane.center = listOfButtonsRuleBottom
-
-    mergePane.top = topPane
-    mergePane.center = botPane
-
-    rulesPane.center = mergePane
-
-    centerPane.right = rulesPane
-    rootPanel.center = centerPane
-
-    //----------------------Bottom Area---------------------//
-
-    val continue = new Button("Continue")
-    continue.onAction = (ae : ActionEvent) => {
-      val game = new TheGrid(actualRule, setWidth.getValue, setHeight.getValue)
-      stage.hide
-      stage.scene = game.execute
-      stage.sizeToScene
-      stage.resizable
-      stage.show
-    }
-
-    val exit = new Button("Exit")
-    exit.onAction = (ae : ActionEvent) => {
-      sys.exit(0)
-    }
-
-
-    val listButtonsBottom = new ButtonBar
-    listButtonsBottom.buttons.addAll(continue, exit)
-    //listButtonsBottom.autosize
-    rootPanel.bottom = listButtonsBottom
-    rootPanel.setPrefSize(880,600)
-    content = rootPanel*/
 
   }
 
@@ -194,6 +68,44 @@ object Main extends JFXApp {
   stage.sizeToScene
   stage.resizable
   stage.show
+
+  def changeScene(s : Int): Unit ={
+
+    if(s == 0){ //EXIT PROGRAM
+      sys.exit(0)
+    }
+    else if(s == 1){ //MAIN TO RESOLUTION SELECTION
+      val res = new ResolutionView()
+      stage.hide
+      stage.scene = res.execute
+      stage.sizeToScene
+      stage.resizable
+      stage.show
+    }
+    else if(s == 2){ //GAME TO RESOLUTION SELECTION
+      val res = new ResolutionView()
+      stage.hide
+      stage.scene = res.execute
+      stage.sizeToScene
+      stage.resizable
+      stage.show
+    }
+  }
+
+  def changeScene(s : Int, w : Int , h : Int): Unit ={
+
+    if(s == 0){ //RESOLUTION SELECTION TO GAME
+      val game = new TheGrid(actualRule, w, h)
+      stage.hide
+      stage.scene = game.execute
+      stage.sizeToScene
+      stage.resizable
+      stage.show
+    }
+
+  }
+
+
 
   // Returns a Text with given string
   private def getText(v: String): Text = {

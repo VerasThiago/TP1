@@ -13,14 +13,14 @@ import scalafx.scene.text.Text
 
 
 // Opens view to create custom rules
-object CustomRuleCreator extends JFXApp {
+class CustomRuleCreator extends JFXApp {
 
   // Defines and returns the view's scene
-   def execute : Scene = {
-      val customRuleView = new Scene(580, 500) {
+  def execute : Scene = {
+    val customRuleView = new Scene(580, 500) {
 
-        // TODO: Make scene's design
-       stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
+      // TODO: Make scene's design
+      stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
       val grid = new GridPane
 
       // Number of Rows in Grid = number of Tests in new rule
@@ -68,7 +68,7 @@ object CustomRuleCreator extends JFXApp {
                 testTemplate(Ridx)(Cidx) = c.asInstanceOf[javafx.scene.control.ChoiceBox[String]].getSelectionModel.getSelectedItem
                 Cidx += 1
               }
-             catch {
+              catch {
                 case e : ClassCastException =>
               }
             })
@@ -84,11 +84,11 @@ object CustomRuleCreator extends JFXApp {
 
 
       // TODO: Organize all elements. Add cancel button.
-        newRule.setTranslateX(-400)
+      newRule.setTranslateX(-400)
 
 
-        val listOfButtons = new ButtonBar
-        listOfButtons.buttons.addAll(newRule, done)
+      val listOfButtons = new ButtonBar
+      listOfButtons.buttons.addAll(newRule, done)
       val rootPane = new BorderPane
       rootPane.center = grid
       rootPane.bottom = listOfButtons
