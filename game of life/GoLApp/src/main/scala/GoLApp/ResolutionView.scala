@@ -72,7 +72,7 @@ class ResolutionView (rule : RuleGuide) extends JFXApp {
       resPanel.vgap = 40
       resPanel.hgap = 80
 
-      resPanel.children = List(welcome,select, bar,ruletxt, chooseRule,continue, back)
+      resPanel.children = List(welcome,select, bar,ruletxt, chooseRule,customBut,continue, back)
       resPanel.setStyle("-fx-background-color: grey;")
       resPanel.setPrefSize(550,435)
 

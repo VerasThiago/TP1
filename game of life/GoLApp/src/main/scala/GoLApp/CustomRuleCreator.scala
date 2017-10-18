@@ -8,7 +8,7 @@ import scalafx.geometry.{Insets, Pos}
 import scalafx.scene.Scene
 import scalafx.scene.control.Alert.AlertType
 import scalafx.scene.control._
-import scalafx.scene.layout.{BorderPane, GridPane}
+import scalafx.scene.layout.{BorderPane, FlowPane, GridPane}
 import scalafx.scene.text.Text
 
 
@@ -17,26 +17,28 @@ class CustomRuleCreator extends JFXApp {
 
   // Defines and returns the view's scene
   def execute : Scene = {
-    val customRuleView = new Scene(580, 500) {
+    val customRuleView = new Scene(620, 510) {
 
       // TODO: Make scene's design
       stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
-      val grid = new GridPane
+
+      val cusRulePanel = new FlowPane
+      val argsPanel = new FlowPane
 
       // Number of Rows in Grid = number of Tests in new rule
       var gridRowIdx = 1
 
-      // Adds initial row
-      grid.addRow(gridRowIdx, getRuleRow)
-
+      val custxt = new Text("Custom Rule")
+      custxt.setId("head-text")
 
       // Adds more rows. Max of 5
       val newRule = new Button("New Rule")
+      newRule.styleClass = List("button")
       newRule.onAction = (ae: ActionEvent) => {
 
         if (gridRowIdx < 5) {
           this.gridRowIdx += 1
-          this.grid.addRow(gridRowIdx, getRuleRow)
+          this.argsPanel.children.add( getRuleRow)
 
         }
         else {
@@ -49,15 +51,16 @@ class CustomRuleCreator extends JFXApp {
             contentText = "You've reached the maximum lines available for a rule"
           }.showAndWait()
         }
-
       }
 
       // Finishes creating rule and sets it as rule to be used in the game.
       val done = new Button("Done")
-
-
+      done.styleClass = List("button")
       done.onAction = (ae: ActionEvent) => {
-        val rows  = grid.getChildren
+
+        Main.changeScene(1)
+
+       /* val rows  = argsPanel.getChildren
         var testTemplate: Array[Array[String]] = Array.ofDim[String](gridRowIdx, 4)
         var Ridx = 0
         var Cidx = 0
@@ -78,22 +81,50 @@ class CustomRuleCreator extends JFXApp {
         // Creates the rule passing selections
         Main.overrideRule(new CustomRule(testTemplate))
         // Returns view to openingView
-        Main.getControl
+        Main.getControl*/
       }
+
+      argsPanel.children.add(getRuleRow)
+
+      argsPanel.setAlignment(Pos.TopCenter)
+      argsPanel.vgap = 15
+      argsPanel.hgap = 500
+
+      cusRulePanel.setAlignment(Pos.TopCenter)
+      cusRulePanel.vgap = 40
+      cusRulePanel.hgap = 200
+
+      cusRulePanel.children = List(custxt,newRule,done,argsPanel)
+      cusRulePanel.setStyle("-fx-background-color: grey;")
+      cusRulePanel.setPrefSize(620,510)
+
+      //val grid = new GridPane
+
+
+
+      // Adds initial row
+      //grid.addRow(gridRowIdx, getRuleRow)
+
+
+
+
+
+
 
 
 
       // TODO: Organize all elements. Add cancel button.
-      newRule.setTranslateX(-400)
+      //newRule.setTranslateX(-400)
 
 
-      val listOfButtons = new ButtonBar
+      /*val listOfButtons = new ButtonBar
       listOfButtons.buttons.addAll(newRule, done)
       val rootPane = new BorderPane
       rootPane.center = grid
       rootPane.bottom = listOfButtons
-      grid.margin = Insets(1, 1, 1, 1)
-      content = rootPane
+      grid.margin = Insets(1, 1, 1, 1)*/
+
+      content = cusRulePanel
     }
 
     customRuleView
