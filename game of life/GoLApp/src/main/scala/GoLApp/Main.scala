@@ -1,5 +1,6 @@
 package GoLApp
 
+import javafx.geometry.Orientation
 import javafx.scene.image.Image
 import javafx.scene.text.TextAlignment
 
@@ -10,11 +11,11 @@ import scalafx.Includes._
 import scalafx.application.JFXApp
 import scalafx.collections.ObservableBuffer
 import scalafx.event.ActionEvent
-import scalafx.geometry.Pos
+import scalafx.geometry.{HPos, Pos}
 import scalafx.scene.Scene
 import scalafx.scene.control.Alert.AlertType
 import scalafx.scene.control._
-import scalafx.scene.layout.BorderPane
+import scalafx.scene.layout.{BorderPane, FlowPane}
 import scalafx.scene.text.Text
 
 object Main extends JFXApp {
@@ -29,10 +30,45 @@ object Main extends JFXApp {
   // Rule that will be used in the game
   private var actualRule = rules.head
 
-  private val openingView = new Scene(880, 600){
+  private val openingView = new Scene(500, 300){
     // TODO: Make view's design
     stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
-    val rootPanel = new BorderPane
+
+    val rootPanel = new FlowPane
+
+    val welcome = new Text("Game of Life")
+    welcome.setStyle("-fx-font: 68 arial;")
+
+    val continue = new Button("Start")
+    continue.setStyle("-fx-font-size : 30px;")
+    //continue.styleClass = List("buttonMenu")
+    continue.onAction = (ae : ActionEvent) => {
+      val res = new ResolutionView(actualRule)
+      stage.hide
+      stage.scene = res.execute
+      stage.sizeToScene
+      stage.resizable
+      stage.show
+    }
+
+    val exit = new Button("Exit")
+    exit.setStyle("-fx-font-size : 30px;")
+    exit.onAction = (ae : ActionEvent) => {
+      sys.exit(0)
+    }
+
+    rootPanel.setAlignment(Pos.TopCenter)
+    rootPanel.vgap = 40
+    rootPanel.hgap = 500
+
+    rootPanel.children = List(welcome,continue, exit )
+    rootPanel.setPrefSize(500,300)
+
+    content = rootPanel
+
+
+
+    //val rootPanel = new BorderPane
 
 
     // Separates main view in two
@@ -41,10 +77,10 @@ object Main extends JFXApp {
 
     //--------------------Top Area--------------------//
 
-    val welcomeTxt = new Text()
+    /*val welcomeTxt = new Text(10, 20, "Game Of Life")
 
-    welcomeTxt.setTextAlignment(TextAlignment.CENTER)
-    welcomeTxt.setText("Welcome to Game of Life")
+    //welcomeTxt.setTextAlignment(TextAlignment.CENTER)
+    //welcomeTxt.setText("Game of Life")
     welcomeTxt.setStyle("-fx-font: 68 arial;")
 
     rootPanel.top = welcomeTxt
@@ -76,6 +112,10 @@ object Main extends JFXApp {
     // separates rules area
     val rulesPane = new BorderPane
 
+    val topPane = new BorderPane
+    val botPane = new BorderPane
+    val mergePane = new BorderPane
+
     val chooseRule = new ChoiceBox[String]
     chooseRule.items = getRuleNames(rules)
     chooseRule.getSelectionModel.selectFirst()
@@ -105,15 +145,20 @@ object Main extends JFXApp {
     }
 
     val listOfButtonsRuleTop = new ButtonBar
-    listOfButtonsRuleTop.autosize
+    //listOfButtonsRuleTop.autosize
     listOfButtonsRuleTop.buttons.addAll(chooseRule)
 
     val listOfButtonsRuleBottom = new ButtonBar
-    listOfButtonsRuleBottom.autosize
+    //listOfButtonsRuleBottom.autosize
     listOfButtonsRuleBottom.buttons.addAll(custom, input, ruleBtn)
 
-    rulesPane.top = listOfButtonsRuleTop
-    rulesPane.bottom = listOfButtonsRuleBottom
+    topPane.bottom = listOfButtonsRuleTop
+    botPane.center = listOfButtonsRuleBottom
+
+    mergePane.top = topPane
+    mergePane.center = botPane
+
+    rulesPane.center = mergePane
 
     centerPane.right = rulesPane
     rootPanel.center = centerPane
@@ -140,7 +185,8 @@ object Main extends JFXApp {
     listButtonsBottom.buttons.addAll(continue, exit)
     //listButtonsBottom.autosize
     rootPanel.bottom = listButtonsBottom
-    content = rootPanel
+    rootPanel.setPrefSize(880,600)
+    content = rootPanel*/
 
   }
 
@@ -206,8 +252,8 @@ object Main extends JFXApp {
   // If Custom Rule is selected, saves it in the rule to be used
   def overrideRule(rule : CustomRule) = {
     if(actualRule.name != "Custom") {
-      openingView.chooseRule.getItems.add("Custom")
-      openingView.chooseRule.getSelectionModel.selectLast()
+      //openingView.chooseRule.getItems.add("Custom")
+      //openingView.chooseRule.getSelectionModel.selectLast()
     }
     this.actualRule = rule
   }
