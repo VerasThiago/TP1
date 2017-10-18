@@ -18,7 +18,7 @@ import scalafx.scene.control._
 import scalafx.scene.layout.{BorderPane, FlowPane}
 import scalafx.scene.text.Text
 
-class ResolutionView (rule : RuleGuide) extends JFXApp {
+class ResolutionView  extends JFXApp {
 
 
 

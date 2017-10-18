@@ -13,6 +13,13 @@
     -fx-mark-color: #9fa6ff; // arrow color
 }
 
+#name {
+    -fx-font : 30 arial;
+    -fx-fill: yellow;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
+}
 #head-text{
     -fx-font: 60 arial;
     -fx-fill: yellow;

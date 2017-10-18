@@ -17,7 +17,7 @@ class CustomRuleCreator extends JFXApp {
 
   // Defines and returns the view's scene
   def execute : Scene = {
-    val customRuleView = new Scene(620, 510) {
+    val customRuleView = new Scene(620, 530) {
 
       // TODO: Make scene's design
       stylesheets = List(getClass.getResource("customRuleCreator.css").toExternalForm)
@@ -79,10 +79,15 @@ class CustomRuleCreator extends JFXApp {
         })
 
         // Creates the rule passing selections
-        Main.overrideRule(new CustomRule(testTemplate))
+        Main.overrideRule(new CustomRule(testTemplate, input.getText))
         // Returns view to openingView
         Main.changeScene(1)
       }
+
+      val input = new TextField
+
+      val name = new Text("Rule name:")
+      name.setId("name")
 
       argsPanel.addRow(gridRowIdx, getRuleRow)
 
@@ -94,9 +99,9 @@ class CustomRuleCreator extends JFXApp {
       cusRulePanel.vgap = 40
       cusRulePanel.hgap = 200
 
-      cusRulePanel.children = List(custxt,newRule,done,argsPanel)
+      cusRulePanel.children = List(custxt,newRule, done, name, input,argsPanel)
       cusRulePanel.setStyle("-fx-background-color: grey;")
-      cusRulePanel.setPrefSize(620,510)
+      cusRulePanel.setPrefSize(620,530)
 
       //val grid = new GridPane
 

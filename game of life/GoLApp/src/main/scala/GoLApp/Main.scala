@@ -20,54 +20,71 @@ import scalafx.scene.text.Text
 
 object Main extends JFXApp {
 
-  // The stage
-  stage = new JFXApp.PrimaryStage
-  stage.title = "Game of Life"
-  stage.getIcons.add(new Image("GoLApp/icon.png"))
+    // The stage
+    stage = new JFXApp.PrimaryStage
+    stage.title = "Game of Life"
+    stage.getIcons.add(new Image("GoLApp/icon.png"))
+
+
+    stage.scene = this.execute
+    stage.sizeToScene
+    stage.resizable
+    stage.show
+
   // Available Rules from libraries
    var rules = getRules()
 
   // Rule that will be used in the game
    var actualRule = rules.head
 
-  private val openingView = new Scene(500, 300){
-    // TODO: Make view's design
-    stylesheets = List(getClass.getResource("mainView.css").toExternalForm)
+  def execute : Scene = {
+    val openingView = new Scene(500, 440) {
+      // TODO: Make view's design
+      stylesheets = List(getClass.getResource("mainView.css").toExternalForm)
 
-    val rootPanel = new FlowPane
+      val rootPanel = new FlowPane
 
-    val welcome = new Text("Game of Life")
-    welcome.setId("head-text")
+      val welcome = new Text("Game of Life")
+      welcome.setId("head-text")
 
-    val continue = new Button("Start")
-    continue.styleClass = List("button")
-    continue.onAction = (ae : ActionEvent) => {
-      changeScene(1)
+      val continue = new Button("Start")
+      continue.styleClass = List("button")
+      continue.onAction = (ae: ActionEvent) => {
+        changeScene(1)
+      }
+
+      val exit = new Button("Exit")
+      //exit.setStyle("-fx-font-size : 30px;")
+      exit.styleClass = List("button")
+      exit.onAction = (ae: ActionEvent) => {
+        changeScene(0)
+      }
+
+      val input = new TextField
+
+      val files = new Button("Get Rules")
+      files.onAction = (ae: ActionEvent) => {
+        rules = getRules(input.getText)
+        new Alert(AlertType.Information) {
+          title = "Loading rules completed"
+          headerText = "Rules loaded from " + input.getText
+          contentText = "Unless file could not be accessed. In this case, loaded from rules.txt"
+        }.showAndWait()
+      }
+
+      rootPanel.setAlignment(Pos.TopCenter)
+      rootPanel.vgap = 40
+      rootPanel.hgap = 500
+
+      rootPanel.children = List(welcome, input, files, continue, exit)
+      rootPanel.setStyle("-fx-background-color: grey;")
+      rootPanel.setPrefSize(500, 440)
+
+      content = rootPanel
+
     }
-
-    val exit = new Button("Exit")
-    //exit.setStyle("-fx-font-size : 30px;")
-    exit.styleClass = List("button")
-    exit.onAction = (ae : ActionEvent) => {
-      changeScene(0)
-    }
-
-    rootPanel.setAlignment(Pos.TopCenter)
-    rootPanel.vgap = 40
-    rootPanel.hgap = 500
-
-    rootPanel.children = List(welcome,continue, exit)
-    rootPanel.setStyle("-fx-background-color: grey;")
-    rootPanel.setPrefSize(500,300)
-
-    content = rootPanel
-
+    openingView
   }
-
-  stage.scene = openingView
-  stage.sizeToScene
-  stage.resizable
-  stage.show
 
   def changeScene(s : Int): Unit ={
 
@@ -75,7 +92,7 @@ object Main extends JFXApp {
       sys.exit(0)
     }
     else if(s == 1){ //MAIN TO RESOLUTION SELECTION
-      val res = new ResolutionView(actualRule)
+      val res = new ResolutionView
       stage.hide
       stage.scene = res.execute
       stage.sizeToScene
@@ -83,7 +100,7 @@ object Main extends JFXApp {
       stage.show
     }
     else if(s == 2){ //GAME TO RESOLUTION SELECTION
-      val res = new ResolutionView(actualRule)
+      val res = new ResolutionView
       stage.hide
       stage.scene = res.execute
       stage.sizeToScene
@@ -100,7 +117,7 @@ object Main extends JFXApp {
     }
   }
 
-  def changeScene(s : Int, w : Int , h : Int, str : String): Unit ={
+  def changeScene(s : Int, w : Int , h : Int, str : String): Unit = {
 
     if(s == 0){ //RESOLUTION SELECTION TO GAME
       getRuleSelected(str)
@@ -124,13 +141,13 @@ object Main extends JFXApp {
   }
 
   // Get available rules from libs
-  private def getRules(fileName: String = "GoLApp/rules.txt"): List[RuleGuide] = {
-    var useThis = fileName
+  private def getRules(fileName: String = "rules.txt"): List[RuleGuide] = {
+    var useThis = "GoLApp/" + fileName
     var rules: List[RuleGuide] = List()
     var err : Array[String] = Array()
     // tries to safely access file
     try {
-      Source.fromResource(fileName).getLines()
+      Source.fromResource(useThis).getLines()
     }
     catch {
       case e : Any => {
@@ -167,26 +184,20 @@ object Main extends JFXApp {
         contentText = s
       }.showAndWait()
     }
+
     rules
   }
 
   // If Custom Rule is selected, saves it in the rule to be used
   def overrideRule(rule : CustomRule) = {
-    if(actualRule.name != "Custom") {
-      //openingView.chooseRule.getItems.add("Custom")
-      //openingView.chooseRule.getSelectionModel.selectLast()
-    }
-    this.actualRule = rule
-  }
+    rules = rules :+ rule
+    rules.foreach(x => println(x))
 
-  def overrideRule(rule : RuleGuide) = {
-    this.actualRule = rule
   }
-
   // Gets control back from other view
   def getControl = {  
     stage.hide
-    stage.scene = openingView
+    stage.scene = this.execute
     stage.sizeToScene
     stage.resizable
     stage.show

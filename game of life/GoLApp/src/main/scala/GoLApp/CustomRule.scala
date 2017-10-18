@@ -3,8 +3,7 @@ package GoLApp
 import GoLBase.{Board, Cells, RuleGuide}
 
 
-class CustomRule(args : Array[Array[String]]) extends RuleGuide {
-  override val name: String = "Custom"
+class CustomRule(args : Array[Array[String]],override val name : String = "Custom") extends RuleGuide {
   private val tests = extractTests(args)
 
   override def nextGen(width: Int, height: Int, board: Board): (List[Cells], List[Cells]) = {
