@@ -1,5 +1,6 @@
 package GoLApp
 
+import javafx.geometry.Orientation
 import javafx.scene.image.Image
 import javafx.scene.text.TextAlignment
 
@@ -10,119 +11,117 @@ import scalafx.Includes._
 import scalafx.application.JFXApp
 import scalafx.collections.ObservableBuffer
 import scalafx.event.ActionEvent
-import scalafx.geometry.Pos
+import scalafx.geometry.{HPos, Pos}
 import scalafx.scene.Scene
 import scalafx.scene.control.Alert.AlertType
 import scalafx.scene.control._
-import scalafx.scene.layout.BorderPane
+import scalafx.scene.layout.{BorderPane, FlowPane}
 import scalafx.scene.text.Text
 
 object Main extends JFXApp {
 
-  // The stage
-  stage = new JFXApp.PrimaryStage
-  stage.title = "Game of Life"
-  stage.getIcons.add(new Image("GoLApp/icon.png"))
+    // The stage
+    stage = new JFXApp.PrimaryStage
+    stage.title = "Game of Life"
+    stage.getIcons.add(new Image("GoLApp/icon.png"))
+
+
+    stage.scene = this.execute
+    stage.sizeToScene
+    stage.resizable
+    stage.show
+
   // Available Rules from libraries
-  private var rules = getRules()
+   var rules = getRules()
 
   // Rule that will be used in the game
-  private var actualRule = rules.head
+   var actualRule = rules.head
 
-  private val openingView = new Scene(880, 600){
-    // TODO: Make view's design
-    stylesheets = List(getClass.getResource("openingView.css").toExternalForm)
-    val rootPanel = new BorderPane
+  def execute : Scene = {
+    val openingView = new Scene(500, 440) {
+      // TODO: Make view's design
+      stylesheets = List(getClass.getResource("mainView.css").toExternalForm)
 
+      val rootPanel = new FlowPane
 
-    // Separates main view in two
-    /*val boardDims = new SplitPane
-    boardDims.orientation = Orientation.HORIZONTAL*/
+      val welcome = new Text("Game of Life")
+      welcome.setId("head-text")
 
-    //--------------------Top Area--------------------//
+      val continue = new Button("Start")
+      continue.styleClass = List("button")
+      continue.onAction = (ae: ActionEvent) => {
+        changeScene(1)
+      }
 
-    val welcomeTxt = new Text()
+      val exit = new Button("Exit")
+      //exit.setStyle("-fx-font-size : 30px;")
+      exit.styleClass = List("button")
+      exit.onAction = (ae: ActionEvent) => {
+        changeScene(0)
+      }
 
-    welcomeTxt.setTextAlignment(TextAlignment.CENTER)
-    welcomeTxt.setText("Welcome to Game of Life")
-    welcomeTxt.setStyle("-fx-font: 68 arial;")
+      val input = new TextField
 
-    rootPanel.top = welcomeTxt
+      val files = new Button("Get Rules")
+      files.onAction = (ae: ActionEvent) => {
+        rules = getRules(input.getText)
+        new Alert(AlertType.Information) {
+          title = "Loading rules completed"
+          headerText = "Rules loaded from " + input.getText
+          contentText = "Unless file could not be accessed. In this case, loaded from rules.txt"
+        }.showAndWait()
+      }
 
-    //---------------------Center Area------------------//
+      rootPanel.setAlignment(Pos.TopCenter)
+      rootPanel.vgap = 40
+      rootPanel.hgap = 500
 
-    //Separates center pane (will contain matrixPane(left) and rulesPane(right))
-    val centerPane = new BorderPane
+      rootPanel.children = List(welcome, input, files, continue, exit)
+      rootPanel.setStyle("-fx-background-color: grey;")
+      rootPanel.setPrefSize(500, 440)
 
-                    //--------Center Left---------//
+      content = rootPanel
 
-    //Create matrix resolution selection
-    val matrixPane = new BorderPane
+    }
+    openingView
+  }
 
-    val setWidth = new Spinner[Int](3, 50, 15)
-    setWidth.style = Spinner.StyleClassArrowsOnLeftVertical
-    val setHeight = new Spinner[Int](3, 50, 15)
-    setHeight.style = Spinner.StyleClassArrowsOnLeftVertical
+  def changeScene(s : Int): Unit ={
 
-    val bar = new ToolBar
-    bar.items = List(getText("Width: "), setWidth, getText(" X "), setHeight, getText(" : Height"))
-
-    matrixPane.center = bar
-    centerPane.left = matrixPane
-
-
-                    //---------Center Right--------//
-
-    // separates rules area
-    val rulesPane = new BorderPane
-
-    val chooseRule = new ChoiceBox[String]
-    chooseRule.items = getRuleNames(rules)
-    chooseRule.getSelectionModel.selectFirst()
-
-
-    // custom Rule button
-    val custom = new Button("Custom")
-      custom.onAction = (ae : ActionEvent) => {
+    if(s == 0){ //EXIT PROGRAM
+      sys.exit(0)
+    }
+    else if(s == 1){ //MAIN TO RESOLUTION SELECTION
+      val res = new ResolutionView
       stage.hide
-      stage.scene = CustomRuleCreator.execute
+      stage.scene = res.execute
+      stage.sizeToScene
+      stage.resizable
       stage.show
     }
-
-    val input = new TextField
-
-    // Get Rules button
-    val ruleBtn = new Button("Get Rules")
-    ruleBtn.onAction = (ae : ActionEvent) => {
-      val s : String = "GoLApp/" + input.getText
-      if(s != "GoLApp/")
-        rules = getRules(s)
-      else
-        rules = getRules()
-
-      chooseRule.items = getRuleNames(rules)
-      chooseRule.getSelectionModel.selectFirst()
+    else if(s == 2){ //GAME TO RESOLUTION SELECTION
+      val res = new ResolutionView
+      stage.hide
+      stage.scene = res.execute
+      stage.sizeToScene
+      stage.resizable
+      stage.show
     }
+    else if(s == 3){ //RESOLUTION SELECTION TO CUSTOM
+      val cus = new CustomRuleCreator()
+      stage.hide
+      stage.scene = cus.execute
+      stage.sizeToScene
+      stage.resizable
+      stage.show
+    }
+  }
 
-    val listOfButtonsRuleTop = new ButtonBar
-    listOfButtonsRuleTop.autosize
-    listOfButtonsRuleTop.buttons.addAll(chooseRule)
+  def changeScene(s : Int, w : Int , h : Int, str : String): Unit = {
 
-    val listOfButtonsRuleBottom = new ButtonBar
-    listOfButtonsRuleBottom.autosize
-    listOfButtonsRuleBottom.buttons.addAll(custom, input, ruleBtn)
-
-    rulesPane.top = listOfButtonsRuleTop
-    rulesPane.bottom = listOfButtonsRuleBottom
-
-    centerPane.right = rulesPane
-    rootPanel.center = centerPane
-
-    //----------------------Bottom Area---------------------//
-
-    val continue = new Button("Continue")
-    continue.onAction = (ae : ActionEvent) => {
-      val game = new TheGrid(actualRule, setWidth.getValue, setHeight.getValue)
+    if(s == 0){ //RESOLUTION SELECTION TO GAME
+      getRuleSelected(str)
+      val game = new TheGrid(actualRule, w, h)
       stage.hide
       stage.scene = game.execute
       stage.sizeToScene
@@ -130,24 +129,9 @@ object Main extends JFXApp {
       stage.show
     }
 
-    val exit = new Button("Exit")
-    exit.onAction = (ae : ActionEvent) => {
-      sys.exit(0)
-    }
-
-
-    val listButtonsBottom = new ButtonBar
-    listButtonsBottom.buttons.addAll(continue, exit)
-    //listButtonsBottom.autosize
-    rootPanel.bottom = listButtonsBottom
-    content = rootPanel
-
   }
 
-  stage.scene = openingView
-  stage.sizeToScene
-  stage.resizable
-  stage.show
+
 
   // Returns a Text with given string
   private def getText(v: String): Text = {
@@ -157,13 +141,13 @@ object Main extends JFXApp {
   }
 
   // Get available rules from libs
-  private def getRules(fileName: String = "GoLApp/rules.txt"): List[RuleGuide] = {
-    var useThis = fileName
+  private def getRules(fileName: String = "rules.txt"): List[RuleGuide] = {
+    var useThis = "GoLApp/" + fileName
     var rules: List[RuleGuide] = List()
     var err : Array[String] = Array()
     // tries to safely access file
     try {
-      Source.fromResource(fileName).getLines()
+      Source.fromResource(useThis).getLines()
     }
     catch {
       case e : Any => {
@@ -200,22 +184,20 @@ object Main extends JFXApp {
         contentText = s
       }.showAndWait()
     }
+
     rules
   }
 
   // If Custom Rule is selected, saves it in the rule to be used
   def overrideRule(rule : CustomRule) = {
-    if(actualRule.name != "Custom") {
-      openingView.chooseRule.getItems.add("Custom")
-      openingView.chooseRule.getSelectionModel.selectLast()
-    }
-    this.actualRule = rule
-  }
+    rules = rules :+ rule
+    rules.foreach(x => println(x))
 
+  }
   // Gets control back from other view
-  def getControl = {
+  def getControl = {  
     stage.hide
-    stage.scene = openingView
+    stage.scene = this.execute
     stage.sizeToScene
     stage.resizable
     stage.show
@@ -227,5 +209,18 @@ object Main extends JFXApp {
 
     names.reverse
   }
+
+  def getRuleSelected(s : String) : Unit = {
+    var allRules = rules
+
+    allRules.foreach(r => {
+      //println(r.name)
+      if(r.name == s){
+        actualRule = r
+        //println("selected " + r.name)
+      }
+    } )
+  }
+
 
 }

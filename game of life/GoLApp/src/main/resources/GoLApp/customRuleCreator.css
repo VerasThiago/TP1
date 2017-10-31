@@ -13,3 +13,31 @@
     -fx-mark-color: #9fa6ff; // arrow color
 }
 
+#name {
+    -fx-font : 30 arial;
+    -fx-fill: yellow;
+    -fx-font-weight: bold;
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
+}
+#head-text{
+    -fx-font: 60 arial;
+    -fx-fill: yellow;
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
+}
+
+.button {
+
+    -fx-scale-shape: inherit;
+    -fx-font-size : 20px;
+}
+
+.button:hover {
+    -fx-background-color: yellow;
+}
+
+.button:pressed {
+    -fx-background-color: #DAA520;
+
+}

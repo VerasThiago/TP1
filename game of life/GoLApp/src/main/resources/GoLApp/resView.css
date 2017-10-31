@@ -1,0 +1,36 @@
+
+.headtext{
+    -fx-font: 68 arial;
+    -fx-fill: yellow;
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
+}
+
+.bodytext{
+    -fx-font: 40 arial;
+    -fx-fill: yellow;
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+}
+
+.tool-bar {
+
+    -fx-scale-shape: true;
+    -fx-min-width: 300px;
+}
+
+.button {
+
+    -fx-scale-shape: inherit;
+    -fx-font-size : 20px;
+}
+
+.button:hover {
+    -fx-background-color: yellow;
+}
+
+.button:pressed {
+    -fx-background-color: #DAA520;
+
+}
+
