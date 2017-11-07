@@ -1,0 +1,284 @@
+@(message: String)
+
+
+<!DOCTYPE html>
+    <html lang="en">
+
+        <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        #myInput {
+          background-image: url('/css/searchicon.png');
+          background-position: 10px 12px;
+          background-repeat: no-repeat;
+          width: 100%;
+          font-size: 16px;
+          padding: 12px 20px 12px 40px;
+          border: 1px solid #ddd;
+          margin-bottom: 12px;
+        }
+
+        #myUL {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        #myUL li a {
+          border: 1px solid #ddd;
+          margin-top: -1px; /* Prevent double borders */
+          background-color: #f6f6f6;
+          padding: 12px;
+          text-decoration: none;
+          font-size: 18px;
+          color: black;
+          display: block
+        }
+
+        #myUL li a:hover:not(.header) {
+          background-color: #eee;
+        }
+        </style>
+
+        <head>
+
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="">
+            <meta name="author" content="">
+
+            <title>Restaurant Finder</title>
+
+                <!-- Bootstrap core CSS -->
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at("vendor/bootstrap/css/bootstrap.min.css")">
+                <!-- Custom fonts for this template -->
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at("vendor/font-awesome/css/font-awesome.min.css")">
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at("https://fonts.googleapis.com/css?family=Montserrat:400,700")">
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic")">
+
+                <!-- Custom styles for this template -->
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/freelancer.min.css")">
+
+        </head> 
+
+        <body id="page-top">
+
+                <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+                <div class="container">
+                    <a class="navbar-brand js-scroll-trigger" href="#page-top">Restaurant Finder</a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+                <!-- Header -->
+            <header class="masthead">
+	                <div class="container">
+	                	<div class="intro-text">
+	                        <span class="name">Search for restaurants</span>	                      
+	                    </div>
+			            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+			            <ul id="myUL">
+			              <li style="color: white;"><a href="#">Adele</a></li>
+                          <li><a href="#">Body Toning</a></li>
+                          <li><a href="#">Bold Ideas</a></li>
+                          <li><a href="#">Bonanza Produce Stores</a></li>
+                          <li><a href="#">Bountiful Harvest Health Food Store</a></li>
+                          <li><a href="#">Brilliant Home Designs</a></li>
+                          <li><a href="#">Capitalcorp</a></li>
+                          <li><a href="#">Castle Realty</a></li>
+                          <li><a href="#">Chargepal</a></li>
+                          <li><a href="#">Choices</a></li>
+                          <li><a href="#">Circuit Design</a></li>
+                          <li><a href="#">Complete Tech</a></li>
+                          <li><a href="#">Corinthian Designs</a></li>
+                          <li><a href="#">Corpbay</a></li>
+                          <li><a href="#">Cougar Investment</a></li>
+                          <li><a href="#">Crazy Tiger</a></li>
+                          <li><a href="#">Creative Wealth</a></li>
+                          <li><a href="#">Creative Wealth Management</a></li>
+                          <li><a href="#">Custom Lawn Care</a></li>
+                          <li><a href="#">Custom Lawn Service</a></li>
+                          <li><a href="#">Cut Above</a></li>
+                          <li><a href="#">Cut Rite</a></li>
+                          <li><a href="#">Cut Rite Lawn Care</a></li>
+                          <li><a href="#">Datacorp</a></li>
+                          <li><a href="#">Desert Garden Help</a></li>
+                          <li><a href="#">Destiny Planners</a></li>
+                          <li><a href="#">Destiny Realty</a></li>
+                          <li><a href="#">Destiny Realty Solutions</a></li>
+                          <li><a href="#">Dream Home Improvements</a></li>
+                          <li><a href="#">Dream Home Real Estate Service</a></li>
+                          <li><a href="#">Dreamscape Garden Care</a></li>
+                          <li><a href="#">Dun Rite Lawn Care</a></li>
+                          <li><a href="#">Dun Rite Lawn Maintenance</a></li>
+                          <li><a href="#">Dynatronics Accessories</a></li>
+                          <li><a href="#">E-zhe Source</a></li>
+                          <li><a href="#">Earthworks Garden Kare</a></li>
+                          <li><a href="#">Earthworks Yard Maintenance</a></li>
+                          <li><a href="#">Eden Lawn Service</a></li>
+                          <li><a href="#">Edge Garden Services</a></li>
+                          <li><a href="#">Edge Yard Service</a></li>
+                          <li><a href="#">Ejecta</a></li>
+                          <li><a href="#">Electronic Geek</a></li>
+                          <li><a href="#">Electronics Source</a></li>
+                          <li><a href="#">Enrich Garden Services</a></li>
+                          <li><a href="#">Enviro Architectural Designs</a></li>
+                          <li><a href="#">Environ Architectural Design</a></li>
+                          <li><a href="#">EnviroSource Design</a></li>
+                          <li><a href="#">Envirotecture Design</a></li>
+                          <li><a href="#">Envirotecture Design Service</a></li>
+                          <li><a href="#">Exact Realty</a></li>
+                          <li><a href="#">Exact Solutions</a></li>
+                          <li><a href="#">Excella</a></li>
+                          <li><a href="#">Express Merchant Service</a></li>
+                          <li><a href="#">Fellowship Investments</a></li>
+                          <li><a href="#">Fireball</a></li>
+                          <li><a href="#">First Choice Garden Maintenance</a></li>
+                          <li><a href="#">First Choice Yard Help</a></li>
+                          <li><a href="#">First Rate Choice</a></li>
+                          <li><a href="#">Fit Tonic</a></li>
+                          <li><a href="#">Flexus</a></li>
+                          <li><a href="#">Formula Gray</a></li>
+                          <li><a href="#">Formula Grey</a></li>
+                          <li><a href="#">Four Leaf Clover</a></li>
+                          <li><a href="#">Fragrant Flower Lawn Services</a></li>
+			              <li><a href="#">Agnes</a></li>
+			              <li><a href="#">Billy</a></li>
+			              <li><a href="#">Bob</a></li>
+			              <li><a href="#">Calvin</a></li>
+			              <li><a href="#">Christina</a></li>
+			              <li><a href="#">Cindy</a></li>
+			            </ul>
+	                </div>
+            </header>
+
+         
+          
+
+                <!-- Footer -->
+            <footer class="text-center">
+                <div class="footer-above">
+                    <div class="container">
+                        <div class="row">
+                            <div class="footer-col col-md-4">
+                                <h3>Location</h3>
+                                <p>3481 Melrose Place
+                                    <br>Beverly Hills, CA 90210</p>
+                            </div>
+                            <div class="footer-col col-md-4">
+                                <h3>Around the Web</h3>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a class="btn-social btn-outline" href="#">
+                                            <i class="fa fa-fw fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn-social btn-outline" href="#">
+                                            <i class="fa fa-fw fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn-social btn-outline" href="#">
+                                            <i class="fa fa-fw fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn-social btn-outline" href="#">
+                                            <i class="fa fa-fw fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn-social btn-outline" href="#">
+                                            <i class="fa fa-fw fa-dribbble"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer-col col-md-4">
+                                <h3>About Freelancer</h3>
+                                <p>Freelance is a free to use, open source Bootstrap theme created by
+                                    <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-below">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                Copyright &copy; Your Website 2017
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+           
+          
+
+                <!-- Bootstrap core JavaScript -->
+            <script src="../../public/vendor/jquery/jquery.min.js"></script>
+            <script src="../../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="@routes.Assets.at("vendor/jquery/jquery.min.js")" type="text/javascript"></script>
+            <script src="@routes.Assets.at("vendor/bootstrap/js/bootstrap.bundle.min.js")" type="text/javascript"></script>
+
+                <!-- Plugin JavaScript -->
+            <script src="../../public/vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src="@routes.Assets.at("vendor/jquery-easing/jquery.easing.min.js")" type="text/javascript"></script>
+
+                <!-- Contact Form JavaScript -->
+            <script src="../../public/js/jqBootstrapValidation.js"></script>
+            <script src="../../public/js/contact_me.js"></script>
+            <script src="@routes.Assets.at("js/jqBootstrapValidation.js")" type="text/javascript"></script>
+            <script src="@routes.Assets.at("js/contact_me.js")" type="text/javascript"></script>
+
+                <!-- Custom scripts for this template -->
+            <script src="../../public/js/freelancer.min.js"></script>
+            <script src="@routes.Assets.at("jjs/freelancer.min.js")" type="text/javascript"></script>
+
+            <script>
+            function myFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("myUL");
+                li = ul.getElementsByTagName("li");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+
+                    }
+                }
+            }
+            </script>
+            
+
+        </body>
+
+    </html>
+
+
