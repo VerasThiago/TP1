@@ -8,6 +8,16 @@
         * {
           box-sizing: border-box;
         }
+        #map {
+          height: 600px;
+          width: 600px;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
 
         #myInput {
           background-image: url('/css/searchicon.png');
@@ -88,7 +98,6 @@
                     </div>
                 </div>
             </nav>
-
                 <!-- Header -->
             <header class="masthead">
 	                <div class="container">
@@ -102,80 +111,61 @@
                                     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for restaurants..">
 
             			            <ul id="myUL">
-            			              <li style="color: white;"><a href="#">Adele</a></li>
-                                      <li><a href="#">Body Toning</a></li>
-                                      <li><a href="#">Bold Ideas</a></li>
-                                      <li><a href="#">Bonanza Produce Stores</a></li>
-                                      <li><a href="#">Bountiful Harvest Health Food Store</a></li>
-                                      <li><a href="#">Brilliant Home Designs</a></li>
-                                      <li><a href="#">Capitalcorp</a></li>
-                                      <li><a href="#">Castle Realty</a></li>
-                                      <li><a href="#">Chargepal</a></li>
-                                      <li><a href="#">Choices</a></li>
-                                      <li><a href="#">Circuit Design</a></li>
-                                      <li><a href="#">Complete Tech</a></li>
-                                      <li><a href="#">Corinthian Designs</a></li>
-                                      <li><a href="#">Corpbay</a></li>
-                                      <li><a href="#">Cougar Investment</a></li>
-                                      <li><a href="#">Crazy Tiger</a></li>
-                                      <li><a href="#">Creative Wealth</a></li>
-                                      <li><a href="#">Creative Wealth Management</a></li>
-                                      <li><a href="#">Custom Lawn Care</a></li>
-                                      <li><a href="#">Custom Lawn Service</a></li>
-                                      <li><a href="#">Cut Above</a></li>
-                                      <li><a href="#">Cut Rite</a></li>
-                                      <li><a href="#">Cut Rite Lawn Care</a></li>
-                                      <li><a href="#">Datacorp</a></li>
-                                      <li><a href="#">Desert Garden Help</a></li>
-                                      <li><a href="#">Destiny Planners</a></li>
-                                      <li><a href="#">Destiny Realty</a></li>
-                                      <li><a href="#">Destiny Realty Solutions</a></li>
-                                      <li><a href="#">Dream Home Improvements</a></li>
-                                      <li><a href="#">Dream Home Real Estate Service</a></li>
-                                      <li><a href="#">Dreamscape Garden Care</a></li>
-                                      <li><a href="#">Dun Rite Lawn Care</a></li>
-                                      <li><a href="#">Dun Rite Lawn Maintenance</a></li>
-                                      <li><a href="#">Dynatronics Accessories</a></li>
-                                      <li><a href="#">E-zhe Source</a></li>
-                                      <li><a href="#">Earthworks Garden Kare</a></li>
-                                      <li><a href="#">Earthworks Yard Maintenance</a></li>
-                                      <li><a href="#">Eden Lawn Service</a></li>
-                                      <li><a href="#">Edge Garden Services</a></li>
-                                      <li><a href="#">Edge Yard Service</a></li>
-                                      <li><a href="#">Ejecta</a></li>
-                                      <li><a href="#">Electronic Geek</a></li>
-                                      <li><a href="#">Electronics Source</a></li>
-                                      <li><a href="#">Enrich Garden Services</a></li>
-                                      <li><a href="#">Enviro Architectural Designs</a></li>
-                                      <li><a href="#">Environ Architectural Design</a></li>
-                                      <li><a href="#">EnviroSource Design</a></li>
-                                      <li><a href="#">Envirotecture Design</a></li>
-                                      <li><a href="#">Envirotecture Design Service</a></li>
-                                      <li><a href="#">Exact Realty</a></li>
-                                      <li><a href="#">Exact Solutions</a></li>
-                                      <li><a href="#">Excella</a></li>
-                                      <li><a href="#">Express Merchant Service</a></li>
-                                      <li><a href="#">Fellowship Investments</a></li>
-                                      <li><a href="#">Fireball</a></li>
-                                      <li><a href="#">First Choice Garden Maintenance</a></li>
-                                      <li><a href="#">First Choice Yard Help</a></li>
-                                      <li><a href="#">First Rate Choice</a></li>
-                                      <li><a href="#">Fit Tonic</a></li>
-                                      <li><a href="#">Flexus</a></li>
-                                      <li><a href="#">Formula Gray</a></li>
-                                      <li><a href="#">Formula Grey</a></li>
-                                      <li><a href="#">Four Leaf Clover</a></li>
-                                      <li><a href="#">Fragrant Flower Lawn Services</a></li>
-            			              <li><a href="#">Agnes</a></li>
-            			              <li><a href="#">Billy</a></li>
-            			              <li><a href="#">Bob</a></li>
-            			              <li><a href="#">Calvin</a></li>
-            			              <li><a href="#">Christina</a></li>
-            			              <li><a href="#">Cindy</a></li>
+            			              <li><a href="#">Academia</a></li>
+                                      <li><a href="#">Casa</a></li>
+                                      <li><a href="#">UnB</a></li>
+                                      <li><a href="#">Vila do Bode</a></li>
             			            </ul>
                                 </div>
                                 <div class="col-lg-6 mx-auto">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15359.185271052784!2d-47.875830861275396!3d-15.761910675141948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a398265a2d027%3A0x9431d651ab4c1104!2sUniversidade+de+Bras%C3%ADlia!5e0!3m2!1spt-BR!2sbr!4v1510102431825" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen></iframe>
+                                    <div id="map"></div>
+                                        <script>
+                                          // Note: This example requires that you consent to location sharing when
+                                          // prompted by your browser. If you see the error "The Geolocation service
+                                          // failed.", it means you probably did not give permission for the browser to
+                                          // locate you.
+
+                                          function initMap() {
+                                            var map = new google.maps.Map(document.getElementById('map'), {
+                                              center: {lat: -15.7628415, lng: -47.8718126},
+                                              zoom: 17
+                                            });
+                                            var infoWindow = new google.maps.InfoWindow({map: map});
+                                            var casa = {lat: -15.6687745,lng: -47.8324466};
+                                            var marker = new google.maps.Marker({
+                                                position: casa,
+                                                map: map
+                                            });
+                                            // Try HTML5 geolocation.
+                                            if (navigator.geolocation) {
+                                              navigator.geolocation.getCurrentPosition(function(position) {
+                                                var pos = {
+                                                  lat: position.coords.latitude,
+                                                  lng: position.coords.longitude
+                                                };
+
+                                                infoWindow.setPosition(pos);
+                                                infoWindow.setContent('Aqui viado.');
+                                                map.setCenter(pos);
+                                              }, function() {
+                                                handleLocationError(true, infoWindow, map.getCenter());
+                                              });
+                                            } else {
+                                              // Browser doesn't support Geolocation
+                                              handleLocationError(false, infoWindow, map.getCenter());
+                                            }
+                                          }
+
+                                          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                                            infoWindow.setPosition(pos);
+                                            infoWindow.setContent(browserHasGeolocation ?
+                                                                  'Error: The Geolocation service failed.' :
+                                                                  'Error: Your browser doesn\'t support geolocation.');
+                                          }
+                                        </script>
+                                        <script async defer
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM_7kLhg1XE_BpPB52JkkXl6OwxA3newQ&callback=initMap">
+                                        </script>
                                 </div>
                             </div>
                         </div>
@@ -184,6 +174,9 @@
 
          
           
+
+
+
 
                 <!-- Footer -->
             <footer class="text-center">
