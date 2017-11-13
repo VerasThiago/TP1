@@ -50,6 +50,25 @@
             #myUL li a:hover:not(.header) {
                 background-color: #eee;
             }
+            #iw-container  .iw-title {
+               font-family: 'Open Sans Condensed', sans-serif;
+               font-size: 22px;
+               font-weight: 400;
+               padding: 10px;
+               background-color: #48b5e9;
+               color: white;
+               margin: 1px;
+               border-radius: 2px 2px 0 0; /* De acordo com o arredondamento dos cantos da infowindow por padrão. */
+            }
+            .gm-style-iw {
+               width: 350px !important;
+               top: 0 !important;
+               left: 0 !important;
+               background-color: #fff;
+               box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+               border: 1px solid rgba(72, 181, 233, 0.6);
+               border-radius: 2px 2px 0 0;
+            }
     </style>
 
     <head>
@@ -70,6 +89,8 @@
 
             <!-- Custom styles for this template -->
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/freelancer.min.css")">
+
+
 
     </head>
 
@@ -111,109 +132,80 @@
                             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for restaurants..">
 
                             <ul id="myUL">
-                                <li><a href="#" onclick="teste(-15.661522,-47.838764)">Academia</a></li>
-                                <li><a href="#" onclick="teste(-15.756465,-47.891857)">Açaí Casca</a></li>
-                                <li><a href="#" onclick="teste(-15.662053,-47.838043)">Ondas Burger</a></li>
-                                <li><a href="#" onclick="teste(-15.763189,-47.870754)">UnB</a></li>
-                                <li><a href="#">The White Swan</a></li>
-                                <li><a href="#">Titania</a></li>
-                                <li><a href="#">Total Network Development</a></li>
-                                <li><a href="#">Total Quality</a></li>
-                                <li><a href="#">Total Serve</a></li>
-                                <li><a href="#">Total Sources</a></li>
-                                <li><a href="#">Total Yard Maintenance</a></li>
-                                <li><a href="#">Total Yard Management</a></li>
-                                <li><a href="#">Universal Design Partners</a></li>
-                                <li><a href="#">Universo Realtors</a></li>
-                                <li><a href="#">Vibrant Man</a></li>
-                                <li><a href="#">Vitagee</a></li>
-                                <li><a href="#">VitaGrey</a></li>
-                                <li><a href="#">Vitamax Health Food Center</a></li>
+                                <li><a href="#" onclick="googleMaps(-15.661522,-47.838764)">Academia</a></li>
+                                <li><a href="#" onclick="googleMaps(-15.756465,-47.891857)">Açaí Casca</a></li>
+                                <li><a href="#" onclick="googleMaps(-15.661427,-47.8371979)">Ondas Burger</a></li>
+                                <li><a href="#" onclick="googleMaps(-15.763189,-47.870754)">UnB</a></li>
+                                <li><a href="#" onclick="googleMaps(-15.814684,-47.889614)">Essence</a></li>
+                                
                             </ul>
                         </div>
                         <div class="col-lg-6 mx-auto">
                             <div id="map"></div>
-                            <script>
-                                 var customLabel = {
-                                   restaurant: {
-                                     label: 'R'
-                                   },
-                                   bar: {
-                                     label: 'B'
-                                   }
-                                 };
+                            <script type="text/javascript">
+                                
 
-                                   function initMap() {
-                                   var map = new google.maps.Map(document.getElementById('map'), {
-                                     center: new google.maps.LatLng(-15.763189, -47.870754),
-                                     zoom: 18
-                                   });
-                                   var infoWindow = new google.maps.InfoWindow;
+                                function googleMaps(lat,lng) {
 
-                                     // Change this depending on the name of your PHP or XML file
-                                     downloadUrl('resultado.php', function(data) {
-                                       var xml = data.responseXML;
-                                       var markers = xml.documentElement.getElementsByTagName('markers');
-                                       Array.prototype.forEach.call(markers, function(markerElem) {
-                                         var name = markerElem.getAttribute('name');
-                                         var address = markerElem.getAttribute('address');
-                                         var type = markerElem.getAttribute('type');
-                                         var point = new google.maps.LatLng(
-                                             parseFloat(markerElem.getAttribute('lat')),
-                                             parseFloat(markerElem.getAttribute('lng')));
+                                    if(lat == null){
+                                        lat = -15.763189;
+                                        lng = -47.870754;
+                                    }
+                                        
+                                    var locations = [
+                                        ['<div style="color: black;">'+
+                                            '<div id="iw-container">' +
+                                            '<div class="iw-title">Universidade de Brasília</div>' +
+                                            '<div class="iw-content">' +
+                                            '<div class="iw-subTitle">Universidade</div>' +
+                                            '<img src="https://goo.gl/e25sJG" alt="Porcelain Factory of Vista Alegre" height="150" width="150">' +
+                                            '<p>A Universidade de Brasília é uma universidade pública federal brasileira, com sede em Brasília, no Distrito Federal. A instituição possui 4 campi, sendo estes em Brasília, Planaltina, Gama, Ceilândia e Paranoá.</p>' +
+                                            '<div class="iw-subTitle">Contacts</div>' +
+                                            '<p>UnB - Brasília, DF, 70910-900'+
+                                            '<br>Phone.  (61) 3107-3300</p>'+
+                                            '</div>' +
+                                            '<div class="iw-bottom-gradient"></div>' +
+                                            '</div>'+
+                                            '</div>',
+                                                    -15.763189,-47.870754, 5],
+                                        ['Saude.com',-15.661522,-47.838764, 4],
+                                        ['Ondas Burger',-15.661427,-47.8371979, 3],
+                                        ['Açaí Casca',-15.756465,-47.891857, 2],
+                                        ['Essence Lounge Bar',-15.814684,-47.889614, 1]
+                                    ];
 
-                                         var infowincontent = document.createElement('div');
-                                         var strong = document.createElement('strong');
-                                         strong.textContent = name
-                                         infowincontent.appendChild(strong);
-                                         infowincontent.appendChild(document.createElement('br'));
 
-                                         var text = document.createElement('text');
-                                         text.textContent = address
-                                         infowincontent.appendChild(text);
-                                         var icon = customLabel[type] || {};
-                                         var marker = new google.maps.Marker({
-                                           map: map,
-                                           position: point,
-                                           label: icon.label
-                                         });
-                                         marker.addListener('click', function() {
-                                           infoWindow.setContent(infowincontent);
-                                           infoWindow.open(map, marker);
-                                         });
-                                       });
-                                     });
-                                   }
-                                   function teste(lat, lng){
-                                        var map = new google.maps.Map(document.getElementById('map'), {
+                                    var map = new google.maps.Map(document.getElementById('map'), {
+                                          zoom: 18,
                                           center: new google.maps.LatLng(lat,lng),
-                                          zoom: 18
+                                          mapTypeId: google.maps.MapTypeId.ROADMAP
                                         });
-                                        var infoWindow = new google.maps.InfoWindow;
-                                   }
+
+                                        var infowindow = new google.maps.InfoWindow();
+
+                                        var marker, i;
+
+                                        for (i = 0; i < locations.length; i++) { 
+                                          marker = new google.maps.Marker({
+                                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                            map: map
+                                          });
+
+                                          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                            return function() {
+                                              infowindow.setContent(locations[i][0]);
+                                              infowindow.open(map, marker);
+                                            }
+                                          })(marker, i));
+                                        }
 
 
+                                }
 
-                                 function downloadUrl(url, callback) {
-                                   var request = window.ActiveXObject ?
-                                       new ActiveXObject('Microsoft.XMLHTTP') :
-                                       new XMLHttpRequest;
-
-                                   request.onreadystatechange = function() {
-                                     if (request.readyState == 4) {
-                                       request.onreadystatechange = doNothing;
-                                       callback(request, request.status);
-                                     }
-                                   };
-
-                                   request.open('GET', url, true);
-                                   request.send(null);
-                                 }
-
-                                 function doNothing() {}
+                    
                                </script>
                                <script async defer
-                               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3cxWIVfftobhe_pBnBl0DumdR2CHtSmk&callback=initMap">
+                               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3cxWIVfftobhe_pBnBl0DumdR2CHtSmk&callback=googleMaps">
                                </script>
                         </div>
                     </div>
