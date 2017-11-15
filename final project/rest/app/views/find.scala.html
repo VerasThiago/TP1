@@ -131,7 +131,7 @@
 
 
     </head>
-    <script src = "@routes.Assets.at("data.js")"></script>
+    <script src = "@routes.Assets.at("database.js")"></script>
     <body id="page-top">
 
             <!-- Navigation -->
@@ -178,6 +178,7 @@
 
 
                             <ul id="myUL" style = "width: 100%; height: 50%; overflow: auto">
+                                <li><a href="#" onclick="googleMaps()"><div class="filterDiv outros">EU</div></a></li>
                                 <li><a href="#" onclick="googleMaps(-15.661522,-47.838764)"><div class="filterDiv outros">Vasco Neto</div></a></li>
                                 <li><a href="#" onclick="googleMaps(-15.756465,-47.891857)"><div class="filterDiv restuarante">Açaí Casca</div></a></li>
                                 <li><a href="#" onclick="googleMaps(-15.661427,-47.8371979)"><div class="filterDiv restaurante">Ondas Burguer</div></a></li>
@@ -232,31 +233,66 @@
                         <div class="col-lg-6 mx-auto">
                             <div id="map" style = "width:100%;"></div>
                             <script type="text/javascript">
-
                                 
+                                // TODO Update map location without need to mark all the places again
 
                                 function googleMaps(lat,lng) {
+                                    var marker, i;
+                                    var crd;
+                                    var map;
+                                    
+                                    if(navigator.geolocation) {
+                                        navigator.geolocation.getCurrentPosition(function(position){
 
-                                    if(lat == null){
-                                        lat = -15.763189;
-                                        lng = -47.870754;
+                                            var loc;
+                                            // Problem: lat,lng can't get position.coords to pass to map out of natvigator function, so I needed to add map into and markers too.
+                                            if(lat == null) loc = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                                            else loc = new google.maps.LatLng(lat,lng);
+                                            map = new google.maps.Map(document.getElementById('map'), {
+                                                zoom: 18,
+                                                center: loc,
+                                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                                            });
+
+                                            marker = new google.maps.Marker({ // Marcador do User
+                                              position: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
+                                              map: map,
+                                              icon: icons[3][0]
+                                            });
+
+                                            for (i = 0; i < locations.length; i++) { // Resto dos marcadores
+                                              marker = new google.maps.Marker({
+                                                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                                map: map,
+                                                icon: icons[locations[i][3]][0]
+                                              });
+
+                                              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                                return function() {
+                                                  infowindow.setContent(informations[i][0]);
+                                                  infowindow.open(map, marker);
+                                                }
+                                              })(marker, i));
+                                                /* Remover borda fixa dos marcadores quando clicados*/
+                                            }
+
+
+
+                                        });
                                     }
-
-
-                                    var map = new google.maps.Map(document.getElementById('map'), {
-                                          zoom: 18,
-                                          center: new google.maps.LatLng(lat,lng),
-                                          mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    else{ // Same Here
+                                        alert("I'm sorry, but geolocation services are not supported by your browser.");
+                                        map = new google.maps.Map(document.getElementById('map'), {
+                                            zoom: 18,
+                                            center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
                                         });
 
-                                        var infowindow = new google.maps.InfoWindow();
-
-                                        var marker, i;
-
-                                        for (i = 0; i < locations.length; i++) { 
+                                        for (i = 0; i < locations.length; i++) { // Resto dos marcadores
                                           marker = new google.maps.Marker({
                                             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                                            map: map
+                                            map: map,
+                                            icon: icons[locations[i][3]][0]
                                           });
 
                                           google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -265,10 +301,10 @@
                                               infowindow.open(map, marker);
                                             }
                                           })(marker, i));
-
                                             /* Remover borda fixa dos marcadores quando clicados*/
-
                                         }
+                                    }
+                                    var infowindow = new google.maps.InfoWindow();
                                 }
 
                     
