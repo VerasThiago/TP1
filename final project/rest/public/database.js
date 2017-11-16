@@ -20,7 +20,7 @@
         '<div class="iw-title">Universidade de Brasília</div>' +
         '<div class="iw-content">' +
         '<div class="iw-subTitle">Universidade</div>' +
-        '<img src="https://goo.gl/e25sJG" alt="Porcelain Factory of Vista Alegre" height="150" width="150">' +
+        '<img src="https://goo.gl/e25sJG" alt="UnB" height="150" width="150">' +
         '<p>A Universidade de Brasília é uma universidade pública federal brasileira, com sede em Brasília, no Distrito Federal. A instituição possui 4 campi, sendo estes em Brasília, Planaltina, Gama, Ceilândia e Paranoá.</p>' +
         '<div class="iw-subTitle">Contacts</div>' +
         '<p>UnB - Brasília, DF, 70910-900'+
