@@ -3,10 +3,9 @@
 O projeto basicamente seria um aplicativo web para listar/avaliar restaurantes num determinado raio de distância a partir da localização ou pesquisa de um usuário.
 
 ### Requirements
-- [ X ] Play Framework
+- [X] Play Framework
 - [ ] Banco de Dados
-- [ X ] API Google Maps
-- [ ] Front-End
+- [X] Front-End
 - [ ] Interligar Tudo
 
 # Funcionamento
