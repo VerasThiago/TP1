@@ -32,5 +32,43 @@ function verasFunction(type){
             else  li[i].style.display = 'none';
         }
     }
+}
+
+function dist(latA, lngA, latB, lngB, i, base){
+    var d2r = 0.017453292519943295769236;
+    var long = (lngB - lngA) * d2r;
+    var lat = (latB - latA) * d2r;
+    var temp_sin = Math.sin(lat/2.0);
+    var temp_cos = Math.cos(latA * d2r);
+    var temp_sin2 = Math.sin(long/2.0);
+    var a = (temp_sin * temp_sin) + (temp_cos * temp_cos) * (temp_sin2 * temp_sin2);
+    var c = 2.0 * Math.atan2(Math.sqrt(a), Math.sqrt(1.0 - a));
+    var dir = 6368.1 * c; 
+
+    if(dir <= base) return true;
+    return false;
+}
+
+function nearby (){
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+
+            var a = position.coords.latitude;
+            var b = position.coords.longitude;
+
+            var base = prompt("Digite a distância em Km: ", "4.5");
+            if (base != null)  alert( base );
+            
+            var ul, li, i;
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+
+            for (i = 0; i < locations.length; i++) { 
+                if(dist(a,b,locations[i][1],locations[i][2],i, base)) li[i].style.display = '';
+                else li[i].style.display = 'none';
+            }
+
+        });
+    }
 
 }
