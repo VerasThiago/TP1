@@ -57,8 +57,8 @@ function nearby (){
             var b = position.coords.longitude;
 
             var base = prompt("Digite a distância em Km: ", "4.5");
-            if (base != null)  alert( base );
-            
+            while(isNaN(base)) base = prompt("Numero inválido, digite a distância em Km: ", "4.5");
+        
             var ul, li, i;
             ul = document.getElementById("myUL");
             li = ul.getElementsByTagName("li");
