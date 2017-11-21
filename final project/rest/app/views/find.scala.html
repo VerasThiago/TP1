@@ -89,21 +89,10 @@
 
                             </div>
 
-                            <!-- database -->
                             <ul id="myUL" style = "width: 100%; height: 50%; overflow: auto">
-                                <li><a href="#" onclick="googleMaps(@list(0).lat,@list(0).lng)"><div class="outros">UnB</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(1).lat,@list(1).lng)"><div class="outros">Academia</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(2).lat,@list(2).lng)"><div class="restaurante">Ondas Burguer</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(3).lat,@list(3).lng)"><div class="restaurante">Açaí Casca</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(4).lat,@list(4).lng)"><div class="bar">Essence</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(5).lat,@list(5).lng)"><div class="bar">Gajah</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(6).lat,@list(6).lng)"><div class="bar">Delta</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(7).lat,@list(7).lng)"><div class="restaurante">Magai</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(8).lat,@list(8).lng)"><div class="bar">Agrabah Hookah</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(9).lat,@list(9).lng)"><div class="outros">IESB</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(10).lat,@list(10).lng)"><div class="outros">IFB</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(11).lat,@list(11).lng)"><div class="bar">Pôr do Sol</div></a></li>
-                                <li><a href="#" onclick="googleMaps(@list(12).lat,@list(12).lng)"><div class="restaurante">Xique Xique</div></a></li>
+                                @for(t <- list) {
+                                    <li><a href="#" onclick="googleMaps(@t.lat,@t.lng)"><div class="@t.tipo">@t.name</div></a></li>
+                                }
                                 <li><a href="#" onclick="googleMaps()"><div class="outros">EU</div></a></li>
                             </ul>
 
