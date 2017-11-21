@@ -1,10 +1,18 @@
-@(message: String)
+@(list:Seq[MapsData])
+
 
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-
+        <style>
+            .prompt  {
+                width: 300px;
+                height: 500px;
+                background: black;
+                color: #FFA500;
+            }
+        </style>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
@@ -83,11 +91,11 @@
 
                             <!-- database -->
                             <ul id="myUL" style = "width: 100%; height: 50%; overflow: auto">
-                                <li><a href="#" onclick="googleMaps(-15.763189,-47.870754)"><div class="outros">UnB</div></a></li>
-                                <li><a href="#" onclick="googleMaps(-15.661522,-47.838764)"><div class="outros">Academia</div></a></li>
-                                <li><a href="#" onclick="googleMaps(-15.661427,-47.8371979)"><div class="restaurante">Ondas Burguer</div></a></li>
-                                <li><a href="#" onclick="googleMaps(-15.756465,-47.891857)"><div class="restaurante">Açaí Casca</div></a></li>
-                                <li><a href="#" onclick="googleMaps(-15.814684,-47.889614)"><div class="bar">Essence</div></a></li>
+                                <li><a href="#" onclick="googleMaps(@list(0).lat,@list(0).lng)"><div class="outros">UnB</div></a></li>
+                                <li><a href="#" onclick="googleMaps(@list(1).lat,@list(1).lng)"><div class="outros">Academia</div></a></li>
+                                <li><a href="#" onclick="googleMaps(@list(2).lat,@list(2).lng)"><div class="restaurante">Ondas Burguer</div></a></li>
+                                <li><a href="#" onclick="googleMaps(@list(3).lat,@list(3).lng)"><div class="restaurante">Açaí Casca</div></a></li>
+                                <li><a href="#" onclick="googleMaps(@list(4).lat,@list(4).lng)"><div class="bar">Essence</div></a></li>
                                 <li><a href="#" onclick="googleMaps(-15.777048, -47.877806)"><div class="bar">Gajah</div></a></li>
                                 <li><a href="#" onclick="googleMaps(-15.770032, -47.891842)"><div class="bar">Delta</div></a></li>
                                 <li><a href="#" onclick="googleMaps(-15.817780, -47.836961)"><div class="restaurante">Magai</div></a></li>
@@ -100,12 +108,10 @@
                             </ul>
 
 
-
                         </div>
                         <div class="col-lg-6 mx-auto">
                             <div id="map" style = "width:100%;"></div>
 
-                               <script src="@routes.Assets.at("js/googleMaps.js")" type="text/javascript"></script>
 
                                <script async defer
                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3cxWIVfftobhe_pBnBl0DumdR2CHtSmk&callback=googleMaps">
@@ -114,6 +120,88 @@
                     </div>
                 </div>
             </div>
+            <script>
+                    function googleMaps(lat,lng) {
+                        var marker, i;
+                        var crd;
+                        var map;
+
+                        if(navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(function(position){
+
+                                var loc;
+                                // Problem: lat,lng can't get position.coords to pass to map out of natvigator function, so I needed to add map into and markers too.
+                                if(lat == null) loc = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                                else loc = new google.maps.LatLng(lat,lng);
+
+                                map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 18,
+                                    center: loc,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                });
+
+                                marker = new google.maps.Marker({ // Marcador do User
+                                    position: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
+                                    map: map,
+                                    icon: 'http://maps.google.com/mapfiles/kml/pal3/icon32.png'
+                                });
+
+                                i = 0;
+                                @for(t <- list) {
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(@t.lat, @t.lng),
+                                        map: map,
+                                        icon: "@t.icon"
+                                    });
+
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                        return function() {
+                                            infowindow.setContent('<div style="color: red;">'+'<p>Essa é o @t.name</p>'+'</div>');
+                                            infowindow.open(map, marker);
+                                        }
+                                    })(marker, i));
+                                    /* Remover borda fixa dos marcadores quando clicados*/
+                                    i = i+1;
+                                }
+
+
+
+
+                            });
+                        }
+                        else{ // Same Here
+                            alert("I'm sorry, but geolocation services are not supported by your browser.");
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 18,
+                                center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                            });
+
+
+
+                            i = 0;
+                            @for(t <- list) {
+                                marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(@t.lat, @t.lng),
+                                    map: map,
+                                    icon: "@t.icon"
+                                });
+
+                                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                    return function() {
+                                        infowindow.setContent('<div style="color: red;">'+'<p>Essa é o @t.name</p>'+'</div>');
+                                        infowindow.open(map, marker);
+                                    }
+                                })(marker, i));
+                                /* Remover borda fixa dos marcadores quando clicados*/
+                                i = i+1;
+                            }
+
+                        }
+                        var infowindow = new google.maps.InfoWindow();
+                    }
+            </script>
+
         </header>
 
 
@@ -194,7 +282,9 @@
             <!-- Our scripts -->
         <script> bootpopup.confirm("Você quer buscar lugares?"); </script>
 
+
     </body>
+
 
 </html>
 

@@ -1,3 +1,6 @@
+@(list:Seq[MapsData])
+
+
 function googleMaps(lat,lng) {
     var marker, i;
     var crd;
@@ -20,24 +23,28 @@ function googleMaps(lat,lng) {
             marker = new google.maps.Marker({ // Marcador do User
                 position: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
                 map: map,
-                icon: icons[3][0]
+                icon: 'http://maps.google.com/mapfiles/kml/pal3/icon32.png'
             });
 
-            for (i = 0; i < locations.length; i++) { // Resto dos marcadores
+            i = 0;
+            @for(t <- list) {
+
                 marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    position: new google.maps.LatLng(@t.lat, @t.lng),
                     map: map,
-                    icon: icons[locations[i][3]][0]
+                    icon: "@t.icon"
                 });
 
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                     return function() {
-                        infowindow.setContent(informations[i][0]);
+                        infowindow.setContent('<div style="color: red;">'+'<p>Essa é o @t.name</p>'+'</div>');
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
                 /* Remover borda fixa dos marcadores quando clicados*/
+                i = i+1;
             }
+
 
 
 
@@ -50,6 +57,8 @@ function googleMaps(lat,lng) {
             center: new google.maps.LatLng(locations[0][1], locations[0][2]),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
+
+
 
         for (i = 0; i < locations.length; i++) { // Resto dos marcadores
             marker = new google.maps.Marker({

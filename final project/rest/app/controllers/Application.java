@@ -13,11 +13,5 @@ public class Application extends Controller {
 
     }
 
-    public static Result find() {
-
-        return ok(find.render("Chora viado"));
-
-    }
-
 
 }
