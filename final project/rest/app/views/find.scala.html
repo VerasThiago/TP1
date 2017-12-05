@@ -69,46 +69,48 @@
         </nav>
             <!-- Header -->
         <header class="masthead">
-            <div class="container">
-                <div class="intro-text">
+            <div class="">
+                <div class="intro-text" style="pa">
                     <span class="name">Search for restaurants</span>
                 </div>
+            </div>
 
                 <!-- Filter Bar -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 mx-auto">
-                            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for restaurants..">
+            <div class="">
+                <div class="row" style="height: 800px;">
+                    <div class="col-lg-8 mx-auto">
+                        <div id="map" style = "width:100%; height: 100%;"></div>
 
-                            <div class = "scrollmenu">
-                                <a  onclick="verasFunction('todos')"  checked > Todos </a>
-                                <a  onclick="verasFunction('bar')"  > Bares</a>
-                                <a  onclick="verasFunction('restaurante')"  > Restaurantes</a>
-                                <a  onclick="nearby()"  > Próximos</a>
-                                <a  onclick="verasFunction('outros')"  > Outros</a>
 
-                            </div>
+                           <script async defer
+                           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3cxWIVfftobhe_pBnBl0DumdR2CHtSmk&callback=googleMaps">
+                           </script>
+                    </div>
+                    <div class="col-lg-4 mx-auto">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for restaurants..">
 
-                            <ul id="myUL" style = "width: 100%; height: 50%; overflow: auto">
+                        <div class = "scrollmenu">
+                            <a  onclick="verasFunction('todos')"  checked > Todos </a>
+                            <a  onclick="verasFunction('bar')"  > Bares</a>
+                            <a  onclick="verasFunction('restaurante')"  > Restaurantes</a>
+                            <a  onclick="nearby()"  > Próximos</a>
+                            <a  onclick="verasFunction('outros')"  > Outros</a>
+
+                        </div>
+                        <div class="content">
+                            <ul id="myUL" style = "width: 100%; height: 100%; overflow: auto">
                                 @for(t <- list) {
                                     <li><a href="#" onclick="googleMaps(@t.lat,@t.lng)"><div class="@t.tipo">@t.name</div></a></li>
                                 }
                                 <li><a href="#" onclick="googleMaps()"><div class="outros">EU</div></a></li>
                             </ul>
-
-
                         </div>
-                        <div class="col-lg-6 mx-auto">
-                            <div id="map" style = "width:100%;"></div>
 
 
-                               <script async defer
-                               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3cxWIVfftobhe_pBnBl0DumdR2CHtSmk&callback=googleMaps">
-                               </script>
-                        </div>
                     </div>
                 </div>
             </div>
+            
             <script>
                     function googleMaps(lat,lng) {
                         var marker, i;

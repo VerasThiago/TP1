@@ -63,7 +63,7 @@ function nearby (){
             ul = document.getElementById("myUL");
             li = ul.getElementsByTagName("li");
 
-            for (i = 0; i < locations.length; i++) { 
+            for (i = 0; i < locations.length; i++) {
                 if(dist(a,b,locations[i][1],locations[i][2],i, base)) li[i].style.display = '';
                 else li[i].style.display = 'none';
             }
