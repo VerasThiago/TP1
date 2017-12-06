@@ -29,4 +29,7 @@ object FindController2 extends Controller {
 
     Ok(views.html.find(list))
   }
+  def newPlace = Action {
+    Ok(views.html.newPlace())
+  }
 }
