@@ -50,18 +50,18 @@
     
     <body id="page-top">
 
-            <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger">Places Finder</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        Menu
-                    <i class="fa fa-bars"></i>
-                </button>
+     
+         <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+         <div class="container">
+             <a class="navbar-brand js-scroll-trigger">Places Finder</a>
+             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                     Menu
+                 <i class="fa fa-bars"></i>
+             </button>
 
-            </div>
-        </nav>
-
+         </div>
+     </nav>
             <!-- Header -->
         <header class="masthead">
             <div class="">
@@ -82,7 +82,7 @@
                     <div class="col-lg-4 mx-auto">
                         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for restaurants..">
 
-                        <div class = "scrollmenu">
+                        <div class = "scrollmenu" id = "near">
                             <a  onclick="verasFunction('todos')"  checked > Todos </a>
                             <a  onclick="verasFunction('bar')"  > Bares</a>
                             <a  onclick="verasFunction('restaurante')"  > Restaurantes</a>
@@ -110,6 +110,7 @@
             </div>
             
             <script>
+                    var clicado = false;
                     function googleMaps(lat,lng) {
                         var marker, i;
                         var crd;
@@ -187,30 +188,67 @@
                         var infowindow = new google.maps.InfoWindow();
                     }
                     function nearby (){
-                        if(navigator.geolocation) {
-                            navigator.geolocation.getCurrentPosition(function(position){
+                        console.log('clicado = ' + clicado);
+                        var bg;
+                        bg = document.getElementById("near");
+                        bg = bg.getElementsByTagName("a");
+                        if(!clicado){
+                           clicado = !clicado;
+                           bg[3].style.backgroundColor = "#777";
 
-                                    var a = position.coords.latitude;
-                                    var b = position.coords.longitude;
+                            if(navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(function(position){
 
-                                var base = prompt("Digite a distância em Km: ", "4.5");
-                                while(isNaN(base)) base = prompt("Numero inválido, digite a distância em Km: ", "4.5");
-                            
-                                var ul, li, i;
-                                ul = document.getElementById("myUL");
-                                li = ul.getElementsByTagName("li");
-                                i = 0;
-                                @for(t <- list){
-                                    if(dist(a,b,@t.lat,@t.lng,i,base)) li[i].style.display = '';
-                                    else li[i].style.display = 'none';
-                                    i = i + 1;
-                                }
+                                        var a = position.coords.latitude;
+                                        var b = position.coords.longitude;
+
+                                    var base = prompt("Digite a distância em Km: ", "4.5");
+                                    while(isNaN(base)) base = prompt("Numero inválido, digite a distância em Km: ", "4.5");
                                 
+                                    var ul, li, i;
+                                    ul = document.getElementById("myUL");
+                                    li = ul.getElementsByTagName("li");
+                                    i = 0;
+                                    @for(t <- list){
+                                        if(dist(a,b,@t.lat,@t.lng,i,base)) li[i].style.display = '';
+                                        else li[i].style.display = 'none';
+                                        i = i + 1;
+                                    }
+                                    
 
-                            });
+                                });
+                            }
+                        }
+                        else{
+                            clicado = !clicado;
+                            bg[3].style.backgroundColor = "#2c3e50";
                         }
 
                     }
+                    function verasFunction(type){
+                        var bg;
+                        bg = document.getElementById("near");
+                        bg = bg.getElementsByTagName("a");
+                        bg[3].style.backgroundColor = "#2c3e50";
+                        clicado = false;
+                        var input, filter, ul, li, a, i;
+                        ul = document.getElementById("myUL");
+                        li = ul.getElementsByTagName("li");
+                        if(type == 'todos'){
+                            for(let i = 0; i < li.length; i++){
+                                li[i].style.display = '';
+                            }
+                        }
+                        else{
+                            for(let i = 0; i < li.length; i++){
+                                a = li[i].getElementsByTagName("div")[0].className
+                                if(a == type) li[i].style.display = '';
+
+                                else  li[i].style.display = 'none';
+                            }
+                        }
+                    }
+
             </script>
 
         </header>
