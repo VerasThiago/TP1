@@ -105,7 +105,7 @@
                                     <br>
                                     <div id="success"></div>
                                     <div class="form-group">
-                                        <INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults()" class="btn btn-success btn-lg">
+                                        <INPUT TYPE="button" NAME="button" Value="Add" onClick="testResults()" class="btn btn-success btn-lg">
                                     </div>
                                 </form>
                             </div>
@@ -113,9 +113,6 @@
                         <div class="col-lg-6 mx-auto">
                             <div class = "formularioNewPlace">
                                 <div id="map"></div>
-                                <script>
-                                   function googleMaps()
-                                </script>
                                <script async defer
                                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM_7kLhg1XE_BpPB52JkkXl6OwxA3newQ&callback=googleMaps">
                                </script>
@@ -173,16 +170,11 @@
                         }
                         var infowindow = new google.maps.InfoWindow();
                     }
-                    function penes(){
-                        console.log('vou add o lugar ' + lugar.position.lat() + ' ' + lugar.position.lng());
-                    }
                     function update(text){
                         var i;
-                        console.log('locations size = ' + locations.length);
                         var idx = locations.length;
-                        console.log('locations[' + idx-1 + '] = ' + locations[idx-1]);
+                        console.log('vou add o lugar ' + lugar.position.lat() + ' ' + lugar.position.lng());
                         locations[idx] = text;
-                        console.log('locations[' + idx + '] = ' + locations[idx]);
 
                     }
                     function testResults(){
