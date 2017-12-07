@@ -197,6 +197,31 @@
                         }
                         var infowindow = new google.maps.InfoWindow();
                     }
+                    function nearby (){
+                        if(navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(function(position){
+
+                                    var a = position.coords.latitude;
+                                    var b = position.coords.longitude;
+
+                                var base = prompt("Digite a distância em Km: ", "4.5");
+                                while(isNaN(base)) base = prompt("Numero inválido, digite a distância em Km: ", "4.5");
+                            
+                                var ul, li, i;
+                                ul = document.getElementById("myUL");
+                                li = ul.getElementsByTagName("li");
+                                i = 0;
+                                @for(t <- list){
+                                    if(dist(a,b,@t.lat,@t.lng,i,base)) li[i].style.display = '';
+                                    else li[i].style.display = 'none';
+                                    i = i + 1;
+                                }
+                                
+
+                            });
+                        }
+
+                    }
             </script>
 
         </header>
