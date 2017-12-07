@@ -23,7 +23,7 @@ object FindController2 extends Controller {
          markers
               """)
       while (res.next()) {
-        list.+=(MapsData(res.getString(1), res.getString(2), res.getString(3), res.getDouble(4), res.getDouble(5), res.getString(6), res.getString(7)))
+        list.+=(MapsData(res.getString(1), res.getString(2), res.getString(3), res.getDouble(4), res.getDouble(5), res.getString(6), res.getString(7), res.getString(8)))
       }
     }
 

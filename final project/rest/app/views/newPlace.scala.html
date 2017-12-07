@@ -45,7 +45,7 @@
                 <!-- Navigation -->
             <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
                 <div class="container">
-                    <a class="navbar-brand js-scroll-trigger">Restaurant Finder</a>
+                    <a href = "find" class="navbar-brand js-scroll-trigger">Restaurant Finder</a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         Menu
                         <i class="fa fa-bars"></i>
@@ -126,7 +126,7 @@
                             <div class = "formularioNewPlace">
                                 <div id="map"></div>
                                 <script>
-                                   function googleMaps(,)
+                                   function googleMaps()
                                 </script>
                                <script async defer
                                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM_7kLhg1XE_BpPB52JkkXl6OwxA3newQ&callback=googleMaps">
@@ -208,8 +208,17 @@
                                     text[i] = i == 2 ? lugar.position.lat():lugar.position.lng()
 
                                 }
-                                else
+                                else if(i == 4){
+                                    var num;
+                                    var tipo = x.elements[i].value;
+                                    if(tipo == "Bar") num = 0;
+                                    else if(tipo == 'Restaurant') num = 1;
+                                    else if(tipo == 'University') num = 2;
+                                    text[i] = num;
+                                }
+                                else{
                                     text[i] = x.elements[i].value;
+                                }
                             }
                             for(i = 0; i < 6; i++){
                                 console.log('text[' + i + '] = ' + text[i]);
