@@ -73,7 +73,7 @@
         <header class="masthead">
             <div class="">
                 <div class="intro-text" style="pa">
-                    <span class="name">Search for restaurants</span>
+                    <span class="name">Search for Places</span>
                 </div>
             </div>
 
@@ -85,7 +85,7 @@
                            <script async defer
                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3cxWIVfftobhe_pBnBl0DumdR2CHtSmk&callback=googleMaps">
                            </script>
-                        <a href="#" onclick="googleMaps()"><img src = "https://www.materialui.co/materialIcons/maps/my_location_grey_192x192.png" style="height: 32px; width: 32px;position: absolute;  left: 1235px; bottom: 105px; "></a>
+                        <a href="#" onclick="googleMaps()"><img src="@routes.Assets.at("img/myLocation.png")" style="height: 32px; width: 32px;position: absolute;  left: 1235px; bottom: 105px; "></a>
                     </div>
                     <div class="col-lg-4 mx-auto">
                         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for restaurants..">
@@ -101,7 +101,8 @@
                         <div class="content">
                             <ul id="myUL" style = "width: 100%; height: 635px; overflow: auto">
                                 @for(t <- list) {
-                                    <li><a style = "padding: 0%;" href="#" onclick="googleMaps(@t.lat,@t.lng)"><div class="@t.tipo">@t.name<img class = "imgLink" src="@t.link"></div></a></li>
+                                    <li><a style = "padding: 0%;" href="#" onclick="googleMaps(@t.lat,@t.lng)"><img class = "imgLink" src="@t.link"><div class="@t.tipo" style="margin-top: -100px; color: white;
+                                        font-family: 'Century Schoolbook'; font-size: 40px ">@t.name</div></a></li>
                                 }
                             </ul>
                         </div>
@@ -267,44 +268,19 @@
                     <div class="row">
                         <div class="footer-col col-md-4">
                             <h3>Location</h3>
-                            <p>3481 Melrose Place
-                                <br>Beverly Hills, CA 90210</p>
+                            <p>Campus Universitário Darcy Ribeiro<br>Brasília-DF</p>
                         </div>
+
                         <div class="footer-col col-md-4">
-                            <h3>Around the Web</h3>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="btn-social btn-outline" href="#">
-                                        <i class="fa fa-fw fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="btn-social btn-outline" href="#">
-                                        <i class="fa fa-fw fa-google-plus"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="btn-social btn-outline" href="#">
-                                        <i class="fa fa-fw fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="btn-social btn-outline" href="#">
-                                        <i class="fa fa-fw fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="btn-social btn-outline" href="#">
-                                        <i class="fa fa-fw fa-dribbble"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                            <h3>About Places Finder</h3>
+                            <p>Places finder is a free to use web app that is capable of finding places and subimit new ones</p>
                         </div>
+
                         <div class="footer-col col-md-4">
-                            <h3>About Freelancer</h3>
-                            <p>Freelance is a free to use, open source Bootstrap theme created by
-                                <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                            <h3>Creators</h3>
+                            <p><a href="https://github.com/VerasUnB">Thiago Veras</a>, <a href="https://github.com/vitordullens">Vitor Dullens</a>, Giovanni Guidini, André Cassio and Henrique Leo</p>
                         </div>
+
                     </div>
                 </div>
             </div>
