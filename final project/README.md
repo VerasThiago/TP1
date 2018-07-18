@@ -4,7 +4,7 @@ O projeto basicamente seria um aplicativo web para listar/avaliar restaurantes n
 
 ### Requirements
 - [X] Play Framework
-- [ ] Banco de Dados
+- [X] Banco de Dados
 - [X] Front-End
 - [ ] Interligar Tudo
 
